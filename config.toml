@@ -2,9 +2,10 @@ baseURL = "http://dineshs91.github.io/blog/"
 languageCode = "en-us"
 title = "My thoughts and adventures"
 theme = "vienna"
-disqusShortname = "Dineshs91"
+disqus = "Dineshs91"
 copyright = "Copyleft; Feel free to steal"
 canonifyurls = true
+ga_api_key = "UA-42311420-3"
 
 [params]
 twitter = "SDinesh91"
