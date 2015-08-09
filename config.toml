@@ -4,6 +4,7 @@ title = "My thoughts and adventures"
 theme = "vienna"
 disqusShortname = "Dineshs91"
 copyright = "Copyleft; Feel free to steal"
+canonifyurls = true
 
 [params]
 twitter = "SDinesh91"
