@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on My thoughts and adventures</title>
-    <link>http://127.0.0.1:1313/post/</link>
+    <link>http://dineshs91.github.io/my-blog/post/</link>
     <description>Recent content in Posts on My thoughts and adventures</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
     <lastBuildDate>Sun, 28 Jun 2015 16:46:33 +0530</lastBuildDate>
-    <atom:link href="http://127.0.0.1:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://dineshs91.github.io/my-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Functional programming in python</title>
-      <link>http://127.0.0.1:1313/post/functional_programming_python/</link>
+      <link>http://dineshs91.github.io/my-blog/post/functional_programming_python/</link>
       <pubDate>Sun, 28 Jun 2015 16:46:33 +0530</pubDate>
       
-      <guid>http://127.0.0.1:1313/post/functional_programming_python/</guid>
+      <guid>http://dineshs91.github.io/my-blog/post/functional_programming_python/</guid>
       <description>&lt;p&gt;Python offers some good functions to the developers to write functional like code. But their use is not
 recommended as it reduces code readability. They may come handy in some places though.&lt;/p&gt;
 
@@ -44,14 +44,14 @@ for _ in range(T):
     
     <item>
       <title>Migrating to hugo</title>
-      <link>http://127.0.0.1:1313/post/welcome/</link>
+      <link>http://dineshs91.github.io/my-blog/post/welcome/</link>
       <pubDate>Sun, 28 Jun 2015 00:09:45 +0530</pubDate>
       
-      <guid>http://127.0.0.1:1313/post/welcome/</guid>
+      <guid>http://dineshs91.github.io/my-blog/post/welcome/</guid>
       <description>&lt;p&gt;Migrating to hugo based blog. I am super exited to be using hugo, for my blog. The reason
 I had to quit tumblr was due to missing syntax highlighting support. Moreover hugo is open
 source and that itself is a great motivation for me to try it out. I will be moving all my
-blogs to hugo over the coming weeks.&lt;/p&gt;
+blogs to hugo, over the coming weeks.&lt;/p&gt;
 </description>
     </item>
     
