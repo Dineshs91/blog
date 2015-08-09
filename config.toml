@@ -2,10 +2,9 @@ baseURL = "http://dineshs91.github.io/blog/"
 languageCode = "en-us"
 title = "My thoughts and adventures"
 theme = "vienna"
-disqus = "Dineshs91"
 copyright = "Copyleft; Feel free to steal"
 canonifyurls = true
-ga_api_key = "UA-42311420-3"
+
 
 [params]
 twitter = "SDinesh91"
@@ -14,3 +13,5 @@ author = "Dinesh S"
 authorlocation = "India"
 subtitle = "Have no restrictions in your imaginations"
 bio = "Passionate programmer, love to fiddle with new languages and concepts, open source enthusiast."
+ga_api_key = "UA-42311420-3"
+disqus = "Dineshs91"
