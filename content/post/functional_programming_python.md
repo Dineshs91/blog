@@ -6,9 +6,13 @@ title = "Functional programming in python"
 
 Python offers some good functions to the developers to write functional like code. But their use is not
 recommended as it reduces code readability. They may come handy in some places though. 
-
-This is an example program showing the use of functional concepts in python.
 <!--more-->
+This is an example program showing the use of functional concepts in python.
+
+**Problem:** Given a song, find out if the song is a pi song or not. If it is a pi song print "It's a pi song."  else
+print "It's not a pi song."
+
+A song is a pi song, if the lenght of the words in it matches the digits of pi.
 
     T = input()
 
