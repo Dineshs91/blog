@@ -113,6 +113,11 @@ recommended as it reduces code readability. They may come handy in some places t
 
 &lt;p&gt;This is an example program showing the use of functional concepts in python.&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Given a song, find out if the song is a pi song or not. If it is a pi song print &amp;ldquo;It&amp;rsquo;s a pi song.&amp;rdquo;  else
+print &amp;ldquo;It&amp;rsquo;s not a pi song.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;A song is a pi song, if the lenght of the words in it matches the digits of pi.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;T = input()
 
 pi = &amp;quot;31415926535897932384626433833&amp;quot;
