@@ -2,7 +2,7 @@
 Description = ""
 Tags = []
 date = "2015-09-24T09:14:08+05:30"
-title = "Add a custom titlebar in nw.js apps"
+title = "Add a custom titlebar to your nw.js app"
 
 +++
 
