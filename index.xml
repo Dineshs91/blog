@@ -7,8 +7,74 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Sun, 09 Aug 2015 21:48:45 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2015 09:14:08 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Add a custom titlebar in nw.js apps</title>
+      <link>http://dineshs91.github.io/blog/post/custom_titlebar/</link>
+      <pubDate>Thu, 24 Sep 2015 09:14:08 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/custom_titlebar/</guid>
+      <description>&lt;p&gt;In this post, I am going to show you how to create a custom titlebar for your nw.js app. If you haven&amp;rsquo;t heard of nw.js, check it out
+&lt;a href=&#34;https://github.com/nwjs/nw.js&#34;&gt;here&lt;/a&gt;. It enables a new way of writing desktop applications with all web technologies.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s answer a simple question. &lt;strong&gt;Why do we need a custom titlebar ?&lt;/strong&gt; Because it&amp;rsquo;s better than the default one and it looks
+the &lt;strong&gt;same across different platforms&lt;/strong&gt;. Default titlebar looks different, on different operating systems.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Devlog with custom titlebar&lt;/strong&gt;
+&lt;img src=&#34;http://dineshs91.github.io/blog/images/custom_titlebar/custom titlebar.png&#34; alt=&#34;custom titlebar&#34; /&gt;
+&lt;strong&gt;And with default one.&lt;/strong&gt;
+&lt;img src=&#34;http://dineshs91.github.io/blog/images/custom_titlebar/default titlebar.png&#34; alt=&#34;default titlebar&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Custom titlebar looks cool right ?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Let&amp;rsquo;s get started.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The first thing we do is, we disable the default titlebar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;window&amp;quot;: {
+  &amp;quot;toolbar&amp;quot;: false,
+  &amp;quot;frame&amp;quot;: false
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To do that, make the &lt;strong&gt;frame&lt;/strong&gt; and &lt;strong&gt;toolbar&lt;/strong&gt; name false in package.json. This will remove the frame, and now the window becomes
+frameless.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;After the first step, we will notice that the window is frameless now and we will not be able to drag the
+application anymore.&lt;/p&gt;
+
+&lt;p&gt;To make the whole window draggable, add style &lt;code&gt;-webkit-app-region: drag&lt;/code&gt; to body tag.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;body style=&amp;quot;-webkit-app-region: drag&amp;quot;&amp;gt;
+    ...
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or we can make a particular region draggable, by adding style &lt;code&gt;-webkit-app-region: drag&lt;/code&gt; to that element.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;titlebar&amp;quot; style=&amp;quot;-webkit-app-region: drag&amp;quot;&amp;gt;
+    ...
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, our application is draggable.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Next thing, we add the window buttons (close, minimize and maximize)&lt;/p&gt;
+
+&lt;p&gt;For buttons, I&amp;rsquo;ve used semantic-ui &lt;a href=&#34;http://semantic-ui.com/elements/label.html#circular&#34;&gt;labels&lt;/a&gt; for devlog.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OS X style buttons&lt;/strong&gt;
+&lt;img src=&#34;http://dineshs91.github.io/blog/images/custom_titlebar/window buttons.png&#34; alt=&#34;Alt text&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Though it&amp;rsquo;s not perfect, it does the job well.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That&amp;rsquo;s it, we have successfully created a custom titlebar for our nw.js application. Go ahead and create awesome titlebars for your apps.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>A little about myself</title>
