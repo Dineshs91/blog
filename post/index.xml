@@ -136,6 +136,8 @@ for _ in range(T):
     song = raw_input()
     calculate(song)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This problem is a challenge from hackerrank. I couldn&amp;rsquo;t find a link to the problem in it, I guess the challenge is probably removed.&lt;/p&gt;
 </description>
     </item>
     
