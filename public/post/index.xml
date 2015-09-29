@@ -7,8 +7,80 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Thu, 24 Sep 2015 09:14:08 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2015 23:30:32 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Problem with using angular&#39;s $index in ng-repeat</title>
+      <link>http://dineshs91.github.io/blog/post/angular_index/</link>
+      <pubDate>Tue, 29 Sep 2015 23:30:32 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/angular_index/</guid>
+      <description>&lt;p&gt;ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
+object in the array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div ng-repeat=&amp;quot;log in logs&amp;quot;&amp;gt;
+    &amp;lt;span class=&amp;quot;remove&amp;quot; ng-click=&amp;quot;remove($index)&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+
+
+$scope.remove = function($index) {
+    // Code for removing log
+    remove($scope.logs[$index]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above code snippet, works fine for most of the scenarios. But the moment, we start to use orderBy or filter in ng-repeat,
+things start to break. Why does it break ?&lt;/p&gt;
+
+&lt;p&gt;It breaks because $index gives the index from the origin array &lt;code&gt;logs&lt;/code&gt;. It doesn&amp;rsquo;t work on filtered or ordered logs, but
+works on the original array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;logs = [
+    &#39;log1&#39;: {
+        timestamp: 123456
+    },
+    &#39;log2&#39;: {
+        timestamp: 123499
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If an orderBy is enforced (Descending order), this is what we get after orderBy&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;logs = [
+    &#39;log2&#39;: {
+        timestamp: 123499
+    },
+    &#39;log1&#39;: {
+        timestamp: 123456
+    },
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now if you use $index to find the index of &lt;strong&gt;log2&lt;/strong&gt;, it gives 0 (Indexing starts from 0) whereas it should have been 1,
+because 1 is the index of &lt;strong&gt;log2&lt;/strong&gt; in the original logs array. If you use &lt;code&gt;$scope.logs[$index]&lt;/code&gt; it will select &lt;strong&gt;log1&lt;/strong&gt; not &lt;strong&gt;log2&lt;/strong&gt;.
+But you will be under the impression, that you have selected &lt;strong&gt;log2&lt;/strong&gt;.
+From the above example, its clear what is the problem.&lt;/p&gt;
+
+&lt;p&gt;So, how to overcome this ?
+Good question, there is an easy solution.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div ng-repeat=&amp;quot;log in logs&amp;quot;&amp;gt;
+    &amp;lt;span class=&amp;quot;remove&amp;quot; ng-click=&amp;quot;remove(log)&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+
+$scope.remove = function(log) {
+    // Code for removing log
+    var index = $scope.logs.indexOf(log);
+    remove($scope.logs[index]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead of passing $index into the function, pass the object itself and use &lt;code&gt;indexOf&lt;/code&gt; to get the index, which returns
+index 1 for &lt;strong&gt;log2&lt;/strong&gt;, since indexOf &lt;strong&gt;log2&lt;/strong&gt; in original logs is 1.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Add a custom titlebar to your nw.js app</title>

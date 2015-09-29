@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Add a custom titlebar to your nw.js app &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/custom_titlebar/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/angular_index/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2015-09-24T09:14:08&#43;05:30" />
+  <meta property="og:article:published_time" content="2015-09-29T23:30:32&#43;05:30" />
   
   
 
   <title>
-     Add a custom titlebar to your nw.js app &middot;  My thoughts and adventures
+     Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -71,12 +71,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Add a custom titlebar to your nw.js app</h1>
+    <h1 class="text-primary">Problem with using angular&#39;s $index in ng-repeat</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2015-09-24T09:14:08&#43;05:30">
-          Sep 24, 2015
+        <time datetime="2015-09-29T23:30:32&#43;05:30">
+          Sep 29, 2015
         </time>
       </div>
       <div class="pull-right">
@@ -85,63 +85,69 @@
     </div>
   </header>
   <section>
-    <p>In this post, I am going to show you how to create a custom titlebar for your nw.js app. If you haven&rsquo;t heard of nw.js, check it out
-<a href="https://github.com/nwjs/nw.js">here</a>. It enables a new way of writing desktop applications with all web technologies.</p>
+    <p>ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
+object in the array.</p>
 
-<p>Let&rsquo;s answer a simple question. <strong>Why do we need a custom titlebar ?</strong> Because it&rsquo;s better than the default one and it looks
-the <strong>same across different platforms</strong>. Default titlebar looks different, on different operating systems.</p>
+<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
+    &lt;span class=&quot;remove&quot; ng-click=&quot;remove($index)&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
 
-<p><strong>Devlog with custom titlebar</strong>
-<img src="http://dineshs91.github.io/blog/images/custom_titlebar/custom titlebar.png" alt="custom titlebar" />
-<strong>And with default one.</strong>
-<img src="http://dineshs91.github.io/blog/images/custom_titlebar/default titlebar.png" alt="default titlebar" /></p>
 
-<p>Custom titlebar looks cool right ?</p>
-
-<p><strong>Let&rsquo;s get started.</strong></p>
-
-<ol>
-<li><p>The first thing we do is, we disable the default titlebar.</p>
-
-<pre><code>&quot;window&quot;: {
-  &quot;toolbar&quot;: false,
-  &quot;frame&quot;: false
+$scope.remove = function($index) {
+    // Code for removing log
+    remove($scope.logs[$index]);
 }
 </code></pre>
 
-<p>To do that, make the <strong>frame</strong> and <strong>toolbar</strong> name false in package.json. This will remove the frame, and now the window becomes
-frameless.</p></li>
+<p>The above code snippet, works fine for most of the scenarios. But the moment, we start to use orderBy or filter in ng-repeat,
+things start to break. Why does it break ?</p>
 
-<li><p>After the first step, we will notice that the window is frameless now and we will not be able to drag the
-application anymore.</p>
+<p>It breaks because $index gives the index from the origin array <code>logs</code>. It doesn&rsquo;t work on filtered or ordered logs, but
+works on the original array.</p>
 
-<p>To make the whole window draggable, add style <code>-webkit-app-region: drag</code> to body tag.</p>
-
-<pre><code>&lt;body style=&quot;-webkit-app-region: drag&quot;&gt;
-    ...
-&lt;/body&gt;
+<pre><code>logs = [
+    'log1': {
+        timestamp: 123456
+    },
+    'log2': {
+        timestamp: 123499
+    }
+]
 </code></pre>
 
-<p>Or we can make a particular region draggable, by adding style <code>-webkit-app-region: drag</code> to that element.</p>
+<p>If an orderBy is enforced (Descending order), this is what we get after orderBy</p>
 
-<pre><code>&lt;div class=&quot;titlebar&quot; style=&quot;-webkit-app-region: drag&quot;&gt;
-    ...
+<pre><code>logs = [
+    'log2': {
+        timestamp: 123499
+    },
+    'log1': {
+        timestamp: 123456
+    },
+]
+</code></pre>
+
+<p>Now if you use $index to find the index of <strong>log2</strong>, it gives 0 (Indexing starts from 0) whereas it should have been 1,
+because 1 is the index of <strong>log2</strong> in the original logs array. If you use <code>$scope.logs[$index]</code> it will select <strong>log1</strong> not <strong>log2</strong>.
+But you will be under the impression, that you have selected <strong>log2</strong>.
+From the above example, its clear what is the problem.</p>
+
+<p>So, how to overcome this ?
+Good question, there is an easy solution.</p>
+
+<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
+    &lt;span class=&quot;remove&quot; ng-click=&quot;remove(log)&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;
+
+$scope.remove = function(log) {
+    // Code for removing log
+    var index = $scope.logs.indexOf(log);
+    remove($scope.logs[index]);
+}
 </code></pre>
 
-<p>Now, our application is draggable.</p></li>
-
-<li><p>Next thing, we add the window buttons (close, minimize and maximize)</p>
-
-<p>For buttons, I&rsquo;ve used semantic-ui <a href="http://semantic-ui.com/elements/label.html#circular">labels</a> for devlog.</p>
-
-<p><strong>OS X style buttons</strong>
-<img src="http://dineshs91.github.io/blog/images/custom_titlebar/window buttons.png" alt="Alt text" /></p>
-
-<p>Though it&rsquo;s not perfect, it does the job well.</p></li>
-</ol>
-
-<p>That&rsquo;s it, we have successfully created a custom titlebar for our nw.js application. Go ahead and create awesome titlebars for your apps.</p>
+<p>Instead of passing $index into the function, pass the object itself and use <code>indexOf</code> to get the index, which returns
+index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in original logs is 1.</p>
 
   </section>
   <footer>
@@ -174,10 +180,10 @@ application anymore.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/myself/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/custom_titlebar/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/angular_index/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
