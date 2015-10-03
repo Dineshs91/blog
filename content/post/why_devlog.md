@@ -1,7 +1,7 @@
 +++
 Description = ""
 Tags = []
-date = "2015-6-03T19:38:22+05:30"
+date = "2015-06-03T19:38:22+05:30"
 title = "How it all began with devlog"
 
 +++
