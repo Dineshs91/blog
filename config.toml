@@ -4,7 +4,7 @@ title = "My thoughts and adventures"
 theme = "vienna"
 copyright = "Copyleft; Feel free to steal"
 canonifyurls = true
-
+paginate = 5
 
 [params]
 twitter = "SDinesh91"
@@ -15,3 +15,4 @@ subtitle = "Have no restrictions in your imaginations"
 bio = "Curious programmer, love to learn new concepts and open source enthusiast."
 ga_api_key = "UA-42311420-3"
 disqus = "Dineshs91"
+
