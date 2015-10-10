@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Greenkeeper, meet the dependency genie &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/angular_index/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/greenkeeper/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2015-09-29T23:30:32&#43;05:30" />
+  <meta property="og:article:published_time" content="2015-10-09T18:50:37&#43;05:30" />
   
   
 
   <title>
-     Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures
+     Greenkeeper, meet the dependency genie &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -71,12 +71,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Problem with using angular&#39;s $index in ng-repeat</h1>
+    <h1 class="text-primary">Greenkeeper, meet the dependency genie</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2015-09-29T23:30:32&#43;05:30">
-          Sep 29, 2015
+        <time datetime="2015-10-09T18:50:37&#43;05:30">
+          Oct 9, 2015
         </time>
       </div>
       <div class="pull-right">
@@ -85,69 +85,51 @@
     </div>
   </header>
   <section>
-    <p>ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
-object in the array.</p>
+    <p>Meet <a href="http://greenkeeper.io/">greenkeeper</a>, the app that automates dependency updates and notifies you of build failures
+so you can spend your development time actually making things.</p>
 
-<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
-    &lt;span class=&quot;remove&quot; ng-click=&quot;remove($index)&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
+<p>So, what exactly is greenkeeper ?</p>
 
+<p>If you have worked on any node.js project, then you probably know how painful it is, to manage all the dependencies.
+This is the problem that greenkeeper is trying to address.</p>
 
-$scope.remove = function($index) {
-    // Code for removing log
-    remove($scope.logs[$index]);
-}
-</code></pre>
+<p><strong>Getting started</strong></p>
 
-<p>The above code snippet, works fine for most of the scenarios. But the moment, we start to use orderBy or filter in ng-repeat,
-things start to break. Why does it break ?</p>
+<p>Setting up greenkeeper is very simple. Just a few commands and clicks, and you are good to go.</p>
 
-<p>It breaks because $index gives the index from the origin array <code>logs</code>. It doesn&rsquo;t work on filtered or ordered logs, but
-works on the original array.</p>
+<p><code>$ npm install -g greenkeeper</code></p>
 
-<pre><code>logs = [
-    'log1': {
-        timestamp: 123456
-    },
-    'log2': {
-        timestamp: 123499
-    }
-]
-</code></pre>
+<p><code>$ greenkeeper login</code></p>
 
-<p>If an orderBy is enforced (Descending order), this is what we get after orderBy</p>
+<p><img src="http://dineshs91.github.io/blog/images/greenkeeper/login.png" alt="login" /></p>
 
-<pre><code>logs = [
-    'log2': {
-        timestamp: 123499
-    },
-    'log1': {
-        timestamp: 123456
-    },
-]
-</code></pre>
+<p>This will open a browser and asks you to log in to GitHub. By the way, that&rsquo;s a cool logo.</p>
 
-<p>Now if you use $index to find the index of <strong>log2</strong>, it gives 0 (Indexing starts from 0) whereas it should have been 1,
-because 1 is the index of <strong>log2</strong> in the original logs array. If you use <code>$scope.logs[$index]</code> it will select <strong>log1</strong> not <strong>log2</strong>.
-But you will be under the impression, that you have selected <strong>log2</strong>.
-From the above example, its clear what is the problem.</p>
+<p><img src="http://dineshs91.github.io/blog/images/greenkeeper/github.png" alt="github" /></p>
 
-<p>So, how to overcome this ?
-Good question, there is an easy solution.</p>
+<p>Once you authorize the application, you will get the successful message in terminal.</p>
 
-<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
-    &lt;span class=&quot;remove&quot; ng-click=&quot;remove(log)&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
+<p><img src="http://dineshs91.github.io/blog/images/greenkeeper/done.png" alt="done" /></p>
 
-$scope.remove = function(log) {
-    // Code for removing log
-    var index = $scope.logs.indexOf(log);
-    remove($scope.logs[index]);
-}
-</code></pre>
+<p><code>$ greenkeeper enable</code></p>
 
-<p>Instead of passing $index into the function, pass the object itself and use <code>indexOf</code> to get the index, which returns
-index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in original logs is 1.</p>
+<p>This will read all your repositories and enables the applications which are supported by it.</p>
+
+<p>That&rsquo;s it. It&rsquo;s easy right. Just 3 steps and we are all set.</p>
+
+<p><strong>Let the magic begin</strong></p>
+
+<p>After you have done the setup, sit back and wait for the PR from greenkeeper.</p>
+
+<p>The PR looks like this.</p>
+
+<p><img src="http://dineshs91.github.io/blog/images/greenkeeper/pull_request.png" alt="pull request" /></p>
+
+<p>You can review the PR and take the necessary action. The awesome thing is if you are using travis-ci, then
+the PR is run on it, so you can know if it breaks anything. Cool right.</p>
+
+<p>It really helps developers in managing their dependencies. This is a must if you are developing node.js apps.
+They have both free and paid plans. Pay a visit to their <a href="http://greenkeeper.io/">site</a> to know more.</p>
 
   </section>
   <footer>
@@ -180,10 +162,10 @@ index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in origin
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/custom_titlebar/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/angular_index/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/greenkeeper/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
