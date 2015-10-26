@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Registering and uploading python package to pip &middot;  My thoughts and adventures" />
+  
+  <meta property="og:site_name" content="My thoughts and adventures" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/pip/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2015-10-11T10:36:21&#43;05:30" />
+  
+  
+
+  <title>
+     Registering and uploading python package to pip &middot;  My thoughts and adventures
+  </title>
+
+  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      
+      <div class="tag-line">
+        Have no restrictions in your imaginations
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  
+  <a href="https://twitter.com/SDinesh91" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/Dineshs91" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+</div>
+
+      
+      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Registering and uploading python package to pip</h1>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2015-10-11T10:36:21&#43;05:30">
+          Oct 11, 2015
+        </time>
+      </div>
+      <div class="pull-right">
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>Packaging and distributing in python is a bit difficult. <a href="https://pypi.python.org/">PyPI</a>, the python package index is the most common
+one. I will explain step by step, how to upload your package to PyPI.</p>
+
+<h2 id="setup-file:925515232cb73ab116c2825cf20513b1">Setup file</h2>
+
+<p>The first thing is to create a setup.py file in the root of your project.</p>
+
+<pre><code>from setuptools import setup
+
+setup(
+    name = &quot;project&quot;,
+    version = &quot;0.1.0&quot;,
+    author = &quot;author name&quot;,
+    author_email = &quot;author@gmail.com&quot;,
+    description = (&quot;Description of the package&quot;),
+    license = &quot;MIT&quot;,
+    keywords = &quot;keywords&quot;,
+    url = &quot;http://url-of-project/&quot;,
+    packages = ['packages'],
+    long_description = &quot;Provide a detailed explanation of your &quot;\
+                       &quot;project and how it can be used&quot;,
+    install_requires = [
+        &quot;click&gt;=5.0&quot;,
+        &quot;pygments==2.0.2&quot;
+    ],
+    entry_points = {
+        'console_scripts': [
+            'project=project:main'
+        ],
+    }
+)
+</code></pre>
+
+<p>This is a template for setup.py. Just fill in your information like name, email, project description etc.
+Mention all your project dependencies in <code>install_requires</code> section. You also have to provide the entry_point
+for your program. You can do that with <code>entry_points</code> section.</p>
+
+<p><code>project=project.main</code>
+project is the name of the binary. Project in <code>project.main</code> is the package name and <code>main</code> is the name of
+the function to be called. So this will be the first function, that python calls.</p>
+
+<h2 id="test-the-package-locally:925515232cb73ab116c2825cf20513b1">Test the package locally</h2>
+
+<p>Once you are done with setup, we can generate the distributable file.</p>
+
+<p><code>$ python setup.py sdist</code></p>
+
+<p>This command generates the distributable zip file inside <code>dist/</code> directory.</p>
+
+<p>Extract the zip file, that is present in dist directory and cd into it.</p>
+
+<p><code>$ python setup.py install</code></p>
+
+<p>This command installs your package locally. You can do this to verify if your setup is correct or not. If setup.py is
+correct then the local install works fine.</p>
+
+<h2 id="register-with-pypi:925515232cb73ab116c2825cf20513b1">Register with PyPI</h2>
+
+<p>To upload packages to PyPI, you have to be registered with them. Its simple, you can do it from the command line itself.
+Run the below command.</p>
+
+<p><code>$ python setup.py register</code></p>
+
+<p>Here you can register as a new user. Provide your username, email and password and you&rsquo;re done. In this step, you will
+register yourself and not the package.</p>
+
+<p>Next step is to register your package.</p>
+
+<p><code>$ python setup.py register</code></p>
+
+<p>This time, choose login as existing user. If you get Server response (200): OK, then your project is registered succesfully.
+Sometimes you might get the below error.</p>
+
+<p><code>Registering lookup to http://pypi.python.org/pypi
+Server response (403): You are not allowed to store 'project' package information</code></p>
+
+<p>Check if there is any existing project in PyPI with the same name as your project.
+If yes, then you have to rename your project. After making the necessary changes register again (Run the command again).</p>
+
+<h2 id="upload:925515232cb73ab116c2825cf20513b1">Upload</h2>
+
+<p>Before running the upload command, you have to create <code>~/.pypirc</code> file</p>
+
+<p>Contents of .pypirc</p>
+
+<pre><code>[server-login]
+username:username
+password:password&lt;Plain text&gt;
+</code></pre>
+
+<p>After creating the file, run the following command</p>
+
+<p><code>$ python setup.py sdist upload</code></p>
+
+<p>This will generate the distributable and uploads it to PyPI. If everything goes well you will see
+<code>Server response (200): OK</code> on your terminal.</p>
+
+<p>You have successfully uploaded your package to PyPI. Next time you can skip the user registration. No need to register
+again, you can use your existing credentials.</p>
+
+  </section>
+  <footer>
+    
+    <hr/>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'Dineshs91';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        <h1 class="author-name text-primary">Dinesh S</h1>
+        
+        
+        <div class="author-bio">Curious programmer, love to learn new concepts and open source enthusiast.</div>
+        
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/greenkeeper/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      Copyleft; Feel free to steal
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  <a href="https://twitter.com/SDinesh91" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/Dineshs91" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-42311420-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+</body>
+</html>
+

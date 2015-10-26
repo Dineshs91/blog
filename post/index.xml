@@ -7,8 +7,118 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Fri, 09 Oct 2015 18:50:37 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2015 10:36:21 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Registering and uploading python package to pip</title>
+      <link>http://dineshs91.github.io/blog/post/pip/</link>
+      <pubDate>Sun, 11 Oct 2015 10:36:21 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/pip/</guid>
+      <description>
+
+&lt;p&gt;Packaging and distributing in python is a bit difficult. &lt;a href=&#34;https://pypi.python.org/&#34;&gt;PyPI&lt;/a&gt;, the python package index is the most common
+one. I will explain step by step, how to upload your package to PyPI.&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-file:925515232cb73ab116c2825cf20513b1&#34;&gt;Setup file&lt;/h2&gt;
+
+&lt;p&gt;The first thing is to create a setup.py file in the root of your project.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from setuptools import setup
+
+setup(
+    name = &amp;quot;project&amp;quot;,
+    version = &amp;quot;0.1.0&amp;quot;,
+    author = &amp;quot;author name&amp;quot;,
+    author_email = &amp;quot;author@gmail.com&amp;quot;,
+    description = (&amp;quot;Description of the package&amp;quot;),
+    license = &amp;quot;MIT&amp;quot;,
+    keywords = &amp;quot;keywords&amp;quot;,
+    url = &amp;quot;http://url-of-project/&amp;quot;,
+    packages = [&#39;packages&#39;],
+    long_description = &amp;quot;Provide a detailed explanation of your &amp;quot;\
+                       &amp;quot;project and how it can be used&amp;quot;,
+    install_requires = [
+        &amp;quot;click&amp;gt;=5.0&amp;quot;,
+        &amp;quot;pygments==2.0.2&amp;quot;
+    ],
+    entry_points = {
+        &#39;console_scripts&#39;: [
+            &#39;project=project:main&#39;
+        ],
+    }
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is a template for setup.py. Just fill in your information like name, email, project description etc.
+Mention all your project dependencies in &lt;code&gt;install_requires&lt;/code&gt; section. You also have to provide the entry_point
+for your program. You can do that with &lt;code&gt;entry_points&lt;/code&gt; section.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;project=project.main&lt;/code&gt;
+project is the name of the binary. Project in &lt;code&gt;project.main&lt;/code&gt; is the package name and &lt;code&gt;main&lt;/code&gt; is the name of
+the function to be called. So this will be the first function, that python calls.&lt;/p&gt;
+
+&lt;h2 id=&#34;test-the-package-locally:925515232cb73ab116c2825cf20513b1&#34;&gt;Test the package locally&lt;/h2&gt;
+
+&lt;p&gt;Once you are done with setup, we can generate the distributable file.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ python setup.py sdist&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This command generates the distributable zip file inside &lt;code&gt;dist/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;Extract the zip file, that is present in dist directory and cd into it.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ python setup.py install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This command installs your package locally. You can do this to verify if your setup is correct or not. If setup.py is
+correct then the local install works fine.&lt;/p&gt;
+
+&lt;h2 id=&#34;register-with-pypi:925515232cb73ab116c2825cf20513b1&#34;&gt;Register with PyPI&lt;/h2&gt;
+
+&lt;p&gt;To upload packages to PyPI, you have to be registered with them. Its simple, you can do it from the command line itself.
+Run the below command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ python setup.py register&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here you can register as a new user. Provide your username, email and password and you&amp;rsquo;re done. In this step, you will
+register yourself and not the package.&lt;/p&gt;
+
+&lt;p&gt;Next step is to register your package.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ python setup.py register&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This time, choose login as existing user. If you get Server response (200): OK, then your project is registered succesfully.
+Sometimes you might get the below error.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Registering lookup to http://pypi.python.org/pypi
+Server response (403): You are not allowed to store &#39;project&#39; package information&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Check if there is any existing project in PyPI with the same name as your project.
+If yes, then you have to rename your project. After making the necessary changes register again (Run the command again).&lt;/p&gt;
+
+&lt;h2 id=&#34;upload:925515232cb73ab116c2825cf20513b1&#34;&gt;Upload&lt;/h2&gt;
+
+&lt;p&gt;Before running the upload command, you have to create &lt;code&gt;~/.pypirc&lt;/code&gt; file&lt;/p&gt;
+
+&lt;p&gt;Contents of .pypirc&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[server-login]
+username:username
+password:password&amp;lt;Plain text&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After creating the file, run the following command&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ python setup.py sdist upload&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This will generate the distributable and uploads it to PyPI. If everything goes well you will see
+&lt;code&gt;Server response (200): OK&lt;/code&gt; on your terminal.&lt;/p&gt;
+
+&lt;p&gt;You have successfully uploaded your package to PyPI. Next time you can skip the user registration. No need to register
+again, you can use your existing credentials.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Greenkeeper, meet the dependency genie</title>
