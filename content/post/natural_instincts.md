@@ -19,4 +19,7 @@ The only way to this, is to do what we really love, to do what we are really pas
 So the only way, to make use of that power within ourselves, is to find what we truly love and what we want to do, for the rest of our lives. And the day we find our true passion, there would be no stopping us and we will become the pioneers of that field.
 No matter how much time it would take, we should keep looking for it, hoping that one day we will find what we really want to do.
 
+> If you don't have an enemy inside, enemy outside can do no harm. 
+> -- African quote 
+
 I have started looking for it and so should you. Never give up. We are born for it and we are meant to find it.
