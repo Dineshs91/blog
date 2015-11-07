@@ -7,8 +7,72 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Sun, 11 Oct 2015 10:36:21 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2015 14:08:48 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Projects</title>
+      <link>http://dineshs91.github.io/blog/post/projects/</link>
+      <pubDate>Sat, 07 Nov 2015 14:08:48 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/projects/</guid>
+      <description>
+
+&lt;p&gt;Projects I&amp;rsquo;ve worked on in open source world.&lt;/p&gt;
+
+&lt;h2 id=&#34;own-projects:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Own projects&lt;/h2&gt;
+
+&lt;h4 id=&#34;devlog-https-github-com-dineshs91-devlog:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;Devlog&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Devlog is a cross-platform desktop application which helps you keep track of your notes and ideas in a
+simple yet intutive way.&lt;/p&gt;
+
+&lt;h4 id=&#34;tars-https-github-com-dineshs91-tars:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/tars&#34;&gt;Tars&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Tars is an automated integration bot, which merges the pull request raised by
+&lt;a href=&#34;https://github.com/greenkeeperio-bot&#34;&gt;greenkeeper-io bot&lt;/a&gt;.
+This is helpful to keep the project dependencies upto date. It merges the PR if and only if the tests
+pass.&lt;/p&gt;
+
+&lt;h4 id=&#34;look-up-https-github-com-dineshs91-look-up:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/look-up&#34;&gt;Look-up&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Look-up is a python command line app to know the meaning of a word (Dictionary).&lt;/p&gt;
+
+&lt;h4 id=&#34;scrapy-api-https-github-com-dineshs91-scrapy-api:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/scrapy-api&#34;&gt;Scrapy-api&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Scrapy api leverages &lt;a href=&#34;https://github.com/scrapy/scrapy&#34;&gt;scrapy&lt;/a&gt; to create unofficial api&amp;rsquo;s for
+websites. It&amp;rsquo;s written in python.&lt;/p&gt;
+
+&lt;h2 id=&#34;contributed-projects:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Contributed projects&lt;/h2&gt;
+
+&lt;h4 id=&#34;youtube-dl-https-github-com-rg3-youtube-dl:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/rg3/youtube-dl&#34;&gt;Youtube-dl&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Youtube-dl is a video extractor and supports upto 250+ sites. Also supports downloading thumbnails,
+subtitles, audio etc.&lt;/p&gt;
+
+&lt;p&gt;Wrote an extractor for rte.ie site, to download videos.
+Fixed a small bunch of bugs.&lt;/p&gt;
+
+&lt;h4 id=&#34;scrapy-https-github-com-scrapy-scrapy:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/scrapy/scrapy&#34;&gt;Scrapy&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Scrapy is a web scraping library written in python.&lt;/p&gt;
+
+&lt;p&gt;Added zsh auto command completion.&lt;/p&gt;
+
+&lt;h4 id=&#34;wappalyzer-https-github-com-aliasio-wappalyzer:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/AliasIO/Wappalyzer&#34;&gt;Wappalyzer&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Added code for detecting &lt;a href=&#34;https://github.com/Semantic-Org/Semantic-UI&#34;&gt;Semantic-ui&lt;/a&gt; to wappalyzer browser
+plugin for uncovering technologies used in websites.&lt;/p&gt;
+
+&lt;h4 id=&#34;cargo-https-github-com-rust-lang-cargo:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/rust-lang/cargo&#34;&gt;Cargo&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Cargo is &lt;a href=&#34;https://github.com/rust-lang/rust&#34;&gt;Rust&amp;rsquo;s&lt;/a&gt; package manager.Rust is a fast systems programming
+language that guarantees memory safety and offers painless concurrency.&lt;/p&gt;
+
+&lt;p&gt;Added code to make lib name optional in toml file.
+Added uninstall target in makefile.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Registering and uploading python package to pip</title>

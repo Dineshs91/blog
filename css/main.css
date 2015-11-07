@@ -90,6 +90,10 @@ a.btn-back {
     left: 20px;
 }
 
+a.btn-projects {
+    right: 140px;
+}
+
 /* Footer */
 
 .global-footer {

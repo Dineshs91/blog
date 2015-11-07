@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Add a custom titlebar to your nw.js app &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" My Projects &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/custom_titlebar/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/projects/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2015-09-24T09:14:08&#43;05:30" />
+  <meta property="og:article:published_time" content="2015-11-07T14:08:48&#43;05:30" />
   
   
 
   <title>
-     Add a custom titlebar to your nw.js app &middot;  My thoughts and adventures
+     My Projects &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -72,12 +72,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Add a custom titlebar to your nw.js app</h1>
+    <h1 class="text-primary">My Projects</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2015-09-24T09:14:08&#43;05:30">
-          Sep 24, 2015
+        <time datetime="2015-11-07T14:08:48&#43;05:30">
+          Nov 7, 2015
         </time>
       </div>
       <div class="pull-right">
@@ -86,63 +86,61 @@
     </div>
   </header>
   <section>
-    <p>In this post, I am going to show you how to create a custom titlebar for your nw.js app. If you haven&rsquo;t heard of nw.js, check it out
-<a href="https://github.com/nwjs/nw.js">here</a>. It enables a new way of writing desktop applications with all web technologies.</p>
+    
 
-<p>Let&rsquo;s answer a simple question. <strong>Why do we need a custom titlebar ?</strong> Because it&rsquo;s better than the default one and it looks
-the <strong>same across different platforms</strong>. Default titlebar looks different, on different operating systems.</p>
+<p>Projects I&rsquo;ve worked on in open source world.</p>
 
-<p><strong>Devlog with custom titlebar</strong>
-<img src="http://dineshs91.github.io/blog/images/custom_titlebar/custom titlebar.png" alt="custom titlebar" />
-<strong>And with default one.</strong>
-<img src="http://dineshs91.github.io/blog/images/custom_titlebar/default titlebar.png" alt="default titlebar" /></p>
+<h2 id="own-projects:3c42bb4157bf51d85ae7ffc4e1685909">Own projects</h2>
 
-<p>Custom titlebar looks cool right ?</p>
+<h4 id="devlog-https-github-com-dineshs91-devlog:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/Dineshs91/devlog">Devlog</a></h4>
 
-<p><strong>Let&rsquo;s get started.</strong></p>
+<p>Devlog is a cross-platform desktop application which helps you keep track of your notes and ideas in a
+simple yet intutive way.</p>
 
-<ol>
-<li><p>The first thing we do is, we disable the default titlebar.</p>
+<h4 id="tars-https-github-com-dineshs91-tars:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/Dineshs91/tars">Tars</a></h4>
 
-<pre><code>&quot;window&quot;: {
-  &quot;toolbar&quot;: false,
-  &quot;frame&quot;: false
-}
-</code></pre>
+<p>Tars is an automated integration bot, which merges the pull request raised by
+<a href="https://github.com/greenkeeperio-bot">greenkeeper-io bot</a>.
+This is helpful to keep the project dependencies upto date. It merges the PR if and only if the tests
+pass.</p>
 
-<p>To do that, make the <strong>frame</strong> and <strong>toolbar</strong> name false in package.json. This will remove the frame, and now the window becomes
-frameless.</p></li>
+<h4 id="look-up-https-github-com-dineshs91-look-up:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/Dineshs91/look-up">Look-up</a></h4>
 
-<li><p>After the first step, we will notice that the window is frameless now and we will not be able to drag the
-application anymore.</p>
+<p>Look-up is a python command line app to know the meaning of a word (Dictionary).</p>
 
-<p>To make the whole window draggable, add style <code>-webkit-app-region: drag</code> to body tag.</p>
+<h4 id="scrapy-api-https-github-com-dineshs91-scrapy-api:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/Dineshs91/scrapy-api">Scrapy-api</a></h4>
 
-<pre><code>&lt;body style=&quot;-webkit-app-region: drag&quot;&gt;
-    ...
-&lt;/body&gt;
-</code></pre>
+<p>Scrapy api leverages <a href="https://github.com/scrapy/scrapy">scrapy</a> to create unofficial api&rsquo;s for
+websites. It&rsquo;s written in python.</p>
 
-<p>Or we can make a particular region draggable, by adding style <code>-webkit-app-region: drag</code> to that element.</p>
+<h2 id="contributed-projects:3c42bb4157bf51d85ae7ffc4e1685909">Contributed projects</h2>
 
-<pre><code>&lt;div class=&quot;titlebar&quot; style=&quot;-webkit-app-region: drag&quot;&gt;
-    ...
-&lt;/div&gt;
-</code></pre>
+<h4 id="youtube-dl-https-github-com-rg3-youtube-dl:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/rg3/youtube-dl">Youtube-dl</a></h4>
 
-<p>Now, our application is draggable.</p></li>
+<p>Youtube-dl is a video extractor and supports upto 250+ sites. Also supports downloading thumbnails,
+subtitles, audio etc.</p>
 
-<li><p>Next thing, we add the window buttons (close, minimize and maximize)</p>
+<p>Wrote an extractor for rte.ie site, to download videos.
+Fixed a small bunch of bugs.</p>
 
-<p>For buttons, I&rsquo;ve used semantic-ui <a href="http://semantic-ui.com/elements/label.html#circular">labels</a> for devlog.</p>
+<h4 id="scrapy-https-github-com-scrapy-scrapy:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/scrapy/scrapy">Scrapy</a></h4>
 
-<p><strong>OS X style buttons</strong>
-<img src="http://dineshs91.github.io/blog/images/custom_titlebar/window buttons.png" alt="Alt text" /></p>
+<p>Scrapy is a web scraping library written in python.</p>
 
-<p>Though it&rsquo;s not perfect, it does the job well.</p></li>
-</ol>
+<p>Added zsh auto command completion.</p>
 
-<p>That&rsquo;s it, we have successfully created a custom titlebar for our nw.js application. Go ahead and create awesome titlebars for your apps.</p>
+<h4 id="wappalyzer-https-github-com-aliasio-wappalyzer:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/AliasIO/Wappalyzer">Wappalyzer</a></h4>
+
+<p>Added code for detecting <a href="https://github.com/Semantic-Org/Semantic-UI">Semantic-ui</a> to wappalyzer browser
+plugin for uncovering technologies used in websites.</p>
+
+<h4 id="cargo-https-github-com-rust-lang-cargo:3c42bb4157bf51d85ae7ffc4e1685909"><a href="https://github.com/rust-lang/cargo">Cargo</a></h4>
+
+<p>Cargo is <a href="https://github.com/rust-lang/rust">Rust&rsquo;s</a> package manager.Rust is a fast systems programming
+language that guarantees memory safety and offers painless concurrency.</p>
+
+<p>Added code to make lib name optional in toml file.
+Added uninstall target in makefile.</p>
 
   </section>
   <footer>
@@ -175,10 +173,10 @@ application anymore.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/myself/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/pip/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/angular_index/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
