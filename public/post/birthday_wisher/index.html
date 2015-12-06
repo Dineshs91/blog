@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Never forget to wish your close one&#39;s again. &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/angular_index/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/birthday_wisher/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2015-09-29T23:30:32&#43;05:30" />
+  <meta property="og:article:published_time" content="2015-11-29T23:34:13&#43;05:30" />
   
   
 
   <title>
-     Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures
+     Never forget to wish your close one&#39;s again. &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -75,12 +75,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Problem with using angular&#39;s $index in ng-repeat</h1>
+    <h1 class="text-primary">Never forget to wish your close one&#39;s again.</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2015-09-29T23:30:32&#43;05:30">
-          Sep 29, 2015
+        <time datetime="2015-11-29T23:34:13&#43;05:30">
+          Nov 29, 2015
         </time>
       </div>
       <div class="pull-right">
@@ -89,69 +89,35 @@
     </div>
   </header>
   <section>
-    <p>ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
-object in the array.</p>
+    <p>It was a rainy weekend at my place. I was thinking how to make best use of that time and something crossed
+my mind. What if a bot, can send birthday wishes to my friends on Facebook ? It would save me of all the regrets I have
+had in the past. I said to myself <strong>challenge accepted</strong>.</p>
 
-<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
-    &lt;span class=&quot;remove&quot; ng-click=&quot;remove($index)&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
+<p>I have done a similar kind of project in the past at work, where we had to get the gift card balances of 5 gift cards.
+I used python urllib and re(regex) to accomplish the task. Hit the url with urllib2 and parse the balances from the
+response using regex. But this time, I wanted to try a different approach. I guessed that the previous approach wouldn&rsquo;t
+work so well. So, how do I do this ?</p>
 
+<p>I had some experience with <a href="http://www.seleniumhq.org/">selenium</a> (It is for automating web applications for testing purposes), so I wanted to give it a try.
+Java ? Wait, who am I kidding ? No way. I went with <a href="https://nodejs.org/en/">node.js</a> (Seemed better, lot better). The thought of opening an IDE, waved me off of java.
+So I bootstrapped a small code in node.js. I had to choose between <a href="https://angular.github.io/protractor/#/">protractor</a>
+and <a href="http://webdriver.io/">webdriverio</a>. I had used protractor in my <a href="https://github.com/dineshs91/devlog">devlog</a> project,
+but it works only with angular (You can make it work for non-angular projects too, but with some tweaks). So I decided to
+take webdriverio for a spin and it did the job quite well.</p>
 
-$scope.remove = function($index) {
-    // Code for removing log
-    remove($scope.logs[$index]);
-}
-</code></pre>
+<p>Having chosen the framework, it was time to write the code. One weird thing I noticed in facebook is that even the ID
+attribute of an element was not consistent. It kept changing, so you can&rsquo;t use them in selectors. I completed the code
+in 10-20 Lines. Selenium invokes a browser, does the actions specified in the code and quits. Now we don&rsquo;t want a browser
+show up on the screen, when the bot works right. This is where <a href="http://phantomjs.org/">phantomjs</a> shines. It is a headless
+browser for testing purposes.</p>
 
-<p>The above code snippet, works fine for most of the scenarios. But the moment, we start to use orderBy or filter in ng-repeat,
-things start to break. Why does it break ?</p>
+<p>There was one challenge I faced, which was synchronising the 2 steps. step 1 start the selenium standalone server and step 2
+execute the webdriverio code. I solved this problem using event emitter. So when selenium server starts a <code>start</code> event
+is emitted and there is a listener, which listens to this event and starts the webdriverio execution. Having solved the main
+problem, I did some final refinements and that&rsquo;s it. The code is ready. Rock and roll.</p>
 
-<p>It breaks because $index gives the index from the origin array <code>logs</code>. It doesn&rsquo;t work on filtered or ordered logs, but
-works on the original array.</p>
-
-<pre><code>logs = [
-    'log1': {
-        timestamp: 123456
-    },
-    'log2': {
-        timestamp: 123499
-    }
-]
-</code></pre>
-
-<p>If an orderBy is enforced (Descending order), this is what we get after orderBy</p>
-
-<pre><code>logs = [
-    'log2': {
-        timestamp: 123499
-    },
-    'log1': {
-        timestamp: 123456
-    },
-]
-</code></pre>
-
-<p>Now if you use $index to find the index of <strong>log2</strong>, it gives 0 (Indexing starts from 0) whereas it should have been 1,
-because 1 is the index of <strong>log2</strong> in the original logs array. If you use <code>$scope.logs[$index]</code> it will select <strong>log1</strong> not <strong>log2</strong>.
-But you will be under the impression, that you have selected <strong>log2</strong>.
-From the above example, its clear what is the problem.</p>
-
-<p>So, how to overcome this ?
-Good question, there is an easy solution.</p>
-
-<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
-    &lt;span class=&quot;remove&quot; ng-click=&quot;remove(log)&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-$scope.remove = function(log) {
-    // Code for removing log
-    var index = $scope.logs.indexOf(log);
-    remove($scope.logs[index]);
-}
-</code></pre>
-
-<p>Instead of passing $index into the function, pass the object itself and use <code>indexOf</code> to get the index, which returns
-index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in original logs is 1.</p>
+<p>You can find the source <a href="https://github.com/Dineshs91/fb-birthday-wisher">here</a>. And I forgot to mention that, the program
+randomly chooses a wish from an array of wishes in the code.</p>
 
   </section>
   <footer>
@@ -186,10 +152,10 @@ index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in origin
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/custom_titlebar/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/projects/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/greenkeeper/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

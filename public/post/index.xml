@@ -7,8 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Sat, 07 Nov 2015 14:08:48 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 29 Nov 2015 23:34:13 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Never forget to wish your close one&#39;s again.</title>
+      <link>http://dineshs91.github.io/blog/post/birthday_wisher/</link>
+      <pubDate>Sun, 29 Nov 2015 23:34:13 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/birthday_wisher/</guid>
+      <description>&lt;p&gt;It was a rainy weekend at my place. I was thinking how to make best use of that time and something crossed
+my mind. What if a bot, can send birthday wishes to my friends on Facebook ? It would save me of all the regrets I have
+had in the past. I said to myself &lt;strong&gt;challenge accepted&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have done a similar kind of project in the past at work, where we had to get the gift card balances of 5 gift cards.
+I used python urllib and re(regex) to accomplish the task. Hit the url with urllib2 and parse the balances from the
+response using regex. But this time, I wanted to try a different approach. I guessed that the previous approach wouldn&amp;rsquo;t
+work so well. So, how do I do this ?&lt;/p&gt;
+
+&lt;p&gt;I had some experience with &lt;a href=&#34;http://www.seleniumhq.org/&#34;&gt;selenium&lt;/a&gt; (It is for automating web applications for testing purposes), so I wanted to give it a try.
+Java ? Wait, who am I kidding ? No way. I went with &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;node.js&lt;/a&gt; (Seemed better, lot better). The thought of opening an IDE, waved me off of java.
+So I bootstrapped a small code in node.js. I had to choose between &lt;a href=&#34;https://angular.github.io/protractor/#/&#34;&gt;protractor&lt;/a&gt;
+and &lt;a href=&#34;http://webdriver.io/&#34;&gt;webdriverio&lt;/a&gt;. I had used protractor in my &lt;a href=&#34;https://github.com/dineshs91/devlog&#34;&gt;devlog&lt;/a&gt; project,
+but it works only with angular (You can make it work for non-angular projects too, but with some tweaks). So I decided to
+take webdriverio for a spin and it did the job quite well.&lt;/p&gt;
+
+&lt;p&gt;Having chosen the framework, it was time to write the code. One weird thing I noticed in facebook is that even the ID
+attribute of an element was not consistent. It kept changing, so you can&amp;rsquo;t use them in selectors. I completed the code
+in 10-20 Lines. Selenium invokes a browser, does the actions specified in the code and quits. Now we don&amp;rsquo;t want a browser
+show up on the screen, when the bot works right. This is where &lt;a href=&#34;http://phantomjs.org/&#34;&gt;phantomjs&lt;/a&gt; shines. It is a headless
+browser for testing purposes.&lt;/p&gt;
+
+&lt;p&gt;There was one challenge I faced, which was synchronising the 2 steps. step 1 start the selenium standalone server and step 2
+execute the webdriverio code. I solved this problem using event emitter. So when selenium server starts a &lt;code&gt;start&lt;/code&gt; event
+is emitted and there is a listener, which listens to this event and starts the webdriverio execution. Having solved the main
+problem, I did some final refinements and that&amp;rsquo;s it. The code is ready. Rock and roll.&lt;/p&gt;
+
+&lt;p&gt;You can find the source &lt;a href=&#34;https://github.com/Dineshs91/fb-birthday-wisher&#34;&gt;here&lt;/a&gt;. And I forgot to mention that, the program
+randomly chooses a wish from an array of wishes in the code.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My Projects</title>
