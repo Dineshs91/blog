@@ -20,7 +20,12 @@ simple yet intutive way.
 Tars is an automated integration bot, which merges the pull request raised by 
 [greenkeeper-io bot](https://github.com/greenkeeperio-bot).
 This is helpful to keep the project dependencies upto date. It merges the PR if and only if the tests
-pass. 
+pass.
+
+#### [fb-birthday-wisher](https://github.com/Dineshs91/fb-birthday-wisher)
+
+Send your birthday wishes, to your friends on Facebook automatically, so you never have to miss wishing your best one's.
+It makes use of selenium via webdriverio, to automate the process. Phantomjs is the hero here, which is a headless browser.
 
 #### [Look-up](https://github.com/Dineshs91/look-up)
 
