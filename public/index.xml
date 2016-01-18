@@ -7,8 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Sun, 06 Dec 2015 23:34:13 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jan 2016 21:26:25 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tars my first bot</title>
+      <link>http://dineshs91.github.io/blog/post/tars_bot/</link>
+      <pubDate>Mon, 18 Jan 2016 21:26:25 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/tars_bot/</guid>
+      <description>&lt;p&gt;In one of my earlier &lt;a href=&#34;http://dineshs91.github.io/blog/post/greenkeeper/&#34;&gt;posts&lt;/a&gt; I had written about &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt; the app that automates dependency updates. I will start with a brief explanation about greenkeeper, it will send you a pull request(PR)
+whenever there is a newer version of your depenedencies specified in package.json. This is just one half of the automation right.
+You have to manually merge those PR&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;I thought I could automate that part too. This is were &lt;a href=&#34;https://github.com/Dineshs91/tars&#34;&gt;tars&lt;/a&gt; comes into picture. Yes, the name was
+inspired from Interstellar. We all love tars right!. I wrote this bot to help me with my &lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;devlog&lt;/a&gt;
+project.&lt;/p&gt;
+
+&lt;p&gt;It follows a 3 step process. Check, merge and delete. First step, fetch all open PR&amp;rsquo;s and see which one&amp;rsquo;s are opened by GREENKEEPER_BOT.
+We only care about the one&amp;rsquo;s opened by it. Then we check the CI status of the PR, whether the tests are passing
+or failing. In the next step, if the tests are passing, tars merge&amp;rsquo;s the PR. If PR cannot be merged automatically, it creates a comment with
+a message saying &lt;em&gt;This pull request cannot be merged by me&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;After successful merging of PR, it deletes the corresponding branch. Greenkeeper opens a branch with the PR. So after merging,
+the branch is no longer needed. Tars removes the branch once the PR is merged succesfully into master branch.&lt;/p&gt;
+
+&lt;p&gt;The next part is to, set up the program to run as a job. You can schedule a cron job to make the process completely automatic.
+You can use &lt;a href=&#34;http://crontab.guru/&#34;&gt;crontab.guru&lt;/a&gt; which is a simple editor for cron schedule expressions.&lt;/p&gt;
+
+&lt;p&gt;Bots are fascinating right, it&amp;rsquo;s an opportunity for us to just sit back, and watch things happen. Why not write your own bot ?
+I am sure it will be fun.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Never forget to wish your close one&#39;s again.</title>
