@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Never forget to wish your close one&#39;s again. &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Tars my first bot &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/birthday_wisher/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/tars_bot/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2015-12-06T23:34:13&#43;05:30" />
+  <meta property="og:article:published_time" content="2016-01-18T21:26:25&#43;05:30" />
   
   
 
   <title>
-     Never forget to wish your close one&#39;s again. &middot;  My thoughts and adventures
+     Tars my first bot &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -75,12 +75,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Never forget to wish your close one&#39;s again.</h1>
+    <h1 class="text-primary">Tars my first bot</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2015-12-06T23:34:13&#43;05:30">
-          Dec 6, 2015
+        <time datetime="2016-01-18T21:26:25&#43;05:30">
+          Jan 18, 2016
         </time>
       </div>
       <div class="pull-right">
@@ -89,35 +89,27 @@
     </div>
   </header>
   <section>
-    <p>It was a rainy weekend at my place. I was thinking how to make best use of that time and something crossed
-my mind. What if a bot, can send birthday wishes to my friends on Facebook ? It would save me of all the regrets I have
-had in the past. I said to myself <strong>challenge accepted</strong>.</p>
+    <p>In one of my earlier <a href="http://dineshs91.github.io/blog/post/greenkeeper/">posts</a> I had written about <a href="http://greenkeeper.io/">greenkeeper</a> the app that automates dependency updates. I will start with a brief explanation about greenkeeper, it will send you a pull request(PR)
+whenever there is a newer version of your depenedencies specified in package.json. This is just one half of the automation right.
+You have to manually merge those PR&rsquo;s.</p>
 
-<p>I have done a similar kind of project in the past at work, where we had to get the gift card balances of 5 gift cards.
-I used python urllib and re(regex) to accomplish the task. Hit the url with urllib2 and parse the balances from the
-response using regex. But this time, I wanted to try a different approach. I guessed that the previous approach wouldn&rsquo;t
-work so well. So, how do I do this ?</p>
+<p>I thought I could automate that part too. This is were <a href="https://github.com/Dineshs91/tars">tars</a> comes into picture. Yes, the name was
+inspired from Interstellar. We all love tars right!. I wrote this bot to help me with my <a href="https://github.com/Dineshs91/devlog">devlog</a>
+project.</p>
 
-<p>I had some experience with <a href="http://www.seleniumhq.org/">selenium</a> (It is for automating web applications for testing purposes), so I wanted to give it a try.
-Java ? Wait, who am I kidding ? No way. I went with <a href="https://nodejs.org/en/">node.js</a> (Seemed better, lot better). The thought of opening an IDE, waved me off of java.
-So I bootstrapped a small code in node.js. I had to choose between <a href="https://angular.github.io/protractor/#/">protractor</a>
-and <a href="http://webdriver.io/">webdriverio</a>. I had used protractor in my <a href="https://github.com/dineshs91/devlog">devlog</a> project,
-but it works only with angular (You can make it work for non-angular projects too, but with some tweaks). So I decided to
-take webdriverio for a spin and it did the job quite well.</p>
+<p>It follows a 3 step process. Check, merge and delete. First step, fetch all open PR&rsquo;s and see which one&rsquo;s are opened by GREENKEEPER_BOT.
+We only care about the one&rsquo;s opened by it. Then we check the CI status of the PR, whether the tests are passing
+or failing. In the next step, if the tests are passing, tars merge&rsquo;s the PR. If PR cannot be merged automatically, it creates a comment with
+a message saying <em>This pull request cannot be merged by me</em></p>
 
-<p>Having chosen the framework, it was time to write the code. One weird thing I noticed in facebook is that even the ID
-attribute of an element was not consistent. It kept changing, so you can&rsquo;t use them in selectors. I completed the code
-in 10-20 Lines. Selenium invokes a browser, does the actions specified in the code and quits. Now we don&rsquo;t want a browser
-show up on the screen, when the bot works right. This is where <a href="http://phantomjs.org/">phantomjs</a> shines. It is a headless
-browser for testing purposes.</p>
+<p>After successful merging of PR, it deletes the corresponding branch. Greenkeeper opens a branch with the PR. So after merging,
+the branch is no longer needed. Tars removes the branch once the PR is merged succesfully into master branch.</p>
 
-<p>There was one challenge I faced, which was synchronising the 2 steps. step 1 start the selenium standalone server and step 2
-execute the webdriverio code. I solved this problem using event emitter. So when selenium server starts a <code>start</code> event
-is emitted and there is a listener, which listens to this event and starts the webdriverio execution. Having solved the main
-problem, I did some final refinements and that&rsquo;s it. The code is ready. Rock and roll.</p>
+<p>The next part is to, set up the program to run as a job. You can schedule a cron job to make the process completely automatic.
+You can use <a href="http://crontab.guru/">crontab.guru</a> which is a simple editor for cron schedule expressions.</p>
 
-<p>You can find the source <a href="https://github.com/Dineshs91/fb-birthday-wisher">here</a>. And I forgot to mention that, the program
-randomly chooses a wish from an array of wishes in the code.</p>
+<p>Bots are fascinating right, it&rsquo;s an opportunity for us to just sit back, and watch things happen. Why not write your own bot ?
+I am sure it will be fun.</p>
 
   </section>
   <footer>
@@ -152,10 +144,10 @@ randomly chooses a wish from an array of wishes in the code.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/projects/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/birthday_wisher/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/tars_bot/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
