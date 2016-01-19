@@ -6,9 +6,9 @@ title = "Tars my first bot"
 
 +++
 
-In one of my earlier [posts](http://dineshs91.github.io/blog/post/greenkeeper/) I had written about [greenkeeper](http://greenkeeper.io/) the app that automates dependency updates. I will start with a brief explanation about greenkeeper, it will send you a pull request(PR) 
-whenever there is a newer version of your depenedencies specified in package.json. This is just one half of the automation right. 
-You have to manually merge those PR's. 
+In one of my earlier [posts](http://dineshs91.github.io/blog/post/greenkeeper/) I had written about [greenkeeper](http://greenkeeper.io/) the app that automates dependency updates. I will start with a brief explanation about it, it will send you a pull request(PR) everytime 
+there is a newer version of your depenedencies available, that are specified in package.json. Then you can decide to merge the PR or not.
+That's basically what it does. This is just one half of the automation right. You have to manually merge those PR's. 
 <!--more-->
 
 I thought I could automate that part too. This is were [tars](https://github.com/Dineshs91/tars) comes into picture. Yes, the name was

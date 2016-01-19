@@ -16,9 +16,9 @@
       <pubDate>Mon, 18 Jan 2016 21:26:25 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/tars_bot/</guid>
-      <description>&lt;p&gt;In one of my earlier &lt;a href=&#34;http://dineshs91.github.io/blog/post/greenkeeper/&#34;&gt;posts&lt;/a&gt; I had written about &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt; the app that automates dependency updates. I will start with a brief explanation about greenkeeper, it will send you a pull request(PR)
-whenever there is a newer version of your depenedencies specified in package.json. This is just one half of the automation right.
-You have to manually merge those PR&amp;rsquo;s.&lt;/p&gt;
+      <description>&lt;p&gt;In one of my earlier &lt;a href=&#34;http://dineshs91.github.io/blog/post/greenkeeper/&#34;&gt;posts&lt;/a&gt; I had written about &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt; the app that automates dependency updates. I will start with a brief explanation about it, it will send you a pull request(PR) everytime
+there is a newer version of your depenedencies available, that are specified in package.json. Then you can decide to merge the PR or not.
+That&amp;rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&amp;rsquo;s.&lt;/p&gt;
 
 &lt;p&gt;I thought I could automate that part too. This is were &lt;a href=&#34;https://github.com/Dineshs91/tars&#34;&gt;tars&lt;/a&gt; comes into picture. Yes, the name was
 inspired from Interstellar. We all love tars right!. I wrote this bot to help me with my &lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;devlog&lt;/a&gt;
