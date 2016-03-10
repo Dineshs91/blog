@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Tars my first bot &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Awesome collections of technology podcasts, videos and articles &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/tars_bot/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/awesome_collections/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2016-01-18T21:26:25&#43;05:30" />
+  <meta property="og:article:published_time" content="2016-02-20T21:33:14&#43;05:30" />
   
   
 
   <title>
-     Tars my first bot &middot;  My thoughts and adventures
+     Awesome collections of technology podcasts, videos and articles &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -75,12 +75,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Tars my first bot</h1>
+    <h1 class="text-primary">Awesome collections of technology podcasts, videos and articles</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2016-01-18T21:26:25&#43;05:30">
-          Jan 18, 2016
+        <time datetime="2016-02-20T21:33:14&#43;05:30">
+          Feb 20, 2016
         </time>
       </div>
       <div class="pull-right">
@@ -89,27 +89,42 @@
     </div>
   </header>
   <section>
-    <p>In one of my earlier <a href="http://dineshs91.github.io/blog/post/greenkeeper/">posts</a> I had written about <a href="http://greenkeeper.io/">greenkeeper</a> the app that automates dependency updates. I will start with a brief explanation about it, it will send you a pull request(PR) everytime
-there is a newer version of your depenedencies available, that are specified in package.json. Then you can decide to merge the PR or not.
-That&rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&rsquo;s.</p>
+    
 
-<p>I thought I could automate that part too. This is were <a href="https://github.com/Dineshs91/tars">tars</a> comes into picture. Yes, the name was
-inspired from Interstellar. We all love tars right!. I wrote this bot to help me with my <a href="https://github.com/Dineshs91/devlog">devlog</a>
-project.</p>
+<p>Here&rsquo;s a list of awesome articles, podcasts and youtube talks.</p>
 
-<p>It follows a 3 step process. Check, merge and delete. First step, fetch all open PR&rsquo;s and see which one&rsquo;s are opened by GREENKEEPER_BOT.
-We only care about the one&rsquo;s opened by it. Then we check the CI status of the PR, whether the tests are passing
-or failing. In the next step, if the tests are passing, tars merge&rsquo;s the PR. If PR cannot be merged automatically, it creates a comment with
-a message saying <em>This pull request cannot be merged by me</em></p>
+<h1 id="podcasts:0b6277771390054bd4f81dbe6f21b3d1">Podcasts</h1>
 
-<p>After successful merging of PR, it deletes the corresponding branch. Greenkeeper opens a branch with the PR. So after merging,
-the branch is no longer needed. Tars removes the branch once the PR is merged succesfully into master branch.</p>
+<h4 id="functional-geekery-eric-smith-https-www-functionalgeekery-com-episode-37-eric-smith:0b6277771390054bd4f81dbe6f21b3d1"><a href="https://www.functionalgeekery.com/episode-37-eric-smith/">Functional Geekery - Eric Smith</a></h4>
 
-<p>The next part is to, set up the program to run as a job. You can schedule a cron job to make the process completely automatic.
-You can use <a href="http://crontab.guru/">crontab.guru</a> which is a simple editor for cron schedule expressions.</p>
+<p>OOP was developed on false assumptions.</p>
 
-<p>Bots are fascinating right, it&rsquo;s an opportunity for us to just sit back, and watch things happen. Why not write your own bot ?
-I am sure it will be fun.</p>
+<p>New beginner&rsquo;s to programming should not start with imperative programming.</p>
+
+<h4 id="functional-geekery-johnyy-winn-https-www-functionalgeekery-com-episode-34-johnny-winn:0b6277771390054bd4f81dbe6f21b3d1"><a href="https://www.functionalgeekery.com/episode-34-johnny-winn/">Functional Geekery - Johnyy Winn</a></h4>
+
+<p>Tweet, blog about what you do.</p>
+
+<p>The best way to learn a new language (Not a 1st one) is to rewrite a library you have known in a different language in
+the new language.</p>
+
+<h1 id="articles-or-papers:0b6277771390054bd4f81dbe6f21b3d1">Articles or papers</h1>
+
+<h4 id="peter-landin-the-next-700-programming-languages-http-www-cs-cmu-edu-crary-819-f09-landin66-pdf:0b6277771390054bd4f81dbe6f21b3d1"><a href="http://www.cs.cmu.edu/~crary/819-f09/Landin66.pdf">Peter landin - The next 700 programming languages</a></h4>
+
+<p>Mentioned by Eric Smith in Functional Geekery podcast.</p>
+
+<h1 id="videos:0b6277771390054bd4f81dbe6f21b3d1">Videos</h1>
+
+<h4 id="philip-roberts-what-the-heck-is-event-loop-https-www-youtube-com-watch-v-8aghzqkofbq:0b6277771390054bd4f81dbe6f21b3d1"><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">Philip Roberts - What the heck is event loop</a></h4>
+
+<p>Must watch video if you are a js dev.</p>
+
+<h4 id="how-to-design-programs-http-www-htdp-org:0b6277771390054bd4f81dbe6f21b3d1"><a href="http://www.htdp.org/">How to design programs</a></h4>
+
+<p>Mentioned by Eric Smith in Functional Geekery podcast.</p>
+
+<h4 id="john-backus-can-programming-be-liberated-from-the-von-neumann-style-http-worrydream-com-refs-backus-canprogrammingbeliberated-pdf:0b6277771390054bd4f81dbe6f21b3d1"><a href="http://worrydream.com/refs/Backus-CanProgrammingBeLiberated.pdf">John Backus - Can programming be liberated from the Von Neumann Style</a></h4>
 
   </section>
   <footer>
@@ -144,10 +159,10 @@ I am sure it will be fun.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/birthday_wisher/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/tars_bot/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/awesome_collections/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
