@@ -23,6 +23,15 @@ Tweet, blog about what you do.
 The best way to learn a new language (Not a 1st one) is to rewrite a library you have known in a different language in
 the new language.
 
+# Blogs
+
+#### [Brain food for hackers - Gustavo Duarte](http://duartes.org/gustavo/blog/)
+
+An excellent systems/hardware blog. If you are a kernel hacker or just curious about internal workings, you
+will love this blog. 
+
+Very detailed, low level explanation with illustrations.
+
 # Articles or papers
 
 #### [Peter landin - The next 700 programming languages](http://www.cs.cmu.edu/~crary/819-f09/Landin66.pdf)
