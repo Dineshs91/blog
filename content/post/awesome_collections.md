@@ -32,17 +32,11 @@ will love this blog.
 
 Very detailed, low level explanation with illustrations.
 
-# Articles or papers
+# Articles, papers and books
 
 #### [Peter landin - The next 700 programming languages](http://www.cs.cmu.edu/~crary/819-f09/Landin66.pdf)
 
 Mentioned by Eric Smith in Functional Geekery podcast.
-
-# Videos
-
-#### [Philip Roberts - What the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
-
-Must watch video if you are a js dev.
 
 #### [How to design programs](http://www.htdp.org/)
 
@@ -50,3 +44,8 @@ Mentioned by Eric Smith in Functional Geekery podcast.
 
 #### [John Backus - Can programming be liberated from the Von Neumann Style](http://worrydream.com/refs/Backus-CanProgrammingBeLiberated.pdf)
 
+# Videos
+
+#### [Philip Roberts - What the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+
+Must watch video if you are a js dev.
