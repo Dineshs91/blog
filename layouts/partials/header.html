@@ -55,6 +55,11 @@
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
+      {{ else }}
+      <a href="{{ .Site.BaseURL }}{{ .Site.Params.about }}" class="btn-header btn-about hidden-xs">
+        <i class="fa fa-bolt" aria-hidden="true"></i>
+        &nbsp;About me
+      </a>
       {{ end }}
       {{ if .RSSLink }}
       <a href="{{ .Site.BaseURL }}{{ .Site.Params.projects }}" class="btn-header btn-projects hidden-xs">
