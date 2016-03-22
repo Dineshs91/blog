@@ -25,6 +25,11 @@ the new language.
 
 # Blogs
 
+#### [Programming and human factors - Jeff Atwood](blog.codinghorror.com)
+
+Has a huge collection of posts focussing on the usability side of softwares and talks about people.
+Jeff Atwood is the cofounder of [StackOverflow](http://stackoverflow.com/) and [Discourse](http://discourse.org/)
+
 #### [Brain food for hackers - Gustavo Duarte](http://duartes.org/gustavo/blog/)
 
 An excellent systems/hardware blog. If you are a kernel hacker or just curious about internal workings, you
