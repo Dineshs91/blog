@@ -3,7 +3,7 @@ body {
 }
 
 main {
-    max-width: 750px;
+    max-width: 100%;
     word-wrap: break-word;
 }
 
