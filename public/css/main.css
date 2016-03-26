@@ -1,5 +1,5 @@
 main {
-    max-width: 100%;
+    max-width: 750px;
     word-wrap: break-word;
 }
 
@@ -228,7 +228,7 @@ a.btn-projects {
 
 .pagination
 {
-	width: 720px;
+	width: 100%;
 	text-align: center;
 }
 
