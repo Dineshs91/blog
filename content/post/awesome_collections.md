@@ -37,6 +37,16 @@ will love this blog.
 
 Very detailed, low level explanation with illustrations.
 
+#### [Brendan Gregg - Senior performance architect](http://www.brendangregg.com/)
+
+He is one of the leading experts on DTrace and author of books on DTrace and systems performance.
+Checkout his [blog](http://www.brendangregg.com/blog/index.html) posts on Linux performance.
+
+#### [Paul Graham - Cofounder of YCombinator](http://www.paulgraham.com/articles.html)
+
+Known for his work on Lisp and for co-founding Y Combinator seed capital firm.
+Good collection of articles, mostly on startups.
+
 # Articles, papers and books
 
 #### [Peter landin - The next 700 programming languages](http://www.cs.cmu.edu/~crary/819-f09/Landin66.pdf)
