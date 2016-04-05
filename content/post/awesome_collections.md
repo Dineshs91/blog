@@ -59,6 +59,16 @@ Mentioned by Eric Smith in Functional Geekery podcast.
 
 #### [John Backus - Can programming be liberated from the Von Neumann Style](http://worrydream.com/refs/Backus-CanProgrammingBeLiberated.pdf)
 
+#### [Peter Norvig - Teach Yourself Programming in Ten Years](http://norvig.com/21-days.html)
+
+In this article, Peter Norvig talks about, why everyone is in such a rush ? and how 10 years can help to become a great programmer.
+
+#### [Eric S Raymond - How to become a hacker](http://www.catb.org/esr/faqs/hacker-howto.html)
+
+This is an excellent book, which clarifies the meaning of the word 'Hacker' and how you can become one.
+
+#### [Alan J.Perlis - Epigrams on programming](http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html)
+
 # Videos
 
 #### [Philip Roberts - What the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
