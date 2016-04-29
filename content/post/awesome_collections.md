@@ -2,7 +2,7 @@
 Description = "Awesome collections"
 Tags = []
 date = "2016-02-20T21:33:14+05:30"
-title = "Awesome collections of technology podcasts, videos and articles"
+title = "Awesome collection of technology podcasts, videos and articles"
 
 +++
 Here's a list of awesome articles, podcasts and youtube talks. 
