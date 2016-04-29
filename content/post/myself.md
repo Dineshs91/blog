@@ -15,16 +15,19 @@ In schools and colleges they’ve always taught us how to write c program in an 
 
 > The positive and negative with computer is they do what we program them to do.
 
-I started with GUI programming in [GTK](http://www.gtk.org/). No wonder I started with GUI, as I was a windows user back then. After a couple of months I replaced windows with ubuntu. Using linux was very different. It gave me the feeling of a hacker. Typing commands in console, I felt like, I am actually interacting with the computer. Suddenly I felt empowered. I started learning about networking. Wireshark, tcpdump, airmon-ng using these tools I got to know what happens behind the scene. So I learnt some things about networking, which previously, I took for granted.
+I started with GUI programming in [GTK](http://www.gtk.org/). No wonder I started with GUI, as I was a windows user back then. After a couple of months I replaced windows with ubuntu. Using linux was very different. It gave me the feeling of a hacker. Typing commands in console, I felt like, I was actually interacting with the computer. Suddenly I felt empowered. I started learning about networking. Wireshark, tcpdump, airmon-ng using these tools I got to know what happens behind the scene. So I learnt some things about networking, which previously, I took for granted.
 One day when I was using this tool [scapy](http://www.secdev.org/projects/scapy/), I got very much interested in [python](https://www.python.org/). So I started learning it. The name was also very cool. It was very easy to learn. I opened [official docs](https://docs.python.org/2/) in browser and in terminal I opened python, and started typing commands. Actually I was programming Interactively. Then I started out with Interview Street. It is a platform where you can solve programming challenges. It was fascinating. Later Interview Street became [Hackerrank](https://www.hackerrank.com/). By solving those challenges, I got better at the way I think. I still solve challenges in Hackerrank. It’s good for my mind.
 
 Then I got to know about [git](https://git-scm.com/) and [github](https://github.com/). It was intriguing, to know how github works. Distributed collaboration using git, remarkable. 
 Open source is a world that is always special to me.
 All I understood was that I can learn things fast.
 
-My brother was doing MBA in Information security. So I got to know about Nmap, Netcat, snort, nessus, rainbow tables etc. I also configured snort in my laptop. I also wrote a simple plugin for nessus.
+My brother was doing MBA in Information security at that time. So I got to know about Nmap, Netcat, snort, nessus, rainbow tables etc. I configured snort in my laptop and also wrote a simple plugin for nessus.
 
-Programming made me confident, I have gone through one of the toughest times in my life without a lot of pain because of programming. 
+Programming made me confident, I had gone through one of the toughest times in my life without a lot of pain because of programming. 
 It was so addictive. I was very much in love with it, so much that I wasn’t thinking of anything else. It made me believe that I can do things.
 Actual things that can be useful to others. Above all, it makes me very happy. It changed the way I think. I started to approach things in an efficient way, Thanks to programming. 
 I am very grateful to the community. I have never seen anything like this before. Great pioneers are part of it.
+
+That feeling you get when you break barriers, when you achieve something which you thought was impossible, that particular moment, that moment of realisation, that moment of innovation, is the best moment someone could ever have.
+By programming I got to experience what that's like. Once you get the taste of it, there's no stopping you.
