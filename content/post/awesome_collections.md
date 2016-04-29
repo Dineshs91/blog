@@ -74,3 +74,7 @@ This is an excellent book, which clarifies the meaning of the word 'Hacker' and 
 #### [Philip Roberts - What the heck is event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
 Must watch video if you are a js dev.
+
+#### [Linus Torvalds - GIT version control system](https://www.youtube.com/watch?v=4XpnKHJAok8)
+
+In this video Linus explains the motivation behind GIT and how it is different from existing systems.
