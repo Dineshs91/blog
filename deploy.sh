@@ -5,6 +5,9 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 # Build the project.
 hugo
 
+# Create CNAME file inside public
+echo "blog.dineshs91.com" > public/CNAME
+
 # Add changes to git.
 git add -A
 
@@ -14,9 +17,6 @@ if [ $# -eq 1 ]
 then msg="$1"
 fi
 git commit -m "$msg"
-
-# Create CNAME file inside public
-echo "blog.dineshs91.com" > public/CNAME
 
 # Push source and build repos.
 git push origin master
