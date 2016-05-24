@@ -15,6 +15,9 @@ then msg="$1"
 fi
 git commit -m "$msg"
 
+# Create CNAME file inside public
+echo "blog.dineshs91.com" > public/CNAME
+
 # Push source and build repos.
 git push origin master
 git subtree push --prefix=public https://github.com/Dineshs91/blog.git gh-pages
