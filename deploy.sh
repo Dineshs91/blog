@@ -6,7 +6,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 hugo
 
 # Create CNAME file inside public
-"Creating CNAME file for custom domain"
+echo "Creating CNAME file for custom domain"
 echo "blog.dineshs91.com" > public/CNAME
 
 # Add changes to git.
