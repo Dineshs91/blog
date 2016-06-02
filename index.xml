@@ -7,8 +7,71 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Mon, 14 Mar 2016 20:50:57 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jun 2016 22:40:27 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>What if you lose your data</title>
+      <link>http://dineshs91.github.io/blog/post/data/</link>
+      <pubDate>Wed, 01 Jun 2016 22:40:27 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/data/</guid>
+      <description>&lt;p&gt;You have been working day in and day out. All your important documents are there in your hard disk.
+For most of us, ctrl + s (Save) is enough to save us from the trouble of having to deal with the loss of
+data. That&amp;rsquo;s bad, because you can still get into trouble. You might ask how, then picture this, what
+if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.&lt;/p&gt;
+
+&lt;p&gt;The question we have to ask ourselves is, are we prepared for the above scenarios ? If the answer is no, now
+is the time to change that.&lt;/p&gt;
+
+&lt;p&gt;I am going to explain the setup I&amp;rsquo;ve done in my laptop (Mac os x El Captain).&lt;/p&gt;
+
+&lt;p&gt;Its a 2 step process.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sync with any of the cloud services like Google Drive or Dropbox. I use &lt;a href=&#34;https://github.com/emcrisostomo/fswatch&#34;&gt;fswatch&lt;/a&gt;
+to watch for changes in the directories I want to sync and use &lt;a href=&#34;https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-sync-sh&#34;&gt;sync.sh&lt;/a&gt;
+script to sync the directories with Google Drive. fswatch notifies if there are any changes in the
+directory and I use rsync to keep the directories in sync. This comes in very handy.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rsync -a --delete &amp;quot;$my_dir&amp;quot; &amp;quot;$dest_dir&amp;quot;
+
+-a (Archive and sync recursively.)
+--delete (Delete files that are removed from the directories being watched.)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This frees from manually copying all your documents to Google Drive directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Create compressed tar files and put them in an external storage. This step is a manual one.
+You have to run the script whenever you want to take backup. You could use cron service though if you like to
+automate the process. This is the script that I use &lt;a href=&#34;https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-backup-sh&#34;&gt;backup.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;**Backup**
+tar -zcvf &amp;quot;$ext_hard_disk_dir&amp;quot; --directory / --exclude=&#39;node_modules&#39; &amp;quot;$my_dir&amp;quot;
+
+$ext_hard_disk_dir is the destination directory where the archives will be stored.
+$my_dir is the directory which will be archived.
+
+-z (Specify this option, if you want to compress the backup data.)
+-v (Verbose)
+
+**Restore**
+Test the archive.
+tar -ztvf /archive/full-backup-02-March-2016.tar.gz
+
+tar -zxvf /archive/full-backup-02-March-2016.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;References:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/backup-and-restore.html&#34;&gt;linux-admin-made-easy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.tldp.org/LDP/sag/html/backups.html&#34;&gt;Importance of backups&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Why you should love your job</title>
@@ -688,33 +751,6 @@ blogs to hugo, over the coming weeks.&lt;/p&gt;
 &lt;p&gt;Finally finding the bug, is like finding a mythical creature. &lt;strong&gt;&lt;em&gt;‘Here you are, got you’&lt;/em&gt;&lt;/strong&gt;. That particular moment of realisation, is incredible.&lt;/p&gt;
 
 &lt;p&gt;Ok 1 down, 5 to go….&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to tap our natural instincts to succeed</title>
-      <link>http://dineshs91.github.io/blog/post/natural_instincts/</link>
-      <pubDate>Tue, 10 Mar 2015 20:44:03 +0530</pubDate>
-      
-      <guid>http://dineshs91.github.io/blog/post/natural_instincts/</guid>
-      <description>&lt;p&gt;We human beings have a natural tendency of wanting more. Confused ? ok, let me explain.&lt;/p&gt;
-
-&lt;p&gt;How many of us, still use the same phones that we first bought ?&lt;/p&gt;
-
-&lt;p&gt;The answer will be None. The reason is, the human tendency i was talking about earlier.
-We always want more/better with what we get or what we have. So now having understood the power of this instinct, we should figure out how we can use it to succeed.&lt;/p&gt;
-
-&lt;p&gt;The only way to this, is to do what we really love, to do what we are really passionate about. A guy who is passionate about writing, never stops writing after one successful book or a passionate football player does not stop after one great match. They always grow and keep getting better at what they do. This is because of the natural human tendency, and it is very powerful. Nothing can stop it. People have died because of it, chasing their dreams.&lt;/p&gt;
-
-&lt;p&gt;So the only way, to make use of that power within ourselves, is to find what we truly love and what we want to do, for the rest of our lives. And the day we find our true passion, there would be no stopping us and we will become the pioneers of that field.
-No matter how much time it would take, we should keep looking for it, hoping that one day we will find what we really want to do.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;If you don&amp;rsquo;t have an enemy inside, enemy outside can do no harm.
-&amp;ndash; African quote&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I have started looking for it and so should you. Never give up. We are born for it and we are meant to find it.&lt;/p&gt;
 </description>
     </item>
     
