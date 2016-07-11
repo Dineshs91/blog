@@ -29,5 +29,5 @@ The goal of life is this, explore, experience and live every moment with happine
 Life is a gift, the best gift one can get.
 Say, if you get fired from the job that you love so much, its not just the job that you are losing,
 but you are losing your happiness too. The mantra for limitless happiness is **love what you do**.
-If you are able to implement this perfectly, you will be happy uncoditionally, because your happiness
+If you are able to implement this perfectly, you will be happy unconditionally, because your happiness
 is not tied to any specific kind of work. You would have perfected the art of being happy.
