@@ -7,8 +7,66 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Wed, 01 Jun 2016 22:40:27 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 17 Oct 2016 01:50:11 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dabbling with Rust</title>
+      <link>http://dineshs91.github.io/blog/post/rust_trial1/</link>
+      <pubDate>Mon, 17 Oct 2016 01:50:11 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/rust_trial1/</guid>
+      <description>&lt;p&gt;I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.&lt;/p&gt;
+
+&lt;p&gt;I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&amp;rsquo;s ls (List files).
+So the program will just print the details of the files and directories with the path, size and modified time. Also display the total
+block size.&lt;/p&gt;
+
+&lt;p&gt;Here is a list of all the external packages I&amp;rsquo;ve used.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;colored&lt;/li&gt;
+&lt;li&gt;chrono&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To get the total file bock size, I had to get all the files first using &lt;code&gt;std::fs&lt;/code&gt;. Then iterate through them to get the block size of
+each file and add them up to &lt;code&gt;file_block_count&lt;/code&gt; variable.&lt;/p&gt;
+
+&lt;p&gt;In rust if you iterate through an iterator, then it cannot be reused. So I had to get the files again. Iterate through them and get the
+following&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;File path&lt;/li&gt;
+&lt;li&gt;File size&lt;/li&gt;
+&lt;li&gt;File modified at datetime.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Getting file path and size are pretty straight forward. &lt;code&gt;file_path.display()&lt;/code&gt; gives the path name and &lt;code&gt;file_path.metadata().unwrap().len()&lt;/code&gt;
+gives the size of the file.&lt;/p&gt;
+
+&lt;p&gt;With the file modified datetime we have to convert into the required display format. This is where we need to use &lt;code&gt;chrono&lt;/code&gt;.
+I used &lt;code&gt;Local.timestamp(file_modified as i64, 0);&lt;/code&gt; to get the datetime in the local time zone and &lt;code&gt;format(&amp;quot;%h %d %H:%M&amp;quot;)&lt;/code&gt; for formatting the
+datetime.&lt;/p&gt;
+
+&lt;p&gt;I used &lt;code&gt;colored&lt;/code&gt; package to add terminal colors.&lt;/p&gt;
+
+&lt;p&gt;So the output looks like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;total  128
+1   ./.DS_Store      6148    Oct 29 21:46
+2   ./.git           510     Oct 30 21:37
+3   ./.gitignore     341     Oct 16 14:33
+4   ./Cargo.lock     4608    Oct 17 00:43
+5   ./Cargo.toml     133     Oct 17 00:43
+6   ./LICENSE        35141   Oct 16 14:33
+7   ./README.md      151     Oct 16 16:26
+8   ./src            136     Oct 16 14:33
+9   ./target         102     Oct 16 00:27
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Source code can be found &lt;a href=&#34;https://github.com/Dineshs91/rs-ls/&#34;&gt;here&lt;/a&gt;. This is a very trivial code to get started with rust.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>What if you lose your data</title>
@@ -735,22 +793,6 @@ blogs to hugo, over the coming weeks.&lt;/p&gt;
 &lt;p&gt;Data is our’s and we should own it. It definitely should stay that way until we choose otherwise.&lt;/p&gt;
 
 &lt;p&gt;If you are interested in this idea, please have a look at the &lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;source&lt;/a&gt; or take it for a spin and let me know your experience.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How a programmer feels</title>
-      <link>http://dineshs91.github.io/blog/post/programmer_feels/</link>
-      <pubDate>Sat, 28 Mar 2015 16:22:58 +0530</pubDate>
-      
-      <guid>http://dineshs91.github.io/blog/post/programmer_feels/</guid>
-      <description>&lt;p&gt;There is a very good quality, every amazing programmer has. It’s their love towards programming or the whole technology, surrounding computers.&lt;/p&gt;
-
-&lt;p&gt;Being a programmer myself, I have come across situations, where it was very frustrating to debug. It may take days, even weeks to find the issue. But we never give up. It’s like a battle between bug and the programmer. And you know what, we have this ego, there is nothing we can’t accomplish. Something like this, goes in our minds &lt;strong&gt;&lt;em&gt;“Bug, you can’t hide from me for long. I am gonna get you soon”&lt;/em&gt;&lt;/strong&gt;. Its the challenge, that makes it more fun and interesting. The degree of difficulty, is proportional to the degree of awesomeness, we feel solving it.&lt;/p&gt;
-
-&lt;p&gt;Finally finding the bug, is like finding a mythical creature. &lt;strong&gt;&lt;em&gt;‘Here you are, got you’&lt;/em&gt;&lt;/strong&gt;. That particular moment of realisation, is incredible.&lt;/p&gt;
-
-&lt;p&gt;Ok 1 down, 5 to go….&lt;/p&gt;
 </description>
     </item>
     

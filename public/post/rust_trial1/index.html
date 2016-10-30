@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" What if you lose your data &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Dabbling with Rust &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/data/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/rust_trial1/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2016-06-01T22:40:27&#43;05:30" />
+  <meta property="og:article:published_time" content="2016-10-17T01:50:11&#43;05:30" />
   
   
 
   <title>
-     What if you lose your data &middot;  My thoughts and adventures
+     Dabbling with Rust &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -75,12 +75,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">What if you lose your data</h1>
+    <h1 class="text-primary">Dabbling with Rust</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2016-06-01T22:40:27&#43;05:30">
-          Jun 1, 2016
+        <time datetime="2016-10-17T01:50:11&#43;05:30">
+          Oct 17, 2016
         </time>
       </div>
       <div class="pull-right">
@@ -89,60 +89,55 @@
     </div>
   </header>
   <section>
-    <p>You have been working day in and day out. All your important documents are there in your hard disk.
-For most of us, ctrl + s (Save) is enough to save us from the trouble of having to deal with the loss of
-data. That&rsquo;s bad, because you can still get into trouble. You might ask how, then picture this, what
-if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.</p>
+    <p>I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.</p>
 
-<p>The question we have to ask ourselves is, are we prepared for the above scenarios ? If the answer is no, now
-is the time to change that.</p>
+<p>I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&rsquo;s ls (List files).
+So the program will just print the details of the files and directories with the path, size and modified time. Also display the total
+block size.</p>
 
-<p>I am going to explain the setup I&rsquo;ve done in my laptop (Mac os x El Captain).</p>
+<p>Here is a list of all the external packages I&rsquo;ve used.</p>
 
-<p>Its a 2 step process.</p>
+<ol>
+<li>colored</li>
+<li>chrono</li>
+</ol>
 
-<p><strong>Step 1</strong></p>
+<p>To get the total file bock size, I had to get all the files first using <code>std::fs</code>. Then iterate through them to get the block size of
+each file and add them up to <code>file_block_count</code> variable.</p>
 
-<p>Sync with any of the cloud services like Google Drive or Dropbox. I use <a href="https://github.com/emcrisostomo/fswatch">fswatch</a>
-to watch for changes in the directories I want to sync and use <a href="https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-sync-sh">sync.sh</a>
-script to sync the directories with Google Drive. fswatch notifies if there are any changes in the
-directory and I use rsync to keep the directories in sync. This comes in very handy.</p>
+<p>In rust if you iterate through an iterator, then it cannot be reused. So I had to get the files again. Iterate through them and get the
+following</p>
 
-<pre><code>rsync -a --delete &quot;$my_dir&quot; &quot;$dest_dir&quot;
+<ol>
+<li>File path</li>
+<li>File size</li>
+<li>File modified at datetime.</li>
+</ol>
 
--a (Archive and sync recursively.)
---delete (Delete files that are removed from the directories being watched.)
+<p>Getting file path and size are pretty straight forward. <code>file_path.display()</code> gives the path name and <code>file_path.metadata().unwrap().len()</code>
+gives the size of the file.</p>
+
+<p>With the file modified datetime we have to convert into the required display format. This is where we need to use <code>chrono</code>.
+I used <code>Local.timestamp(file_modified as i64, 0);</code> to get the datetime in the local time zone and <code>format(&quot;%h %d %H:%M&quot;)</code> for formatting the
+datetime.</p>
+
+<p>I used <code>colored</code> package to add terminal colors.</p>
+
+<p>So the output looks like this</p>
+
+<pre><code>total  128
+1   ./.DS_Store      6148    Oct 29 21:46
+2   ./.git           510     Oct 30 21:37
+3   ./.gitignore     341     Oct 16 14:33
+4   ./Cargo.lock     4608    Oct 17 00:43
+5   ./Cargo.toml     133     Oct 17 00:43
+6   ./LICENSE        35141   Oct 16 14:33
+7   ./README.md      151     Oct 16 16:26
+8   ./src            136     Oct 16 14:33
+9   ./target         102     Oct 16 00:27
 </code></pre>
 
-<p>This frees from manually copying all your documents to Google Drive directory.</p>
-
-<p><strong>Step 2</strong></p>
-
-<p>Create compressed tar files and put them in an external storage. This step is a manual one.
-You have to run the script whenever you want to take backup. You could use cron service though if you like to
-automate the process. This is the script that I use <a href="https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-backup-sh">backup.sh</a></p>
-
-<pre><code>**Backup**
-tar -zcvf &quot;$ext_hard_disk_dir&quot; --directory / --exclude='node_modules' &quot;$my_dir&quot;
-
-$ext_hard_disk_dir is the destination directory where the archives will be stored.
-$my_dir is the directory which will be archived.
-
--z (Specify this option, if you want to compress the backup data.)
--v (Verbose)
-
-**Restore**
-Test the archive.
-tar -ztvf /archive/full-backup-02-March-2016.tar.gz
-
-tar -zxvf /archive/full-backup-02-March-2016.tar.gz
-</code></pre>
-
-<p><strong><em>References:</em></strong></p>
-
-<p><a href="http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/backup-and-restore.html">linux-admin-made-easy</a></p>
-
-<p><a href="http://www.tldp.org/LDP/sag/html/backups.html">Importance of backups</a></p>
+<p>Source code can be found <a href="https://github.com/Dineshs91/rs-ls/">here</a>. This is a very trivial code to get started with rust.</p>
 
   </section>
   <footer>
@@ -177,10 +172,10 @@ tar -zxvf /archive/full-backup-02-March-2016.tar.gz
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/love_job/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/data/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/rust_trial1/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
