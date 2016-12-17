@@ -3,20 +3,20 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Dabbling with Rust &middot;  My thoughts and adventures" />
+  <meta property="og:title" content=" Docker automatic image build with raspberry pi &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/rust_trial1/" />
+  <meta property="og:url" content="http://dineshs91.github.io/blog/post/pi_1/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2016-10-17T01:50:11&#43;05:30" />
+  <meta property="og:article:published_time" content="2016-12-17T14:14:54&#43;05:30" />
   
   
 
   <title>
-     Dabbling with Rust &middot;  My thoughts and adventures
+     Docker automatic image build with raspberry pi &middot;  My thoughts and adventures
   </title>
 
   <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
@@ -75,12 +75,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Dabbling with Rust</h1>
+    <h1 class="text-primary">Docker automatic image build with raspberry pi</h1>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2016-10-17T01:50:11&#43;05:30">
-          Oct 17, 2016
+        <time datetime="2016-12-17T14:14:54&#43;05:30">
+          Dec 17, 2016
         </time>
       </div>
       <div class="pull-right">
@@ -89,55 +89,51 @@
     </div>
   </header>
   <section>
-    <p>I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.</p>
+    <p>It was more than a week, that I had a raspberry pi and did nothing with it (Other than the initial setup). I was looking to do
+something with it. Then I decided to write a bot that will build docker images and push it to docker registry.</p>
 
-<p>I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&rsquo;s ls (List files).
-So the program will just print the details of the files and directories with the path, size and modified time. Also display the total
-block size.</p>
-
-<p>Here is a list of all the external packages I&rsquo;ve used.</p>
+<p>The design goal was simple.</p>
 
 <ol>
-<li>colored</li>
-<li>chrono</li>
+<li>Check if any new tags were created (In github)</li>
+<li>Notify about the same.</li>
+<li>Build docker images and push them to docker registry (Dockerhub)</li>
+<li>Notify when the images are pushed to dockerhub.</li>
 </ol>
 
-<p>To get the total file bock size, I had to get all the files first using <code>std::fs</code>. Then iterate through them to get the block size of
-each file and add them up to <code>file_block_count</code> variable.</p>
+<p>For most of the above steps, I used python&rsquo;s subprocess module and for notification I used twilio.</p>
 
-<p>In rust if you iterate through an iterator, then it cannot be reused. So I had to get the files again. Iterate through them and get the
-following</p>
+<p>The first step is a bit challenging, while all the others are pretty straightforward.</p>
 
-<ol>
-<li>File path</li>
-<li>File size</li>
-<li>File modified at datetime.</li>
-</ol>
+<p>Why is the first one challenging ? Well how to know if a new tag was pushed, github hooks ? I didn&rsquo;t want to use that solution, because
+it needs a server to do this. So I had to think of something else.</p>
 
-<p>Getting file path and size are pretty straight forward. <code>file_path.display()</code> gives the path name and <code>file_path.metadata().unwrap().len()</code>
-gives the size of the file.</p>
+<p>After a while of thinking, I came up with this. (Thanks to stackoverflow !!)</p>
 
-<p>With the file modified datetime we have to convert into the required display format. This is where we need to use <code>chrono</code>.
-I used <code>Local.timestamp(file_modified as i64, 0);</code> to get the datetime in the local time zone and <code>format(&quot;%h %d %H:%M&quot;)</code> for formatting the
-datetime.</p>
+<ul>
+<li><code>git fetch --tags</code></li>
+<li><code>git rev-list --tags --max-count=1</code></li>
+<li><code>git describe --tags rev_list</code></li>
+</ul>
 
-<p>I used <code>colored</code> package to add terminal colors.</p>
+<p>Summarizing the steps above, fetch all the tags and get the latest tag from the list of tags. These commands we execute from shell.
+I used subprocess to do it from python. By this we have the latest tag with us.</p>
 
-<p>So the output looks like this</p>
+<p>Next we need to know the tag our bot processed recently so that we only process the new tags, that were not processed.
+For this, I write the processed tag to a file at <code>~/.docker-bot</code>. Now all I have to do is check the file to see if the latest tag
+was processed.</p>
 
-<pre><code>total  128
-1   ./.DS_Store      6148    Oct 29 21:46
-2   ./.git           510     Oct 30 21:37
-3   ./.gitignore     341     Oct 16 14:33
-4   ./Cargo.lock     4608    Oct 17 00:43
-5   ./Cargo.toml     133     Oct 17 00:43
-6   ./LICENSE        35141   Oct 16 14:33
-7   ./README.md      151     Oct 16 16:26
-8   ./src            136     Oct 16 14:33
-9   ./target         102     Oct 16 00:27
+<p>Notification is very simple. I used twilio python library. For docker build images and push also is very straightforward. Just docker
+build and docker push will do.</p>
+
+<p>For scheduling I am using cron, which is very reliable and just works.
+This is my cron expression</p>
+
+<pre><code>*/5 * * * * . $HOME/.profile; cd ~/Documents/developer/accounts; python ~/Documents/developer/docker-bot/main.py &gt;&gt; /var/log/docker-bot.log 2&gt;&amp;1
 </code></pre>
 
-<p>Source code can be found <a href="https://github.com/Dineshs91/rs-ls/">here</a>. This is a very trivial code to get started with rust.</p>
+<p>Some final thoughts. The reason I had to this is Docker hub supports automated builds, but it doesn&rsquo;t support passing in some env variables or anything.
+So basically it is just docker build without any build arguments.</p>
 
   </section>
   <footer>
@@ -172,10 +168,10 @@ datetime.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/data/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://dineshs91.github.io/blog/post/rust_trial1/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/pi_1/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
