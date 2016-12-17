@@ -7,8 +7,62 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Mon, 17 Oct 2016 01:50:11 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2016 14:14:54 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Docker automatic image build with raspberry pi</title>
+      <link>http://dineshs91.github.io/blog/post/pi_1/</link>
+      <pubDate>Sat, 17 Dec 2016 14:14:54 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/pi_1/</guid>
+      <description>&lt;p&gt;It was more than a week, that I had a raspberry pi and did nothing with it (Other than the initial setup). I was looking to do
+something with it. Then I decided to write a bot that will build docker images and push it to docker registry.&lt;/p&gt;
+
+&lt;p&gt;The design goal was simple.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Check if any new tags were created (In github)&lt;/li&gt;
+&lt;li&gt;Notify about the same.&lt;/li&gt;
+&lt;li&gt;Build docker images and push them to docker registry (Dockerhub)&lt;/li&gt;
+&lt;li&gt;Notify when the images are pushed to dockerhub.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For most of the above steps, I used python&amp;rsquo;s subprocess module and for notification I used twilio.&lt;/p&gt;
+
+&lt;p&gt;The first step is a bit challenging, while all the others are pretty straightforward.&lt;/p&gt;
+
+&lt;p&gt;Why is the first one challenging ? Well how to know if a new tag was pushed, github hooks ? I didn&amp;rsquo;t want to use that solution, because
+it needs a server to do this. So I had to think of something else.&lt;/p&gt;
+
+&lt;p&gt;After a while of thinking, I came up with this. (Thanks to stackoverflow !!)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git fetch --tags&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git rev-list --tags --max-count=1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git describe --tags rev_list&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Summarizing the steps above, fetch all the tags and get the latest tag from the list of tags. These commands we execute from shell.
+I used subprocess to do it from python. By this we have the latest tag with us.&lt;/p&gt;
+
+&lt;p&gt;Next we need to know the tag our bot processed recently so that we only process the new tags, that were not processed.
+For this, I write the processed tag to a file at &lt;code&gt;~/.docker-bot&lt;/code&gt;. Now all I have to do is check the file to see if the latest tag
+was processed.&lt;/p&gt;
+
+&lt;p&gt;Notification is very simple. I used twilio python library. For docker build images and push also is very straightforward. Just docker
+build and docker push will do.&lt;/p&gt;
+
+&lt;p&gt;For scheduling I am using cron, which is very reliable and just works.
+This is my cron expression&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*/5 * * * * . $HOME/.profile; cd ~/Documents/developer/accounts; python ~/Documents/developer/docker-bot/main.py &amp;gt;&amp;gt; /var/log/docker-bot.log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Some final thoughts. The reason I had to this is Docker hub supports automated builds, but it doesn&amp;rsquo;t support passing in some env variables or anything.
+So basically it is just docker build without any build arguments.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Dabbling with Rust</title>
@@ -773,26 +827,6 @@ for _ in range(T):
 I had to quit tumblr was due to missing syntax highlighting support. Moreover hugo is open
 source and that itself is a great motivation for me to try it out. I will be moving all my
 blogs to hugo, over the coming weeks.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How it all began with devlog</title>
-      <link>http://dineshs91.github.io/blog/post/why_devlog/</link>
-      <pubDate>Wed, 03 Jun 2015 19:38:22 +0530</pubDate>
-      
-      <guid>http://dineshs91.github.io/blog/post/why_devlog/</guid>
-      <description>&lt;p&gt;Our &lt;strong&gt;imagination&lt;/strong&gt; is a fantastic machine, which throws at us amazing idea’s. But our educated mind, discards it obviously (It&amp;rsquo;s not practical it says). The best thing to do is, to write down that idea as soon as it comes out, otherwise the evil mind will wipe it off. Next question, where do i write it ? Almost all the existing platforms are online, but i don’t want this idea to be visible to the public (Not yet !). This is something that is very close to us and it should stay that way for sometime, before making a public debut.&lt;/p&gt;
-
-&lt;p&gt;The crazy internet world. No matter, which website we land on, it asks us to login. There are some sites where it is not necessary, but we definitely get the idea behind all of this. &lt;strong&gt;&lt;em&gt;Can we trust these sites ?&lt;/em&gt;&lt;/strong&gt; So the platform should not be an online one. An online platform is not all needed, for this purpose.&lt;/p&gt;
-
-&lt;p&gt;You can ask, why can’t we use a notebook instead of an app. This is a valid suggestion. But i don’t want to waste paper. Notebooks are very close to me. I keep writing everything down. You cannot see me at work, without a notebook/notepad. I wanted that kind of an experience in an application. Giving  something back to the mother earth and to the awesome people.&lt;/p&gt;
-
-&lt;p&gt;The name &lt;strong&gt;Devlog&lt;/strong&gt; is short for developer log. This is a logbook, where you kind of log your daily activites as a developer(Not necessary). You can go look back at your logs and decide what to do. It&amp;rsquo;s designed to assist you in keeping track of your notes and ideas in a simple way.&lt;/p&gt;
-
-&lt;p&gt;Data is our’s and we should own it. It definitely should stay that way until we choose otherwise.&lt;/p&gt;
-
-&lt;p&gt;If you are interested in this idea, please have a look at the &lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;source&lt;/a&gt; or take it for a spin and let me know your experience.&lt;/p&gt;
 </description>
     </item>
     
