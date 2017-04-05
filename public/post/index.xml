@@ -7,8 +7,160 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Sat, 17 Dec 2016 14:14:54 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 04 Apr 2017 19:15:19 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sending ARP packets using rust</title>
+      <link>http://dineshs91.github.io/blog/post/send_arp/</link>
+      <pubDate>Tue, 04 Apr 2017 19:15:19 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/send_arp/</guid>
+      <description>
+
+&lt;p&gt;While casually browsing about ARP, I stumbled upon &lt;a href=&#34;https://github.com/k4m4/kickthemout&#34;&gt;kickthemout&lt;/a&gt; project on github. I decided to do something similar in &lt;a href=&#34;https://www.rust-lang.org/en-US/&#34;&gt;Rust&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some info about ARP.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Operates at the Data link layer in the OSI model.&lt;/li&gt;
+&lt;li&gt;It is used for resolution of Internet layer addresses into link layer addresses. (Mapping Ip address to Mac address).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Scanning rust crates.io I came across &lt;a href=&#34;https://github.com/libpnet/libpnet&#34;&gt;libpnet&lt;/a&gt; which allowed devs to do low level networking using Rust, which is
+perfect for the job.&lt;/p&gt;
+
+&lt;p&gt;So the goal was to be able to send 3 types of packets.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ARP Request&lt;/li&gt;
+&lt;li&gt;ARP Reply&lt;/li&gt;
+&lt;li&gt;ARP Gratuitous Request&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I started looking at the examples provided in the repository. Well, it had only 2 examples (at the time of writing) which were not very useful. So I
+started checking their &lt;a href=&#34;https://octarineparrot.com/assets/libpnet/doc/pnet/&#34;&gt;doc&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I had to do these 2 things.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Hand craft the ARP packet.&lt;/li&gt;
+&lt;li&gt;Transmit the packet.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As the first thing I sat down to figure out how to craft an ARP packet (Request/Reply.) Checking the docs, I understood that there is no straightforward way of doing this. There were 2 ways of doing it. Capture a packet, clone from it and then modify or the other solution was to hand craft the hex values.
+I decided to go with the 2nd solution, as I did not want to capture any packets.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct EthernetPacket&amp;lt;&#39;p&amp;gt; {
+    packet: &amp;amp;&#39;p [u8],
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ethernet header&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct Ethernet {
+    destination: MacAddr,
+    source: MacAddr,
+    ethertype: EtherType,
+    payload: Vec&amp;lt;u8&amp;gt;,
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;MacAddr `ff:ff:ff:ff:ff:ff` (6 octets)
+EtherType is used to indicate which protocol is encapsulated in the payload of the frame. ARP (0x0806)
+For detailed information on EtherTypes checkout this [doc](https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So the custom hex array looks like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;[
+  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // Destination mac address
+  0xce, 0xaf, 0x23, 0xde, 0x31, 0xae, // Source mac address
+  0x08, 0x06 // Ether type (ARP 0806)
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We have constructed only the ethernet header. The payload will hold the ARP header. Lets create it now.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct ArpPacket&amp;lt;&#39;p&amp;gt; {
+    packet: &amp;amp;&#39;p [u8],
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Arp header&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct Arp {
+    hardware_type: ArpHardwareType,
+    protocol_type: EtherType,
+    hw_addr_len: u8,
+    proto_addr_len: u8,
+    operation: ArpOperation,
+    sender_hw_addr: MacAddr,
+    sender_proto_addr: Ipv4Addr,
+    target_hw_addr: MacAddr,
+    target_proto_addr: Ipv4Addr,
+    payload: Vec&amp;lt;u8&amp;gt;,
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;hardware_type - (1) Ethernet [Refer](https://www.iana.org/assignments/arp-parameters/arp-parameters.xhtml#arp-parameters-2)
+protocol_type - Ether type (IPv4 0800).
+hw_addr_len - 6
+proto_addr_len - 4
+operation - There are 2 ArpOperations. Request and Reply.
+sender_hw_addr, target_hw_addr - mac address of source and destination.
+sender_proto_addr, target_proto_addr - IPv4 address of source and destination.
+payload - This can be ignored.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So the custom hex values look like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;[
+  0x00, 0x01, // hardware type
+  0x08, 0x00, // Ether type (IPv4)
+  0x06, // hardware address length
+  0x04, // protocol address length
+  0x00, 0x01, // Request(0x01)/Reply(0x02)
+  0xce, 0xaf, 0x23, 0xde, 0x31, 0xae, // sender hardware address (mac address)
+  0xc0, 0xa8, 0x00, 0x66, // Sender proto address Ipv4(192.168.0.102)
+  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // target hardware address (Broadcast)
+  0xc0, 0xa8, 0x00, 0x65 // Target proto address Ipv4(192.168.0.101)
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have the packets ready, its time to transmit them. For transmission I am going to use &lt;code&gt;pnet::datalink&lt;/code&gt; which provides support for sending
+and receiving data link layer packets. We can send the packet using &lt;code&gt;send_to&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;Everything looks good and we are able to send the packets. But there is a problem with this implementation. Since we are hardcoding all the hex values,
+we lose the ability of dynamic IP and mac values. So I went ahead and asked for help on &lt;a href=&#34;http://webchat.freenode.net/?channels=%23libpnet&#34;&gt;#libpnet freenode&lt;/a&gt; to find out if any other techniques existed. One of the &lt;a href=&#34;https://github.com/faern&#34;&gt;contributors&lt;/a&gt; suggested that I create a
+MutableEthernetPacket with a buffer initialized with zero&amp;rsquo;s. Once I have the mutable packet, I can just use the setters provided by the library.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let mut ethernet_buffer: Vec&amp;lt;u8&amp;gt; = (0..42).map(|_| 0x00).collect::&amp;lt;Vec&amp;lt;u8&amp;gt;&amp;gt;();
+
+let mut ethernet_packet = MutableEthernetPacket::new(&amp;amp;mut ethernet_buffer).unwrap();
+ethernet_packet.set_destination(target_mac);
+ethernet_packet.set_source(source_mac);
+ethernet_packet.set_ethertype(EtherTypes::Arp);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I did the same for arp packet using MutableArpPacket. Then this packet should be set as the payload of the above created mutable ethernet packet and the
+ethernet packet is transmitted. This worked perfectly !!&lt;/p&gt;
+
+&lt;h3 id=&#34;kick-someone-out-of-the-network:036866c73c60654e2b6fc04c62916ded&#34;&gt;Kick someone out of the network&lt;/h3&gt;
+
+&lt;p&gt;Source ip - Gateway ip
+Source mac - Your mac address
+Target ip - IP of the host you want to kick out.
+Target mac - Target mac address&lt;/p&gt;
+
+&lt;p&gt;To find the target mac, &lt;code&gt;arp -a&lt;/code&gt; (Displays the arp table). You should find an entry for the corresponding target ip. If it is not available, then ping
+the target ip first and then check the arp table. Also we have to send an ARP reply packet.&lt;/p&gt;
+
+&lt;p&gt;And there it is, we have it working. You can check out the project &lt;a href=&#34;https://github.com/Dineshs91/send-arp&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Docker automatic image build with raspberry pi</title>
@@ -814,19 +966,6 @@ for _ in range(T):
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This problem is a challenge from hackerrank. I couldn&amp;rsquo;t find a link to the problem in it, I guess the challenge is probably removed.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Migrating to hugo</title>
-      <link>http://dineshs91.github.io/blog/post/welcome/</link>
-      <pubDate>Sun, 28 Jun 2015 00:09:45 +0530</pubDate>
-      
-      <guid>http://dineshs91.github.io/blog/post/welcome/</guid>
-      <description>&lt;p&gt;Migrating to hugo based blog. I am super exited to be using hugo, for my blog. The reason
-I had to quit tumblr was due to missing syntax highlighting support. Moreover hugo is open
-source and that itself is a great motivation for me to try it out. I will be moving all my
-blogs to hugo, over the coming weeks.&lt;/p&gt;
 </description>
     </item>
     
