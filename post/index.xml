@@ -7,8 +7,126 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Tue, 04 Apr 2017 19:15:19 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 06 Apr 2017 18:57:53 +0530</lastBuildDate>
     <atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Understanding @property in python</title>
+      <link>http://dineshs91.github.io/blog/post/properties_in_python/</link>
+      <pubDate>Thu, 06 Apr 2017 18:57:53 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/properties_in_python/</guid>
+      <description>
+
+&lt;p&gt;&amp;ldquo;&lt;code&gt;@property&lt;/code&gt; what is it and how does it help&amp;rdquo; is what I will be exploring in this blog.&lt;/p&gt;
+
+&lt;p&gt;OOP&amp;rsquo;s best practices say to always use getters and setters. I will explain the reason for this in a bit.&lt;/p&gt;
+
+&lt;p&gt;First lets look at the code&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Animal:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+tiger = Animal(&amp;quot;tiger&amp;quot;)
+tiger.name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;tiger.name&lt;/code&gt; will print the name of the animal, which in this case is &lt;strong&gt;tiger&lt;/strong&gt;. Now a question might arise asking, why property in the first place. Can&amp;rsquo;t
+I just use the below ?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.name = name # In init function
+
+tiger.name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To answer this question, we have to understand some properties of Object Oriented Programming. The property we are looking for is encapsulation.
+Encapsulation says that the internal state of an object should be restricted in how it is accessible to the outside world. This is achieved usually
+with getters and setters.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Animal:
+    def __init__(self):
+        self._name = None
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, val)
+        self._name = val
+
+tiger = Animal()
+tiger.name = &amp;quot;tigress&amp;quot; # Set the name of the animal.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another use of property&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Processor:
+    def __init__(self, dictionary):
+        self.dictionary = dictionary
+
+    @property
+    def id(self):
+        return dictionary.get(&#39;id&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What this allows us to do is to access &lt;code&gt;id&lt;/code&gt; as an  instance of the object instead of the usual function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dictionary = {
+    &amp;quot;id&amp;quot;: &amp;quot;381298&amp;quot;
+}
+processor = Processor(dictionary)
+processor.id # This prints the id of the processor.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we didn&amp;rsquo;t use property the code will look like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Processor:
+    def __init__(self, dictionary):
+        self.dictionary = dictionary
+
+    def id(self):
+        return dictionary.get(&#39;id&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;dictionary = {
+    &amp;quot;id&amp;quot;: &amp;quot;381298&amp;quot;
+}
+processor = Processor(dictionary)
+processor.id() # Can be accessed as a function.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Getters and setters allows to modify the value of the attribute without having to change the code in all the places where it is being accessed.&lt;/p&gt;
+
+&lt;p&gt;Ok, we understand the use of getters and setters. Time to answer this question &amp;ldquo;But I still don&amp;rsquo;t get it why I should use property&amp;rdquo;.
+Lets take an example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Cell(object):
+    . . .
+    def getvalue(self, obj):
+        &amp;quot;Recalculate cell before returning value&amp;quot;
+        self.recalc()
+        return obj._value
+    value = property(getvalue)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example taken from &lt;a href=&#34;https://docs.python.org/2/howto/descriptor.html#properties&#34;&gt;python descriptor doc&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What this achieves is whenever we access &lt;code&gt;new Cell().getvalue&lt;/code&gt; the method &lt;code&gt;self.recalc()&lt;/code&gt; is always called. Quoting the docs &amp;ldquo;Calling property() is a
+succinct way of building a data descriptor that triggers function calls upon access to an attribute&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;There is no way in python for restricting access to attributes. The clean way of achieving something similar is using property.&lt;/p&gt;
+
+&lt;h2 id=&#34;references:afb89f23fbf45b3afdea5ed4bc067698&#34;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.python.org/3/howto/descriptor.html#properties&#34;&gt;https://docs.python.org/3/howto/descriptor.html#properties&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Sending ARP packets using rust</title>
@@ -927,45 +1045,6 @@ I am very grateful to the community. I have never seen anything like this before
 
 &lt;p&gt;That feeling you get when you break barriers, when you achieve something which you thought was impossible, that particular moment, that moment of realisation, that moment of innovation, is the best moment someone could ever have.
 By programming I got to experience what that&amp;rsquo;s like. Once you get the taste of it, there&amp;rsquo;s no stopping you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Functional programming in python</title>
-      <link>http://dineshs91.github.io/blog/post/functional_programming_python/</link>
-      <pubDate>Sun, 28 Jun 2015 16:46:33 +0530</pubDate>
-      
-      <guid>http://dineshs91.github.io/blog/post/functional_programming_python/</guid>
-      <description>&lt;p&gt;Python offers some good functions to the developers to write functional like code. But their use is not
-recommended as it reduces code readability. They may come handy in some places though.&lt;/p&gt;
-
-&lt;p&gt;This is an example program showing the use of functional concepts in python.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Given a song, find out if the song is a pi song or not. If it is a pi song print &amp;ldquo;It&amp;rsquo;s a pi song.&amp;rdquo;  else
-print &amp;ldquo;It&amp;rsquo;s not a pi song.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;A song is a pi song, if the lenght of the words in it matches the digits of pi.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;T = input()
-
-pi = &amp;quot;31415926535897932384626433833&amp;quot;
-
-def calculate(song):
-      words = map(lambda x: str(len(x)), song.split(&amp;quot; &amp;quot;))
-      p = reduce(lambda a, b: a + b, words)
-
-      if(p == pi[:len(p)]):
-          print &amp;quot;It&#39;s a pi song.&amp;quot;
-      else:
-          print &amp;quot;It&#39;s not a pi song.&amp;quot;
-
-
-for _ in range(T):
-    song = raw_input()
-    calculate(song)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This problem is a challenge from hackerrank. I couldn&amp;rsquo;t find a link to the problem in it, I guess the challenge is probably removed.&lt;/p&gt;
 </description>
     </item>
     
