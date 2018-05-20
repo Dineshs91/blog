@@ -90,7 +90,8 @@
   </header>
   <section>
     <p>ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
-object in the array.</p>
+object in the array.
+</p>
 
 <pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
     &lt;span class=&quot;remove&quot; ng-click=&quot;remove($index)&quot;&gt;&lt;/span&gt;
@@ -152,7 +153,6 @@ $scope.remove = function(log) {
 
 <p>Instead of passing $index into the function, pass the object itself and use <code>indexOf</code> to get the index, which returns
 index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in original logs is 1.</p>
-
   </section>
   <footer>
     

@@ -89,9 +89,9 @@
     </div>
   </header>
   <section>
-    
+    <p>While casually browsing about ARP, I stumbled upon <a href="https://github.com/k4m4/kickthemout">kickthemout</a> project on github. I decided to do something similar in <a href="https://www.rust-lang.org/en-US/">Rust</a>.</p>
 
-<p>While casually browsing about ARP, I stumbled upon <a href="https://github.com/k4m4/kickthemout">kickthemout</a> project on github. I decided to do something similar in <a href="https://www.rust-lang.org/en-US/">Rust</a>.</p>
+<p></p>
 
 <p>Some info about ARP.</p>
 
@@ -221,7 +221,7 @@ ethernet_packet.set_ethertype(EtherTypes::Arp);
 <p>I did the same for arp packet using MutableArpPacket. Then this packet should be set as the payload of the above created mutable ethernet packet and the
 ethernet packet is transmitted. This worked perfectly !!</p>
 
-<h3 id="kick-someone-out-of-the-network:036866c73c60654e2b6fc04c62916ded">Kick someone out of the network</h3>
+<h3 id="kick-someone-out-of-the-network">Kick someone out of the network</h3>
 
 <p>Source ip - Gateway ip
 Source mac - Your mac address
@@ -232,7 +232,6 @@ Target mac - Target mac address</p>
 the target ip first and then check the arp table. Also we have to send an ARP reply packet.</p>
 
 <p>And there it is, we have it working. You can check out the project <a href="https://github.com/Dineshs91/send-arp">here</a></p>
-
   </section>
   <footer>
     

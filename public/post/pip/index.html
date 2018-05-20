@@ -89,12 +89,11 @@
     </div>
   </header>
   <section>
-    
+    <p>Packaging and distributing in python is a bit difficult. <a href="https://pypi.python.org/">PyPI</a>, the python package index is the most common
+one. I will explain step by step, how to upload your package to PyPI.
+</p>
 
-<p>Packaging and distributing in python is a bit difficult. <a href="https://pypi.python.org/">PyPI</a>, the python package index is the most common
-one. I will explain step by step, how to upload your package to PyPI.</p>
-
-<h2 id="setup-file:925515232cb73ab116c2825cf20513b1">Setup file</h2>
+<h2 id="setup-file">Setup file</h2>
 
 <p>The first thing is to create a setup.py file in the root of your project.</p>
 
@@ -132,7 +131,7 @@ for your program. You can do that with <code>entry_points</code> section.</p>
 project is the name of the binary. Project in <code>project.main</code> is the package name and <code>main</code> is the name of
 the function to be called. So this will be the first function, that python calls.</p>
 
-<h2 id="test-the-package-locally:925515232cb73ab116c2825cf20513b1">Test the package locally</h2>
+<h2 id="test-the-package-locally">Test the package locally</h2>
 
 <p>Once you are done with setup, we can generate the distributable file.</p>
 
@@ -147,7 +146,7 @@ the function to be called. So this will be the first function, that python calls
 <p>This command installs your package locally. You can do this to verify if your setup is correct or not. If setup.py is
 correct then the local install works fine.</p>
 
-<h2 id="register-with-pypi:925515232cb73ab116c2825cf20513b1">Register with PyPI</h2>
+<h2 id="register-with-pypi">Register with PyPI</h2>
 
 <p>To upload packages to PyPI, you have to be registered with them. Its simple, you can do it from the command line itself.
 Run the below command.</p>
@@ -170,7 +169,7 @@ Server response (403): You are not allowed to store 'project' package informatio
 <p>Check if there is any existing project in PyPI with the same name as your project.
 If yes, then you have to rename your project. After making the necessary changes register again (Run the command again).</p>
 
-<h2 id="upload:925515232cb73ab116c2825cf20513b1">Upload</h2>
+<h2 id="upload">Upload</h2>
 
 <p>Before running the upload command, you have to create <code>~/.pypirc</code> file</p>
 
@@ -190,7 +189,6 @@ password:password&lt;Plain text&gt;
 
 <p>You have successfully uploaded your package to PyPI. Next time you can skip the user registration. No need to register
 again, you can use your existing credentials.</p>
-
   </section>
   <footer>
     
