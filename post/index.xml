@@ -7,8 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
-    <lastBuildDate>Thu, 06 Apr 2017 18:57:53 +0530</lastBuildDate>
-    <atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jan 2018 20:50:57 +0530</lastBuildDate>
+    
+	<atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kerala trip</title>
+      <link>http://dineshs91.github.io/blog/post/kerala-trip-1/</link>
+      <pubDate>Fri, 05 Jan 2018 20:50:57 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/kerala-trip-1/</guid>
+      <description>In this post, I am going to write about my experience biking through kerala. I went on this trip with my brother and my sister in law on 2 bikes Fz-FI (Mine) and RE Himalayan (My brother&amp;rsquo;s). We started the trip on 24-Dec-2017. Firstly we were going to Munnar in kerala. It was a 9 day trip (Including the travel.)
+These were the places we visited. Munnar Cochin Allepey Trivandram Poovar and Kanyakumari</description>
+    </item>
     
     <item>
       <title>Understanding @property in python</title>
@@ -16,116 +28,11 @@
       <pubDate>Thu, 06 Apr 2017 18:57:53 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/properties_in_python/</guid>
-      <description>
-
-&lt;p&gt;&amp;ldquo;&lt;code&gt;@property&lt;/code&gt; what is it and how does it help&amp;rdquo; is what I will be exploring in this blog.&lt;/p&gt;
+      <description>&lt;p&gt;&amp;ldquo;&lt;code&gt;@property&lt;/code&gt; what is it and how does it help&amp;rdquo; is what I will be exploring in this blog.&lt;/p&gt;
 
 &lt;p&gt;OOP&amp;rsquo;s best practices say to always use getters and setters. I will explain the reason for this in a bit.&lt;/p&gt;
 
-&lt;p&gt;First lets look at the code&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Animal:
-    def __init__(self, name):
-        self._name = name
-
-    @property
-    def name(self):
-        return self._name
-
-tiger = Animal(&amp;quot;tiger&amp;quot;)
-tiger.name
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;tiger.name&lt;/code&gt; will print the name of the animal, which in this case is &lt;strong&gt;tiger&lt;/strong&gt;. Now a question might arise asking, why property in the first place. Can&amp;rsquo;t
-I just use the below ?&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;self.name = name # In init function
-
-tiger.name
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To answer this question, we have to understand some properties of Object Oriented Programming. The property we are looking for is encapsulation.
-Encapsulation says that the internal state of an object should be restricted in how it is accessible to the outside world. This is achieved usually
-with getters and setters.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Animal:
-    def __init__(self):
-        self._name = None
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, val)
-        self._name = val
-
-tiger = Animal()
-tiger.name = &amp;quot;tigress&amp;quot; # Set the name of the animal.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Another use of property&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Processor:
-    def __init__(self, dictionary):
-        self.dictionary = dictionary
-
-    @property
-    def id(self):
-        return dictionary.get(&#39;id&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;What this allows us to do is to access &lt;code&gt;id&lt;/code&gt; as an  instance of the object instead of the usual function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dictionary = {
-    &amp;quot;id&amp;quot;: &amp;quot;381298&amp;quot;
-}
-processor = Processor(dictionary)
-processor.id # This prints the id of the processor.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If we didn&amp;rsquo;t use property the code will look like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Processor:
-    def __init__(self, dictionary):
-        self.dictionary = dictionary
-
-    def id(self):
-        return dictionary.get(&#39;id&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;dictionary = {
-    &amp;quot;id&amp;quot;: &amp;quot;381298&amp;quot;
-}
-processor = Processor(dictionary)
-processor.id() # Can be accessed as a function.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Getters and setters allows to modify the value of the attribute without having to change the code in all the places where it is being accessed.&lt;/p&gt;
-
-&lt;p&gt;Ok, we understand the use of getters and setters. Time to answer this question &amp;ldquo;But I still don&amp;rsquo;t get it why I should use property&amp;rdquo;.
-Lets take an example&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Cell(object):
-    . . .
-    def getvalue(self, obj):
-        &amp;quot;Recalculate cell before returning value&amp;quot;
-        self.recalc()
-        return obj._value
-    value = property(getvalue)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Example taken from &lt;a href=&#34;https://docs.python.org/2/howto/descriptor.html#properties&#34;&gt;python descriptor doc&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;What this achieves is whenever we access &lt;code&gt;new Cell().getvalue&lt;/code&gt; the method &lt;code&gt;self.recalc()&lt;/code&gt; is always called. Quoting the docs &amp;ldquo;Calling property() is a
-succinct way of building a data descriptor that triggers function calls upon access to an attribute&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;There is no way in python for restricting access to attributes. The clean way of achieving something similar is using property.&lt;/p&gt;
-
-&lt;h2 id=&#34;references:afb89f23fbf45b3afdea5ed4bc067698&#34;&gt;References&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://docs.python.org/3/howto/descriptor.html#properties&#34;&gt;https://docs.python.org/3/howto/descriptor.html#properties&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -134,150 +41,9 @@ succinct way of building a data descriptor that triggers function calls upon acc
       <pubDate>Tue, 04 Apr 2017 19:15:19 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/send_arp/</guid>
-      <description>
+      <description>&lt;p&gt;While casually browsing about ARP, I stumbled upon &lt;a href=&#34;https://github.com/k4m4/kickthemout&#34;&gt;kickthemout&lt;/a&gt; project on github. I decided to do something similar in &lt;a href=&#34;https://www.rust-lang.org/en-US/&#34;&gt;Rust&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;While casually browsing about ARP, I stumbled upon &lt;a href=&#34;https://github.com/k4m4/kickthemout&#34;&gt;kickthemout&lt;/a&gt; project on github. I decided to do something similar in &lt;a href=&#34;https://www.rust-lang.org/en-US/&#34;&gt;Rust&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some info about ARP.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Operates at the Data link layer in the OSI model.&lt;/li&gt;
-&lt;li&gt;It is used for resolution of Internet layer addresses into link layer addresses. (Mapping Ip address to Mac address).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Scanning rust crates.io I came across &lt;a href=&#34;https://github.com/libpnet/libpnet&#34;&gt;libpnet&lt;/a&gt; which allowed devs to do low level networking using Rust, which is
-perfect for the job.&lt;/p&gt;
-
-&lt;p&gt;So the goal was to be able to send 3 types of packets.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;ARP Request&lt;/li&gt;
-&lt;li&gt;ARP Reply&lt;/li&gt;
-&lt;li&gt;ARP Gratuitous Request&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I started looking at the examples provided in the repository. Well, it had only 2 examples (at the time of writing) which were not very useful. So I
-started checking their &lt;a href=&#34;https://octarineparrot.com/assets/libpnet/doc/pnet/&#34;&gt;doc&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I had to do these 2 things.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Hand craft the ARP packet.&lt;/li&gt;
-&lt;li&gt;Transmit the packet.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;As the first thing I sat down to figure out how to craft an ARP packet (Request/Reply.) Checking the docs, I understood that there is no straightforward way of doing this. There were 2 ways of doing it. Capture a packet, clone from it and then modify or the other solution was to hand craft the hex values.
-I decided to go with the 2nd solution, as I did not want to capture any packets.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct EthernetPacket&amp;lt;&#39;p&amp;gt; {
-    packet: &amp;amp;&#39;p [u8],
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ethernet header&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct Ethernet {
-    destination: MacAddr,
-    source: MacAddr,
-    ethertype: EtherType,
-    payload: Vec&amp;lt;u8&amp;gt;,
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;MacAddr `ff:ff:ff:ff:ff:ff` (6 octets)
-EtherType is used to indicate which protocol is encapsulated in the payload of the frame. ARP (0x0806)
-For detailed information on EtherTypes checkout this [doc](https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So the custom hex array looks like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;[
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // Destination mac address
-  0xce, 0xaf, 0x23, 0xde, 0x31, 0xae, // Source mac address
-  0x08, 0x06 // Ether type (ARP 0806)
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We have constructed only the ethernet header. The payload will hold the ARP header. Lets create it now.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct ArpPacket&amp;lt;&#39;p&amp;gt; {
-    packet: &amp;amp;&#39;p [u8],
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Arp header&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;pub struct Arp {
-    hardware_type: ArpHardwareType,
-    protocol_type: EtherType,
-    hw_addr_len: u8,
-    proto_addr_len: u8,
-    operation: ArpOperation,
-    sender_hw_addr: MacAddr,
-    sender_proto_addr: Ipv4Addr,
-    target_hw_addr: MacAddr,
-    target_proto_addr: Ipv4Addr,
-    payload: Vec&amp;lt;u8&amp;gt;,
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;hardware_type - (1) Ethernet [Refer](https://www.iana.org/assignments/arp-parameters/arp-parameters.xhtml#arp-parameters-2)
-protocol_type - Ether type (IPv4 0800).
-hw_addr_len - 6
-proto_addr_len - 4
-operation - There are 2 ArpOperations. Request and Reply.
-sender_hw_addr, target_hw_addr - mac address of source and destination.
-sender_proto_addr, target_proto_addr - IPv4 address of source and destination.
-payload - This can be ignored.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So the custom hex values look like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;[
-  0x00, 0x01, // hardware type
-  0x08, 0x00, // Ether type (IPv4)
-  0x06, // hardware address length
-  0x04, // protocol address length
-  0x00, 0x01, // Request(0x01)/Reply(0x02)
-  0xce, 0xaf, 0x23, 0xde, 0x31, 0xae, // sender hardware address (mac address)
-  0xc0, 0xa8, 0x00, 0x66, // Sender proto address Ipv4(192.168.0.102)
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // target hardware address (Broadcast)
-  0xc0, 0xa8, 0x00, 0x65 // Target proto address Ipv4(192.168.0.101)
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now that we have the packets ready, its time to transmit them. For transmission I am going to use &lt;code&gt;pnet::datalink&lt;/code&gt; which provides support for sending
-and receiving data link layer packets. We can send the packet using &lt;code&gt;send_to&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;p&gt;Everything looks good and we are able to send the packets. But there is a problem with this implementation. Since we are hardcoding all the hex values,
-we lose the ability of dynamic IP and mac values. So I went ahead and asked for help on &lt;a href=&#34;http://webchat.freenode.net/?channels=%23libpnet&#34;&gt;#libpnet freenode&lt;/a&gt; to find out if any other techniques existed. One of the &lt;a href=&#34;https://github.com/faern&#34;&gt;contributors&lt;/a&gt; suggested that I create a
-MutableEthernetPacket with a buffer initialized with zero&amp;rsquo;s. Once I have the mutable packet, I can just use the setters provided by the library.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let mut ethernet_buffer: Vec&amp;lt;u8&amp;gt; = (0..42).map(|_| 0x00).collect::&amp;lt;Vec&amp;lt;u8&amp;gt;&amp;gt;();
-
-let mut ethernet_packet = MutableEthernetPacket::new(&amp;amp;mut ethernet_buffer).unwrap();
-ethernet_packet.set_destination(target_mac);
-ethernet_packet.set_source(source_mac);
-ethernet_packet.set_ethertype(EtherTypes::Arp);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I did the same for arp packet using MutableArpPacket. Then this packet should be set as the payload of the above created mutable ethernet packet and the
-ethernet packet is transmitted. This worked perfectly !!&lt;/p&gt;
-
-&lt;h3 id=&#34;kick-someone-out-of-the-network:036866c73c60654e2b6fc04c62916ded&#34;&gt;Kick someone out of the network&lt;/h3&gt;
-
-&lt;p&gt;Source ip - Gateway ip
-Source mac - Your mac address
-Target ip - IP of the host you want to kick out.
-Target mac - Target mac address&lt;/p&gt;
-
-&lt;p&gt;To find the target mac, &lt;code&gt;arp -a&lt;/code&gt; (Displays the arp table). You should find an entry for the corresponding target ip. If it is not available, then ping
-the target ip first and then check the arp table. Also we have to send an ARP reply packet.&lt;/p&gt;
-
-&lt;p&gt;And there it is, we have it working. You can check out the project &lt;a href=&#34;https://github.com/Dineshs91/send-arp&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -287,51 +53,8 @@ the target ip first and then check the arp table. Also we have to send an ARP re
       
       <guid>http://dineshs91.github.io/blog/post/pi_1/</guid>
       <description>&lt;p&gt;It was more than a week, that I had a raspberry pi and did nothing with it (Other than the initial setup). I was looking to do
-something with it. Then I decided to write a bot that will build docker images and push it to docker registry.&lt;/p&gt;
-
-&lt;p&gt;The design goal was simple.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Check if any new tags were created (In github)&lt;/li&gt;
-&lt;li&gt;Notify about the same.&lt;/li&gt;
-&lt;li&gt;Build docker images and push them to docker registry (Dockerhub)&lt;/li&gt;
-&lt;li&gt;Notify when the images are pushed to dockerhub.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For most of the above steps, I used python&amp;rsquo;s subprocess module and for notification I used twilio.&lt;/p&gt;
-
-&lt;p&gt;The first step is a bit challenging, while all the others are pretty straightforward.&lt;/p&gt;
-
-&lt;p&gt;Why is the first one challenging ? Well how to know if a new tag was pushed, github hooks ? I didn&amp;rsquo;t want to use that solution, because
-it needs a server to do this. So I had to think of something else.&lt;/p&gt;
-
-&lt;p&gt;After a while of thinking, I came up with this. (Thanks to stackoverflow !!)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;git fetch --tags&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git rev-list --tags --max-count=1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git describe --tags rev_list&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Summarizing the steps above, fetch all the tags and get the latest tag from the list of tags. These commands we execute from shell.
-I used subprocess to do it from python. By this we have the latest tag with us.&lt;/p&gt;
-
-&lt;p&gt;Next we need to know the tag our bot processed recently so that we only process the new tags, that were not processed.
-For this, I write the processed tag to a file at &lt;code&gt;~/.docker-bot&lt;/code&gt;. Now all I have to do is check the file to see if the latest tag
-was processed.&lt;/p&gt;
-
-&lt;p&gt;Notification is very simple. I used twilio python library. For docker build images and push also is very straightforward. Just docker
-build and docker push will do.&lt;/p&gt;
-
-&lt;p&gt;For scheduling I am using cron, which is very reliable and just works.
-This is my cron expression&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;*/5 * * * * . $HOME/.profile; cd ~/Documents/developer/accounts; python ~/Documents/developer/docker-bot/main.py &amp;gt;&amp;gt; /var/log/docker-bot.log 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Some final thoughts. The reason I had to this is Docker hub supports automated builds, but it doesn&amp;rsquo;t support passing in some env variables or anything.
-So basically it is just docker build without any build arguments.&lt;/p&gt;
-</description>
+something with it. Then I decided to write a bot that will build docker images and push it to docker registry.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -340,56 +63,8 @@ So basically it is just docker build without any build arguments.&lt;/p&gt;
       <pubDate>Mon, 17 Oct 2016 01:50:11 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/rust_trial1/</guid>
-      <description>&lt;p&gt;I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.&lt;/p&gt;
-
-&lt;p&gt;I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&amp;rsquo;s ls (List files).
-So the program will just print the details of the files and directories with the path, size and modified time. Also display the total
-block size.&lt;/p&gt;
-
-&lt;p&gt;Here is a list of all the external packages I&amp;rsquo;ve used.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;colored&lt;/li&gt;
-&lt;li&gt;chrono&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;To get the total file bock size, I had to get all the files first using &lt;code&gt;std::fs&lt;/code&gt;. Then iterate through them to get the block size of
-each file and add them up to &lt;code&gt;file_block_count&lt;/code&gt; variable.&lt;/p&gt;
-
-&lt;p&gt;In rust if you iterate through an iterator, then it cannot be reused. So I had to get the files again. Iterate through them and get the
-following&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;File path&lt;/li&gt;
-&lt;li&gt;File size&lt;/li&gt;
-&lt;li&gt;File modified at datetime.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Getting file path and size are pretty straight forward. &lt;code&gt;file_path.display()&lt;/code&gt; gives the path name and &lt;code&gt;file_path.metadata().unwrap().len()&lt;/code&gt;
-gives the size of the file.&lt;/p&gt;
-
-&lt;p&gt;With the file modified datetime we have to convert into the required display format. This is where we need to use &lt;code&gt;chrono&lt;/code&gt;.
-I used &lt;code&gt;Local.timestamp(file_modified as i64, 0);&lt;/code&gt; to get the datetime in the local time zone and &lt;code&gt;format(&amp;quot;%h %d %H:%M&amp;quot;)&lt;/code&gt; for formatting the
-datetime.&lt;/p&gt;
-
-&lt;p&gt;I used &lt;code&gt;colored&lt;/code&gt; package to add terminal colors.&lt;/p&gt;
-
-&lt;p&gt;So the output looks like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;total  128
-1   ./.DS_Store      6148    Oct 29 21:46
-2   ./.git           510     Oct 30 21:37
-3   ./.gitignore     341     Oct 16 14:33
-4   ./Cargo.lock     4608    Oct 17 00:43
-5   ./Cargo.toml     133     Oct 17 00:43
-6   ./LICENSE        35141   Oct 16 14:33
-7   ./README.md      151     Oct 16 16:26
-8   ./src            136     Oct 16 14:33
-9   ./target         102     Oct 16 00:27
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Source code can be found &lt;a href=&#34;https://github.com/Dineshs91/rs-ls/&#34;&gt;here&lt;/a&gt;. This is a very trivial code to get started with rust.&lt;/p&gt;
-</description>
+      <description>I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.
+I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&amp;rsquo;s ls (List files). So the program will just print the details of the files and directories with the path, size and modified time. Also display the total block size.</description>
     </item>
     
     <item>
@@ -401,58 +76,8 @@ datetime.&lt;/p&gt;
       <description>&lt;p&gt;You have been working day in and day out. All your important documents are there in your hard disk.
 For most of us, ctrl + s (Save) is enough to save us from the trouble of having to deal with the loss of
 data. That&amp;rsquo;s bad, because you can still get into trouble. You might ask how, then picture this, what
-if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.&lt;/p&gt;
-
-&lt;p&gt;The question we have to ask ourselves is, are we prepared for the above scenarios ? If the answer is no, now
-is the time to change that.&lt;/p&gt;
-
-&lt;p&gt;I am going to explain the setup I&amp;rsquo;ve done in my laptop (Mac os x El Captain).&lt;/p&gt;
-
-&lt;p&gt;Its a 2 step process.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Sync with any of the cloud services like Google Drive or Dropbox. I use &lt;a href=&#34;https://github.com/emcrisostomo/fswatch&#34;&gt;fswatch&lt;/a&gt;
-to watch for changes in the directories I want to sync and use &lt;a href=&#34;https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-sync-sh&#34;&gt;sync.sh&lt;/a&gt;
-script to sync the directories with Google Drive. fswatch notifies if there are any changes in the
-directory and I use rsync to keep the directories in sync. This comes in very handy.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;rsync -a --delete &amp;quot;$my_dir&amp;quot; &amp;quot;$dest_dir&amp;quot;
-
--a (Archive and sync recursively.)
---delete (Delete files that are removed from the directories being watched.)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This frees from manually copying all your documents to Google Drive directory.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Create compressed tar files and put them in an external storage. This step is a manual one.
-You have to run the script whenever you want to take backup. You could use cron service though if you like to
-automate the process. This is the script that I use &lt;a href=&#34;https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-backup-sh&#34;&gt;backup.sh&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;**Backup**
-tar -zcvf &amp;quot;$ext_hard_disk_dir&amp;quot; --directory / --exclude=&#39;node_modules&#39; &amp;quot;$my_dir&amp;quot;
-
-$ext_hard_disk_dir is the destination directory where the archives will be stored.
-$my_dir is the directory which will be archived.
-
--z (Specify this option, if you want to compress the backup data.)
--v (Verbose)
-
-**Restore**
-Test the archive.
-tar -ztvf /archive/full-backup-02-March-2016.tar.gz
-
-tar -zxvf /archive/full-backup-02-March-2016.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;References:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/backup-and-restore.html&#34;&gt;linux-admin-made-easy&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.tldp.org/LDP/sag/html/backups.html&#34;&gt;Importance of backups&lt;/a&gt;&lt;/p&gt;
-</description>
+if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -463,30 +88,7 @@ tar -zxvf /archive/full-backup-02-March-2016.tar.gz
       <guid>http://dineshs91.github.io/blog/post/love_job/</guid>
       <description>&lt;p&gt;Work takes up a significant part of our lives. So shouldn&amp;rsquo;t we be loving our job ?&lt;/p&gt;
 
-&lt;p&gt;I would start this post by quoting Vivekananda&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Any fool can do what he loves, but only great men can love anything they work on.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;We all need some kind of a job to feed ourselves and our closed one&amp;rsquo;s. So we find a job
-that we don&amp;rsquo;t love, but we take it. This leads to a highly unsatisfied life.
-&lt;strong&gt;You are not only affecting your life, but you are affecting other&amp;rsquo;s life
-too&lt;/strong&gt;. You can try to find what you really love and go work on it. This
-is relatively easy, something that is widely believed in the western world. Most of the inspirational
-talks I&amp;rsquo;ve seen, speak about following your passion etc etc.&lt;/p&gt;
-
-&lt;p&gt;This is where Indian spirituality shines. The spiritual giants have said love your work, it doesn&amp;rsquo;t
-matter whether you are passionate about it or not. I strongly believe in this idea. This free&amp;rsquo;s you
-further from the attachment to work.&lt;/p&gt;
-
-&lt;p&gt;The goal of life is this, explore, experience and live every moment with happiness.
-Life is a gift, the best gift one can get.
-Say, if you get fired from the job that you love so much, its not just the job that you are losing,
-but you are losing your happiness too. The mantra for limitless happiness is &lt;strong&gt;love what you do&lt;/strong&gt;.
-If you are able to implement this perfectly, you will be happy unconditionally, because your happiness
-is not tied to any specific kind of work. You would have perfected the art of being happy.&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -495,81 +97,8 @@ is not tied to any specific kind of work. You would have perfected the art of be
       <pubDate>Sat, 20 Feb 2016 21:33:14 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/awesome_collections/</guid>
-      <description>
-
-&lt;p&gt;Here&amp;rsquo;s a list of awesome articles, podcasts and youtube talks.&lt;/p&gt;
-
-&lt;h1 id=&#34;podcasts:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;Podcasts&lt;/h1&gt;
-
-&lt;h4 id=&#34;functional-geekery-eric-smith-https-www-functionalgeekery-com-episode-37-eric-smith:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;https://www.functionalgeekery.com/episode-37-eric-smith/&#34;&gt;Functional Geekery - Eric Smith&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;OOP was developed on false assumptions.&lt;/p&gt;
-
-&lt;p&gt;New beginner&amp;rsquo;s to programming should not start with imperative programming.&lt;/p&gt;
-
-&lt;h4 id=&#34;functional-geekery-johnyy-winn-https-www-functionalgeekery-com-episode-34-johnny-winn:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;https://www.functionalgeekery.com/episode-34-johnny-winn/&#34;&gt;Functional Geekery - Johnyy Winn&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Tweet, blog about what you do.&lt;/p&gt;
-
-&lt;p&gt;The best way to learn a new language (Not a 1st one) is to rewrite a library you have known in a different language in
-the new language.&lt;/p&gt;
-
-&lt;h1 id=&#34;blogs:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;Blogs&lt;/h1&gt;
-
-&lt;h4 id=&#34;programming-and-human-factors-jeff-atwood-blog-codinghorror-com:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;blog.codinghorror.com&#34;&gt;Programming and human factors - Jeff Atwood&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Has a huge collection of posts focussing on the usability side of softwares and talks about people.
-Jeff Atwood is the cofounder of &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;StackOverflow&lt;/a&gt; and &lt;a href=&#34;http://discourse.org/&#34;&gt;Discourse&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;brain-food-for-hackers-gustavo-duarte-http-duartes-org-gustavo-blog:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://duartes.org/gustavo/blog/&#34;&gt;Brain food for hackers - Gustavo Duarte&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;An excellent systems/hardware blog. If you are a kernel hacker or just curious about internal workings, you
-will love this blog.&lt;/p&gt;
-
-&lt;p&gt;Very detailed, low level explanation with illustrations.&lt;/p&gt;
-
-&lt;h4 id=&#34;brendan-gregg-senior-performance-architect-http-www-brendangregg-com:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://www.brendangregg.com/&#34;&gt;Brendan Gregg - Senior performance architect&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;He is one of the leading experts on DTrace and author of books on DTrace and systems performance.
-Checkout his &lt;a href=&#34;http://www.brendangregg.com/blog/index.html&#34;&gt;blog&lt;/a&gt; posts on Linux performance.&lt;/p&gt;
-
-&lt;h4 id=&#34;paul-graham-cofounder-of-ycombinator-http-www-paulgraham-com-articles-html:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://www.paulgraham.com/articles.html&#34;&gt;Paul Graham - Cofounder of YCombinator&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Known for his work on Lisp and for co-founding Y Combinator seed capital firm.
-Good collection of articles, mostly on startups.&lt;/p&gt;
-
-&lt;h1 id=&#34;articles-papers-and-books:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;Articles, papers and books&lt;/h1&gt;
-
-&lt;h4 id=&#34;peter-landin-the-next-700-programming-languages-http-www-cs-cmu-edu-crary-819-f09-landin66-pdf:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://www.cs.cmu.edu/~crary/819-f09/Landin66.pdf&#34;&gt;Peter landin - The next 700 programming languages&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Mentioned by Eric Smith in Functional Geekery podcast.&lt;/p&gt;
-
-&lt;h4 id=&#34;how-to-design-programs-http-www-htdp-org:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://www.htdp.org/&#34;&gt;How to design programs&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Mentioned by Eric Smith in Functional Geekery podcast.&lt;/p&gt;
-
-&lt;h4 id=&#34;john-backus-can-programming-be-liberated-from-the-von-neumann-style-http-worrydream-com-refs-backus-canprogrammingbeliberated-pdf:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://worrydream.com/refs/Backus-CanProgrammingBeLiberated.pdf&#34;&gt;John Backus - Can programming be liberated from the Von Neumann Style&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4 id=&#34;peter-norvig-teach-yourself-programming-in-ten-years-http-norvig-com-21-days-html:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://norvig.com/21-days.html&#34;&gt;Peter Norvig - Teach Yourself Programming in Ten Years&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;In this article, Peter Norvig talks about, why everyone is in such a rush ? and how 10 years can help to become a great programmer.&lt;/p&gt;
-
-&lt;h4 id=&#34;eric-s-raymond-how-to-become-a-hacker-http-www-catb-org-esr-faqs-hacker-howto-html:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://www.catb.org/esr/faqs/hacker-howto.html&#34;&gt;Eric S Raymond - How to become a hacker&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;This is an excellent book, which clarifies the meaning of the word &amp;lsquo;Hacker&amp;rsquo; and how you can become one.&lt;/p&gt;
-
-&lt;h4 id=&#34;alan-j-perlis-epigrams-on-programming-http-pu-inf-uni-tuebingen-de-users-klaeren-epigrams-html:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&#34;&gt;Alan J.Perlis - Epigrams on programming&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h1 id=&#34;videos:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;Videos&lt;/h1&gt;
-
-&lt;h4 id=&#34;philip-roberts-what-the-heck-is-event-loop-https-www-youtube-com-watch-v-8aghzqkofbq:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=8aGhZQkoFbQ&#34;&gt;Philip Roberts - What the heck is event loop&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Must watch video if you are a js dev.&lt;/p&gt;
-
-&lt;h4 id=&#34;linus-torvalds-git-version-control-system-https-www-youtube-com-watch-v-4xpnkhjaok8:0b6277771390054bd4f81dbe6f21b3d1&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=4XpnKHJAok8&#34;&gt;Linus Torvalds - GIT version control system&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;In this video Linus explains the motivation behind GIT and how it is different from existing systems.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Here&amp;rsquo;s a list of awesome articles, podcasts and youtube talks.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -580,26 +109,8 @@ Good collection of articles, mostly on startups.&lt;/p&gt;
       <guid>http://dineshs91.github.io/blog/post/tars_bot/</guid>
       <description>&lt;p&gt;In one of my earlier &lt;a href=&#34;http://dineshs91.github.io/blog/post/greenkeeper/&#34;&gt;posts&lt;/a&gt; I had written about &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt; the app that automates dependency updates. I will start with a brief explanation about it, it will send you a pull request(PR) everytime
 there is a newer version of your depenedencies available, that are specified in package.json. Then you can decide to merge the PR or not.
-That&amp;rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&amp;rsquo;s.&lt;/p&gt;
-
-&lt;p&gt;I thought I could automate that part too. This is were &lt;a href=&#34;https://github.com/Dineshs91/tars&#34;&gt;tars&lt;/a&gt; comes into picture. Yes, the name was
-inspired from Interstellar. We all love tars right!. I wrote this bot to help me with my &lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;devlog&lt;/a&gt;
-project.&lt;/p&gt;
-
-&lt;p&gt;It follows a 3 step process. Check, merge and delete. First step, fetch all open PR&amp;rsquo;s and see which one&amp;rsquo;s are opened by GREENKEEPER_BOT.
-We only care about the one&amp;rsquo;s opened by it. Then we check the CI status of the PR, whether the tests are passing
-or failing. In the next step, if the tests are passing, tars merge&amp;rsquo;s the PR. If PR cannot be merged automatically, it creates a comment with
-a message saying &lt;em&gt;This pull request cannot be merged by me&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;After successful merging of PR, it deletes the corresponding branch. Greenkeeper opens a branch with the PR. So after merging,
-the branch is no longer needed. Tars removes the branch once the PR is merged succesfully into master branch.&lt;/p&gt;
-
-&lt;p&gt;The next part is to, set up the program to run as a job. You can schedule a cron job to make the process completely automatic.
-You can use &lt;a href=&#34;http://crontab.guru/&#34;&gt;crontab.guru&lt;/a&gt; which is a simple editor for cron schedule expressions.&lt;/p&gt;
-
-&lt;p&gt;Bots are fascinating right, it&amp;rsquo;s an opportunity for us to just sit back, and watch things happen. Why not write your own bot ?
-I am sure it will be fun.&lt;/p&gt;
-</description>
+That&amp;rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&amp;rsquo;s.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -610,34 +121,8 @@ I am sure it will be fun.&lt;/p&gt;
       <guid>http://dineshs91.github.io/blog/post/birthday_wisher/</guid>
       <description>&lt;p&gt;It was a rainy weekend at my place. I was thinking how to make best use of that time and something crossed
 my mind. What if a bot, can send birthday wishes to my friends on Facebook ? It would save me of all the regrets I have
-had in the past. I said to myself &lt;strong&gt;challenge accepted&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;I have done a similar kind of project in the past at work, where we had to get the gift card balances of 5 gift cards.
-I used python urllib and re(regex) to accomplish the task. Hit the url with urllib2 and parse the balances from the
-response using regex. But this time, I wanted to try a different approach. I guessed that the previous approach wouldn&amp;rsquo;t
-work so well. So, how do I do this ?&lt;/p&gt;
-
-&lt;p&gt;I had some experience with &lt;a href=&#34;http://www.seleniumhq.org/&#34;&gt;selenium&lt;/a&gt; (It is for automating web applications for testing purposes), so I wanted to give it a try.
-Java ? Wait, who am I kidding ? No way. I went with &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;node.js&lt;/a&gt; (Seemed better, lot better). The thought of opening an IDE, waved me off of java.
-So I bootstrapped a small code in node.js. I had to choose between &lt;a href=&#34;https://angular.github.io/protractor/#/&#34;&gt;protractor&lt;/a&gt;
-and &lt;a href=&#34;http://webdriver.io/&#34;&gt;webdriverio&lt;/a&gt;. I had used protractor in my &lt;a href=&#34;https://github.com/dineshs91/devlog&#34;&gt;devlog&lt;/a&gt; project,
-but it works only with angular (You can make it work for non-angular projects too, but with some tweaks). So I decided to
-take webdriverio for a spin and it did the job quite well.&lt;/p&gt;
-
-&lt;p&gt;Having chosen the framework, it was time to write the code. One weird thing I noticed in facebook is that even the ID
-attribute of an element was not consistent. It kept changing, so you can&amp;rsquo;t use them in selectors. I completed the code
-in 10-20 Lines. Selenium invokes a browser, does the actions specified in the code and quits. Now we don&amp;rsquo;t want a browser
-show up on the screen, when the bot works right. This is where &lt;a href=&#34;http://phantomjs.org/&#34;&gt;phantomjs&lt;/a&gt; shines. It is a headless
-browser for testing purposes.&lt;/p&gt;
-
-&lt;p&gt;There was one challenge I faced, which was synchronising the 2 steps. step 1 start the selenium standalone server and step 2
-execute the webdriverio code. I solved this problem using event emitter. So when selenium server starts a &lt;code&gt;start&lt;/code&gt; event
-is emitted and there is a listener, which listens to this event and starts the webdriverio execution. Having solved the main
-problem, I did some final refinements and that&amp;rsquo;s it. The code is ready. Rock and roll.&lt;/p&gt;
-
-&lt;p&gt;You can find the source &lt;a href=&#34;https://github.com/Dineshs91/fb-birthday-wisher&#34;&gt;here&lt;/a&gt;. And I forgot to mention that, the program
-randomly chooses a wish from an array of wishes in the code.&lt;/p&gt;
-</description>
+had in the past. I said to myself &lt;strong&gt;challenge accepted&lt;/strong&gt;.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -646,67 +131,8 @@ randomly chooses a wish from an array of wishes in the code.&lt;/p&gt;
       <pubDate>Sat, 07 Nov 2015 14:08:48 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/projects/</guid>
-      <description>
-
-&lt;p&gt;Projects I&amp;rsquo;ve worked on in open source world.&lt;/p&gt;
-
-&lt;h2 id=&#34;own-projects:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Own projects&lt;/h2&gt;
-
-&lt;h4 id=&#34;devlog-https-github-com-dineshs91-devlog:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/devlog&#34;&gt;Devlog&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Devlog is a cross-platform desktop application which helps you keep track of your notes and ideas in a
-simple yet intutive way.&lt;/p&gt;
-
-&lt;h4 id=&#34;tars-https-github-com-dineshs91-tars:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/tars&#34;&gt;Tars&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Tars is an automated integration bot, which merges the pull request raised by
-&lt;a href=&#34;https://github.com/greenkeeperio-bot&#34;&gt;greenkeeper-io bot&lt;/a&gt;.
-This is helpful to keep the project dependencies upto date. It merges the PR if and only if the tests
-pass.&lt;/p&gt;
-
-&lt;h4 id=&#34;fb-birthday-wisher-https-github-com-dineshs91-fb-birthday-wisher:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/fb-birthday-wisher&#34;&gt;fb-birthday-wisher&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Send your birthday wishes, to your friends on Facebook automatically, so you never have to miss wishing your best one&amp;rsquo;s.
-It makes use of selenium via webdriverio, to automate the process. Phantomjs is the hero here, which is a headless browser.&lt;/p&gt;
-
-&lt;h4 id=&#34;look-up-https-github-com-dineshs91-look-up:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/look-up&#34;&gt;Look-up&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Look-up is a python command line app to know the meaning of a word (Dictionary).&lt;/p&gt;
-
-&lt;h4 id=&#34;scrapy-api-https-github-com-dineshs91-scrapy-api:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/Dineshs91/scrapy-api&#34;&gt;Scrapy-api&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Scrapy api leverages &lt;a href=&#34;https://github.com/scrapy/scrapy&#34;&gt;scrapy&lt;/a&gt; to create unofficial api&amp;rsquo;s for
-websites. It&amp;rsquo;s written in python.&lt;/p&gt;
-
-&lt;h2 id=&#34;contributed-projects:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Contributed projects&lt;/h2&gt;
-
-&lt;h4 id=&#34;youtube-dl-https-github-com-rg3-youtube-dl:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/rg3/youtube-dl&#34;&gt;Youtube-dl&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Youtube-dl is a video extractor and supports upto 250+ sites. Also supports downloading thumbnails,
-subtitles, audio etc.&lt;/p&gt;
-
-&lt;p&gt;Wrote an extractor for rte.ie site, to download videos.
-Fixed a small bunch of bugs.&lt;/p&gt;
-
-&lt;h4 id=&#34;scrapy-https-github-com-scrapy-scrapy:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/scrapy/scrapy&#34;&gt;Scrapy&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Scrapy is a web scraping library written in python.&lt;/p&gt;
-
-&lt;p&gt;Added zsh auto command completion.&lt;/p&gt;
-
-&lt;h4 id=&#34;wappalyzer-https-github-com-aliasio-wappalyzer:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/AliasIO/Wappalyzer&#34;&gt;Wappalyzer&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Added code for detecting &lt;a href=&#34;https://github.com/Semantic-Org/Semantic-UI&#34;&gt;Semantic-ui&lt;/a&gt; to wappalyzer browser
-plugin for uncovering technologies used in websites.&lt;/p&gt;
-
-&lt;h4 id=&#34;cargo-https-github-com-rust-lang-cargo:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;&lt;a href=&#34;https://github.com/rust-lang/cargo&#34;&gt;Cargo&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;Cargo is &lt;a href=&#34;https://github.com/rust-lang/rust&#34;&gt;Rust&amp;rsquo;s&lt;/a&gt; package manager.Rust is a fast systems programming
-language that guarantees memory safety and offers painless concurrency.&lt;/p&gt;
-
-&lt;p&gt;Added code to make lib name optional in toml file.
-Added uninstall target in makefile.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Projects I&amp;rsquo;ve worked on in open source world.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -715,108 +141,9 @@ Added uninstall target in makefile.&lt;/p&gt;
       <pubDate>Sun, 11 Oct 2015 10:36:21 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/pip/</guid>
-      <description>
-
-&lt;p&gt;Packaging and distributing in python is a bit difficult. &lt;a href=&#34;https://pypi.python.org/&#34;&gt;PyPI&lt;/a&gt;, the python package index is the most common
-one. I will explain step by step, how to upload your package to PyPI.&lt;/p&gt;
-
-&lt;h2 id=&#34;setup-file:925515232cb73ab116c2825cf20513b1&#34;&gt;Setup file&lt;/h2&gt;
-
-&lt;p&gt;The first thing is to create a setup.py file in the root of your project.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from setuptools import setup
-
-setup(
-    name = &amp;quot;project&amp;quot;,
-    version = &amp;quot;0.1.0&amp;quot;,
-    author = &amp;quot;author name&amp;quot;,
-    author_email = &amp;quot;author@gmail.com&amp;quot;,
-    description = (&amp;quot;Description of the package&amp;quot;),
-    license = &amp;quot;MIT&amp;quot;,
-    keywords = &amp;quot;keywords&amp;quot;,
-    url = &amp;quot;http://url-of-project/&amp;quot;,
-    packages = [&#39;packages&#39;],
-    long_description = &amp;quot;Provide a detailed explanation of your &amp;quot;\
-                       &amp;quot;project and how it can be used&amp;quot;,
-    install_requires = [
-        &amp;quot;click&amp;gt;=5.0&amp;quot;,
-        &amp;quot;pygments==2.0.2&amp;quot;
-    ],
-    entry_points = {
-        &#39;console_scripts&#39;: [
-            &#39;project=project:main&#39;
-        ],
-    }
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is a template for setup.py. Just fill in your information like name, email, project description etc.
-Mention all your project dependencies in &lt;code&gt;install_requires&lt;/code&gt; section. You also have to provide the entry_point
-for your program. You can do that with &lt;code&gt;entry_points&lt;/code&gt; section.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;project=project.main&lt;/code&gt;
-project is the name of the binary. Project in &lt;code&gt;project.main&lt;/code&gt; is the package name and &lt;code&gt;main&lt;/code&gt; is the name of
-the function to be called. So this will be the first function, that python calls.&lt;/p&gt;
-
-&lt;h2 id=&#34;test-the-package-locally:925515232cb73ab116c2825cf20513b1&#34;&gt;Test the package locally&lt;/h2&gt;
-
-&lt;p&gt;Once you are done with setup, we can generate the distributable file.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ python setup.py sdist&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This command generates the distributable zip file inside &lt;code&gt;dist/&lt;/code&gt; directory.&lt;/p&gt;
-
-&lt;p&gt;Extract the zip file, that is present in dist directory and cd into it.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ python setup.py install&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This command installs your package locally. You can do this to verify if your setup is correct or not. If setup.py is
-correct then the local install works fine.&lt;/p&gt;
-
-&lt;h2 id=&#34;register-with-pypi:925515232cb73ab116c2825cf20513b1&#34;&gt;Register with PyPI&lt;/h2&gt;
-
-&lt;p&gt;To upload packages to PyPI, you have to be registered with them. Its simple, you can do it from the command line itself.
-Run the below command.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ python setup.py register&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Here you can register as a new user. Provide your username, email and password and you&amp;rsquo;re done. In this step, you will
-register yourself and not the package.&lt;/p&gt;
-
-&lt;p&gt;Next step is to register your package.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ python setup.py register&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This time, choose login as existing user. If you get Server response (200): OK, then your project is registered succesfully.
-Sometimes you might get the below error.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Registering lookup to http://pypi.python.org/pypi
-Server response (403): You are not allowed to store &#39;project&#39; package information&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Check if there is any existing project in PyPI with the same name as your project.
-If yes, then you have to rename your project. After making the necessary changes register again (Run the command again).&lt;/p&gt;
-
-&lt;h2 id=&#34;upload:925515232cb73ab116c2825cf20513b1&#34;&gt;Upload&lt;/h2&gt;
-
-&lt;p&gt;Before running the upload command, you have to create &lt;code&gt;~/.pypirc&lt;/code&gt; file&lt;/p&gt;
-
-&lt;p&gt;Contents of .pypirc&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[server-login]
-username:username
-password:password&amp;lt;Plain text&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After creating the file, run the following command&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ python setup.py sdist upload&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This will generate the distributable and uploads it to PyPI. If everything goes well you will see
-&lt;code&gt;Server response (200): OK&lt;/code&gt; on your terminal.&lt;/p&gt;
-
-&lt;p&gt;You have successfully uploaded your package to PyPI. Next time you can skip the user registration. No need to register
-again, you can use your existing credentials.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Packaging and distributing in python is a bit difficult. &lt;a href=&#34;https://pypi.python.org/&#34;&gt;PyPI&lt;/a&gt;, the python package index is the most common
+one. I will explain step by step, how to upload your package to PyPI.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -828,49 +155,7 @@ again, you can use your existing credentials.&lt;/p&gt;
       <description>&lt;p&gt;Meet &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt;, the app that automates dependency updates and notifies you of build failures
 so you can spend your development time actually making things.&lt;/p&gt;
 
-&lt;p&gt;So, what exactly is greenkeeper ?&lt;/p&gt;
-
-&lt;p&gt;If you have worked on any node.js project, then you probably know how painful it is, to manage all the dependencies.
-This is the problem that greenkeeper is trying to address.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Getting started&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Setting up greenkeeper is very simple. Just a few commands and clicks, and you are good to go.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ npm install -g greenkeeper&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ greenkeeper login&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://dineshs91.github.io/blog/images/greenkeeper/login.png&#34; alt=&#34;login&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This will open a browser and asks you to log in to GitHub. By the way, that&amp;rsquo;s a cool logo.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://dineshs91.github.io/blog/images/greenkeeper/github.png&#34; alt=&#34;github&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Once you authorize the application, you will get the successful message in terminal.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://dineshs91.github.io/blog/images/greenkeeper/done.png&#34; alt=&#34;done&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ greenkeeper enable&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This will read all your repositories and enables the applications which are supported by it.&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s it. It&amp;rsquo;s easy right. Just 3 steps and we are all set.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Let the magic begin&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;After you have done the setup, sit back and wait for the PR from greenkeeper.&lt;/p&gt;
-
-&lt;p&gt;The PR looks like this.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://dineshs91.github.io/blog/images/greenkeeper/pull_request.png&#34; alt=&#34;pull request&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You can review the PR and take the necessary action. The awesome thing is if you are using travis-ci, then
-the PR is run on it, so you can know if it breaks anything. Cool right.&lt;/p&gt;
-
-&lt;p&gt;It really helps developers in managing their dependencies. This is a must if you are developing node.js apps.
-They have both free and paid plans. Pay a visit to their &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;site&lt;/a&gt; to know more.&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -880,69 +165,8 @@ They have both free and paid plans. Pay a visit to their &lt;a href=&#34;http://
       
       <guid>http://dineshs91.github.io/blog/post/angular_index/</guid>
       <description>&lt;p&gt;ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
-object in the array.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;div ng-repeat=&amp;quot;log in logs&amp;quot;&amp;gt;
-    &amp;lt;span class=&amp;quot;remove&amp;quot; ng-click=&amp;quot;remove($index)&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
-&amp;lt;/div&amp;gt;
-
-
-$scope.remove = function($index) {
-    // Code for removing log
-    remove($scope.logs[$index]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above code snippet, works fine for most of the scenarios. But the moment, we start to use orderBy or filter in ng-repeat,
-things start to break. Why does it break ?&lt;/p&gt;
-
-&lt;p&gt;It breaks because $index gives the index from the origin array &lt;code&gt;logs&lt;/code&gt;. It doesn&amp;rsquo;t work on filtered or ordered logs, but
-works on the original array.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;logs = [
-    &#39;log1&#39;: {
-        timestamp: 123456
-    },
-    &#39;log2&#39;: {
-        timestamp: 123499
-    }
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If an orderBy is enforced (Descending order), this is what we get after orderBy&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;logs = [
-    &#39;log2&#39;: {
-        timestamp: 123499
-    },
-    &#39;log1&#39;: {
-        timestamp: 123456
-    },
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now if you use $index to find the index of &lt;strong&gt;log2&lt;/strong&gt;, it gives 0 (Indexing starts from 0) whereas it should have been 1,
-because 1 is the index of &lt;strong&gt;log2&lt;/strong&gt; in the original logs array. If you use &lt;code&gt;$scope.logs[$index]&lt;/code&gt; it will select &lt;strong&gt;log1&lt;/strong&gt; not &lt;strong&gt;log2&lt;/strong&gt;.
-But you will be under the impression, that you have selected &lt;strong&gt;log2&lt;/strong&gt;.
-From the above example, its clear what is the problem.&lt;/p&gt;
-
-&lt;p&gt;So, how to overcome this ?
-Good question, there is an easy solution.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;div ng-repeat=&amp;quot;log in logs&amp;quot;&amp;gt;
-    &amp;lt;span class=&amp;quot;remove&amp;quot; ng-click=&amp;quot;remove(log)&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
-&amp;lt;/div&amp;gt;
-
-$scope.remove = function(log) {
-    // Code for removing log
-    var index = $scope.logs.indexOf(log);
-    remove($scope.logs[index]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Instead of passing $index into the function, pass the object itself and use &lt;code&gt;indexOf&lt;/code&gt; to get the index, which returns
-index 1 for &lt;strong&gt;log2&lt;/strong&gt;, since indexOf &lt;strong&gt;log2&lt;/strong&gt; in original logs is 1.&lt;/p&gt;
-</description>
+object in the array.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -951,64 +175,7 @@ index 1 for &lt;strong&gt;log2&lt;/strong&gt;, since indexOf &lt;strong&gt;log2&
       <pubDate>Thu, 24 Sep 2015 09:14:08 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/custom_titlebar/</guid>
-      <description>&lt;p&gt;In this post, I am going to show you how to create a custom titlebar for your nw.js app. If you haven&amp;rsquo;t heard of nw.js, check it out
-&lt;a href=&#34;https://github.com/nwjs/nw.js&#34;&gt;here&lt;/a&gt;. It enables a new way of writing desktop applications with all web technologies.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s answer a simple question. &lt;strong&gt;Why do we need a custom titlebar ?&lt;/strong&gt; Because it&amp;rsquo;s better than the default one and it looks
-the &lt;strong&gt;same across different platforms&lt;/strong&gt;. Default titlebar looks different, on different operating systems.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Devlog with custom titlebar&lt;/strong&gt;
-&lt;img src=&#34;http://dineshs91.github.io/blog/images/custom_titlebar/custom titlebar.png&#34; alt=&#34;custom titlebar&#34; /&gt;
-&lt;strong&gt;And with default one.&lt;/strong&gt;
-&lt;img src=&#34;http://dineshs91.github.io/blog/images/custom_titlebar/default titlebar.png&#34; alt=&#34;default titlebar&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Custom titlebar looks cool right ?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Let&amp;rsquo;s get started.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;The first thing we do is, we disable the default titlebar.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot;window&amp;quot;: {
-  &amp;quot;toolbar&amp;quot;: false,
-  &amp;quot;frame&amp;quot;: false
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To do that, make the &lt;strong&gt;frame&lt;/strong&gt; and &lt;strong&gt;toolbar&lt;/strong&gt; name false in package.json. This will remove the frame, and now the window becomes
-frameless.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;After the first step, we will notice that the window is frameless now and we will not be able to drag the
-application anymore.&lt;/p&gt;
-
-&lt;p&gt;To make the whole window draggable, add style &lt;code&gt;-webkit-app-region: drag&lt;/code&gt; to body tag.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;body style=&amp;quot;-webkit-app-region: drag&amp;quot;&amp;gt;
-    ...
-&amp;lt;/body&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or we can make a particular region draggable, by adding style &lt;code&gt;-webkit-app-region: drag&lt;/code&gt; to that element.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;titlebar&amp;quot; style=&amp;quot;-webkit-app-region: drag&amp;quot;&amp;gt;
-    ...
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, our application is draggable.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Next thing, we add the window buttons (close, minimize and maximize)&lt;/p&gt;
-
-&lt;p&gt;For buttons, I&amp;rsquo;ve used semantic-ui &lt;a href=&#34;http://semantic-ui.com/elements/label.html#circular&#34;&gt;labels&lt;/a&gt; for devlog.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;OS X style buttons&lt;/strong&gt;
-&lt;img src=&#34;http://dineshs91.github.io/blog/images/custom_titlebar/window buttons.png&#34; alt=&#34;Alt text&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Though it&amp;rsquo;s not perfect, it does the job well.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;That&amp;rsquo;s it, we have successfully created a custom titlebar for our nw.js application. Go ahead and create awesome titlebars for your apps.&lt;/p&gt;
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -1017,35 +184,61 @@ application anymore.&lt;/p&gt;
       <pubDate>Sun, 09 Aug 2015 21:48:45 +0530</pubDate>
       
       <guid>http://dineshs91.github.io/blog/post/myself/</guid>
-      <description>&lt;p&gt;I am a self taught programmer. It started out as a journey to explore the world of computers, the digital world. I started off with the fundamentals. I can say that my entire learning was a fruit of all the questions I’ve asked myself. Questions, &lt;strong&gt;&lt;em&gt;Like how internet works ?&lt;/em&gt;&lt;/strong&gt; I started programming just to answer this question &lt;strong&gt;&lt;em&gt;“How does a c program make a computer do some work?”&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;I am a self taught programmer. It started out as a journey to explore the world of computers, the digital world. I started off with the fundamentals. I can say that my entire learning was a fruit of all the questions I’ve asked myself. Questions, &lt;strong&gt;&lt;em&gt;Like how internet works ?&lt;/em&gt;&lt;/strong&gt; I started programming just to answer this question &lt;strong&gt;&lt;em&gt;“How does a c program make a computer do some work?”&lt;/em&gt;&lt;/strong&gt;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Functional programming in python</title>
+      <link>http://dineshs91.github.io/blog/post/functional_programming_python/</link>
+      <pubDate>Sun, 28 Jun 2015 16:46:33 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/functional_programming_python/</guid>
+      <description>&lt;p&gt;Python offers some good functions to the developers to write functional like code. But their use is not
+recommended as it reduces code readability. They may come handy in some places though.
 
-&lt;blockquote&gt;
-&lt;p&gt;Every moment is a learning opportunity.&lt;/p&gt;
-&lt;/blockquote&gt;
+This is an example program showing the use of functional concepts in python.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Migrating to hugo</title>
+      <link>http://dineshs91.github.io/blog/post/welcome/</link>
+      <pubDate>Sun, 28 Jun 2015 00:09:45 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/welcome/</guid>
+      <description>Migrating to hugo based blog. I am super exited to be using hugo, for my blog. The reason I had to quit tumblr was due to missing syntax highlighting support. Moreover hugo is open source and that itself is a great motivation for me to try it out. I will be moving all my blogs to hugo, over the coming weeks.</description>
+    </item>
+    
+    <item>
+      <title>How it all began with devlog</title>
+      <link>http://dineshs91.github.io/blog/post/why_devlog/</link>
+      <pubDate>Wed, 03 Jun 2015 19:38:22 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/why_devlog/</guid>
+      <description>&lt;p&gt;Our &lt;strong&gt;imagination&lt;/strong&gt; is a fantastic machine, which throws at us amazing idea’s. But our educated mind, discards it obviously (It&amp;rsquo;s not practical it says). The best thing to do is, to write down that idea as soon as it comes out, otherwise the evil mind will wipe it off. Next question, where do i write it ? Almost all the existing platforms are online, but i don’t want this idea to be visible to the public (Not yet !). This is something that is very close to us and it should stay that way for sometime, before making a public debut.
 
-&lt;p&gt;In schools and colleges they’ve always taught us how to write c program in an editor, then compile and run. But I wasn’t able to connect the dots. How could this be making a computer work? I used to think. I found the answer to this. It was &lt;a href=&#34;https://en.wikipedia.org/wiki/Borland_Turbo_C&#34;&gt;Turbo C&lt;/a&gt;, which by providing user friendliness was hiding something. Only after I used &lt;a href=&#34;https://gcc.gnu.org/&#34;&gt;gcc&lt;/a&gt;, I understood the process. There can be two sides, one is user friendliness and the other is transparency. Take the example of windows and linux, windows is user friendly but hides a lot about what’s happening inside. But linux is very transparent in terms of what is happening. You can see the code for yourself. This is one of the reason’s that made me believe “ok C program can make computer do things”. I never said no to anything related to computer after that.&lt;/p&gt;
+The crazy internet world. No matter, which website we land on, it asks us to login. There are some sites where it is not necessary, but we definitely get the idea behind all of this. &lt;strong&gt;&lt;em&gt;Can we trust these sites ?&lt;/em&gt;&lt;/strong&gt; So the platform should not be an online one. An online platform is not all needed, for this purpose.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How a programmer feels</title>
+      <link>http://dineshs91.github.io/blog/post/programmer_feels/</link>
+      <pubDate>Sat, 28 Mar 2015 16:22:58 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/programmer_feels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How to tap our natural instincts to succeed</title>
+      <link>http://dineshs91.github.io/blog/post/natural_instincts/</link>
+      <pubDate>Tue, 10 Mar 2015 20:44:03 +0530</pubDate>
+      
+      <guid>http://dineshs91.github.io/blog/post/natural_instincts/</guid>
+      <description>&lt;p&gt;We human beings have a natural tendency of wanting more. Confused ? ok, let me explain.&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;The positive and negative with computer is they do what we program them to do.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I started with GUI programming in &lt;a href=&#34;http://www.gtk.org/&#34;&gt;GTK&lt;/a&gt;. No wonder I started with GUI, as I was a windows user back then. After a couple of months I replaced windows with ubuntu. Using linux was very different. It gave me the feeling of a hacker. Typing commands in console, I felt like, I was actually interacting with the computer. Suddenly I felt empowered. I started learning about networking. Wireshark, tcpdump, airmon-ng using these tools I got to know what happens behind the scene. So I learnt some things about networking, which previously, I took for granted.
-One day when I was using this tool &lt;a href=&#34;http://www.secdev.org/projects/scapy/&#34;&gt;scapy&lt;/a&gt;, I got very much interested in &lt;a href=&#34;https://www.python.org/&#34;&gt;python&lt;/a&gt;. So I started learning it. The name was also very cool. It was very easy to learn. I opened &lt;a href=&#34;https://docs.python.org/2/&#34;&gt;official docs&lt;/a&gt; in browser and in terminal I opened python, and started typing commands. Actually I was programming Interactively. Then I started out with Interview Street. It is a platform where you can solve programming challenges. It was fascinating. Later Interview Street became &lt;a href=&#34;https://www.hackerrank.com/&#34;&gt;Hackerrank&lt;/a&gt;. By solving those challenges, I got better at the way I think. I still solve challenges in Hackerrank. It’s good for my mind.&lt;/p&gt;
-
-&lt;p&gt;Then I got to know about &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&lt;/a&gt; and &lt;a href=&#34;https://github.com/&#34;&gt;github&lt;/a&gt;. It was intriguing, to know how github works. Distributed collaboration using git, remarkable.
-Open source is a world that is always special to me.
-All I understood was that I can learn things fast.&lt;/p&gt;
-
-&lt;p&gt;My brother was doing MBA in Information security at that time. So I got to know about Nmap, Netcat, snort, nessus, rainbow tables etc. I configured snort in my laptop and also wrote a simple plugin for nessus.&lt;/p&gt;
-
-&lt;p&gt;Programming made me confident, I had gone through one of the toughest times in my life without a lot of pain because of programming.
-It was so addictive. I was very much in love with it, so much that I wasn’t thinking of anything else. It made me believe that I can do things.
-Actual things that can be useful to others. Above all, it makes me very happy. It changed the way I think. I started to approach things in an efficient way, Thanks to programming.
-I am very grateful to the community. I have never seen anything like this before. Great pioneers are part of it.&lt;/p&gt;
-
-&lt;p&gt;That feeling you get when you break barriers, when you achieve something which you thought was impossible, that particular moment, that moment of realisation, that moment of innovation, is the best moment someone could ever have.
-By programming I got to experience what that&amp;rsquo;s like. Once you get the taste of it, there&amp;rsquo;s no stopping you.&lt;/p&gt;
-</description>
+&lt;p&gt;How many of us, still use the same phones that we first bought ?
+&lt;/p&gt;</description>
     </item>
     
   </channel>
