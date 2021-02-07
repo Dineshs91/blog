@@ -1,244 +1,221 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on My thoughts and adventures</title>
-    <link>http://dineshs91.github.io/blog/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on My thoughts and adventures</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft; Feel free to steal</copyright>
     <lastBuildDate>Fri, 05 Jan 2018 20:50:57 +0530</lastBuildDate>
     
-	<atom:link href="http://dineshs91.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kerala trip</title>
-      <link>http://dineshs91.github.io/blog/post/kerala-trip-1/</link>
+      <link>/post/kerala-trip-1/</link>
       <pubDate>Fri, 05 Jan 2018 20:50:57 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/kerala-trip-1/</guid>
+      <guid>/post/kerala-trip-1/</guid>
       <description>In this post, I am going to write about my experience biking through kerala. I went on this trip with my brother and my sister in law on 2 bikes Fz-FI (Mine) and RE Himalayan (My brother&amp;rsquo;s). We started the trip on 24-Dec-2017. Firstly we were going to Munnar in kerala. It was a 9 day trip (Including the travel.)
 These were the places we visited. Munnar Cochin Allepey Trivandram Poovar and Kanyakumari</description>
     </item>
     
     <item>
       <title>Understanding @property in python</title>
-      <link>http://dineshs91.github.io/blog/post/properties_in_python/</link>
+      <link>/post/properties_in_python/</link>
       <pubDate>Thu, 06 Apr 2017 18:57:53 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/properties_in_python/</guid>
+      <guid>/post/properties_in_python/</guid>
       <description>&lt;p&gt;&amp;ldquo;&lt;code&gt;@property&lt;/code&gt; what is it and how does it help&amp;rdquo; is what I will be exploring in this blog.&lt;/p&gt;
-
-&lt;p&gt;OOP&amp;rsquo;s best practices say to always use getters and setters. I will explain the reason for this in a bit.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;OOP&amp;rsquo;s best practices say to always use getters and setters. I will explain the reason for this in a bit.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Sending ARP packets using rust</title>
-      <link>http://dineshs91.github.io/blog/post/send_arp/</link>
+      <link>/post/send_arp/</link>
       <pubDate>Tue, 04 Apr 2017 19:15:19 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/send_arp/</guid>
-      <description>&lt;p&gt;While casually browsing about ARP, I stumbled upon &lt;a href=&#34;https://github.com/k4m4/kickthemout&#34;&gt;kickthemout&lt;/a&gt; project on github. I decided to do something similar in &lt;a href=&#34;https://www.rust-lang.org/en-US/&#34;&gt;Rust&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>/post/send_arp/</guid>
+      <description>&lt;p&gt;While casually browsing about ARP, I stumbled upon &lt;a href=&#34;https://github.com/k4m4/kickthemout&#34;&gt;kickthemout&lt;/a&gt; project on github. I decided to do something similar in &lt;a href=&#34;https://www.rust-lang.org/en-US/&#34;&gt;Rust&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Docker automatic image build with raspberry pi</title>
-      <link>http://dineshs91.github.io/blog/post/pi_1/</link>
+      <link>/post/pi_1/</link>
       <pubDate>Sat, 17 Dec 2016 14:14:54 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/pi_1/</guid>
+      <guid>/post/pi_1/</guid>
       <description>&lt;p&gt;It was more than a week, that I had a raspberry pi and did nothing with it (Other than the initial setup). I was looking to do
-something with it. Then I decided to write a bot that will build docker images and push it to docker registry.
-&lt;/p&gt;</description>
+something with it. Then I decided to write a bot that will build docker images and push it to docker registry.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Dabbling with Rust</title>
-      <link>http://dineshs91.github.io/blog/post/rust_trial1/</link>
+      <link>/post/rust_trial1/</link>
       <pubDate>Mon, 17 Oct 2016 01:50:11 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/rust_trial1/</guid>
+      <guid>/post/rust_trial1/</guid>
       <description>I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.
 I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&amp;rsquo;s ls (List files). So the program will just print the details of the files and directories with the path, size and modified time. Also display the total block size.</description>
     </item>
     
     <item>
       <title>What if you lose your data</title>
-      <link>http://dineshs91.github.io/blog/post/data/</link>
+      <link>/post/data/</link>
       <pubDate>Wed, 01 Jun 2016 22:40:27 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/data/</guid>
+      <guid>/post/data/</guid>
       <description>&lt;p&gt;You have been working day in and day out. All your important documents are there in your hard disk.
 For most of us, ctrl + s (Save) is enough to save us from the trouble of having to deal with the loss of
 data. That&amp;rsquo;s bad, because you can still get into trouble. You might ask how, then picture this, what
-if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.
-&lt;/p&gt;</description>
+if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Why you should love your job</title>
-      <link>http://dineshs91.github.io/blog/post/love_job/</link>
+      <link>/post/love_job/</link>
       <pubDate>Mon, 14 Mar 2016 20:50:57 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/love_job/</guid>
-      <description>&lt;p&gt;Work takes up a significant part of our lives. So shouldn&amp;rsquo;t we be loving our job ?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>/post/love_job/</guid>
+      <description>&lt;p&gt;Work takes up a significant part of our lives. So shouldn&amp;rsquo;t we be loving our job ?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Awesome collection of technology podcasts, videos and articles</title>
-      <link>http://dineshs91.github.io/blog/post/awesome_collections/</link>
+      <link>/post/awesome_collections/</link>
       <pubDate>Sat, 20 Feb 2016 21:33:14 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/awesome_collections/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s a list of awesome articles, podcasts and youtube talks.
-&lt;/p&gt;</description>
+      <guid>/post/awesome_collections/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a list of awesome articles, podcasts and youtube talks.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Tars my first bot</title>
-      <link>http://dineshs91.github.io/blog/post/tars_bot/</link>
+      <link>/post/tars_bot/</link>
       <pubDate>Mon, 18 Jan 2016 21:26:25 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/tars_bot/</guid>
+      <guid>/post/tars_bot/</guid>
       <description>&lt;p&gt;In one of my earlier &lt;a href=&#34;http://dineshs91.github.io/blog/post/greenkeeper/&#34;&gt;posts&lt;/a&gt; I had written about &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt; the app that automates dependency updates. I will start with a brief explanation about it, it will send you a pull request(PR) everytime
 there is a newer version of your depenedencies available, that are specified in package.json. Then you can decide to merge the PR or not.
-That&amp;rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&amp;rsquo;s.
-&lt;/p&gt;</description>
+That&amp;rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&amp;rsquo;s.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Never forget to wish your close one&#39;s again.</title>
-      <link>http://dineshs91.github.io/blog/post/birthday_wisher/</link>
+      <link>/post/birthday_wisher/</link>
       <pubDate>Sun, 06 Dec 2015 23:34:13 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/birthday_wisher/</guid>
+      <guid>/post/birthday_wisher/</guid>
       <description>&lt;p&gt;It was a rainy weekend at my place. I was thinking how to make best use of that time and something crossed
 my mind. What if a bot, can send birthday wishes to my friends on Facebook ? It would save me of all the regrets I have
-had in the past. I said to myself &lt;strong&gt;challenge accepted&lt;/strong&gt;.
-&lt;/p&gt;</description>
+had in the past. I said to myself &lt;strong&gt;challenge accepted&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>My Projects</title>
-      <link>http://dineshs91.github.io/blog/post/projects/</link>
+      <link>/post/projects/</link>
       <pubDate>Sat, 07 Nov 2015 14:08:48 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/projects/</guid>
-      <description>&lt;p&gt;Projects I&amp;rsquo;ve worked on in open source world.
-&lt;/p&gt;</description>
+      <guid>/post/projects/</guid>
+      <description>&lt;p&gt;Projects I&amp;rsquo;ve worked on in open source world.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Registering and uploading python package to pip</title>
-      <link>http://dineshs91.github.io/blog/post/pip/</link>
+      <link>/post/pip/</link>
       <pubDate>Sun, 11 Oct 2015 10:36:21 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/pip/</guid>
+      <guid>/post/pip/</guid>
       <description>&lt;p&gt;Packaging and distributing in python is a bit difficult. &lt;a href=&#34;https://pypi.python.org/&#34;&gt;PyPI&lt;/a&gt;, the python package index is the most common
-one. I will explain step by step, how to upload your package to PyPI.
-&lt;/p&gt;</description>
+one. I will explain step by step, how to upload your package to PyPI.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Greenkeeper, meet the dependency genie</title>
-      <link>http://dineshs91.github.io/blog/post/greenkeeper/</link>
+      <link>/post/greenkeeper/</link>
       <pubDate>Fri, 09 Oct 2015 18:50:37 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/greenkeeper/</guid>
+      <guid>/post/greenkeeper/</guid>
       <description>&lt;p&gt;Meet &lt;a href=&#34;http://greenkeeper.io/&#34;&gt;greenkeeper&lt;/a&gt;, the app that automates dependency updates and notifies you of build failures
-so you can spend your development time actually making things.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+so you can spend your development time actually making things.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Problem with using angular&#39;s $index in ng-repeat</title>
-      <link>http://dineshs91.github.io/blog/post/angular_index/</link>
+      <link>/post/angular_index/</link>
       <pubDate>Tue, 29 Sep 2015 23:30:32 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/angular_index/</guid>
+      <guid>/post/angular_index/</guid>
       <description>&lt;p&gt;ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
-object in the array.
-&lt;/p&gt;</description>
+object in the array.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Add a custom titlebar to your nw.js app</title>
-      <link>http://dineshs91.github.io/blog/post/custom_titlebar/</link>
+      <link>/post/custom_titlebar/</link>
       <pubDate>Thu, 24 Sep 2015 09:14:08 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/custom_titlebar/</guid>
-      <description></description>
+      <guid>/post/custom_titlebar/</guid>
+      <description>&lt;p&gt;In this post, I am going to show you how to create a custom titlebar for your nw.js app. If you haven&amp;rsquo;t heard of nw.js, check it out
+&lt;a href=&#34;https://github.com/nwjs/nw.js&#34;&gt;here&lt;/a&gt;. It enables a new way of writing desktop applications with all web technologies.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>A little about myself</title>
-      <link>http://dineshs91.github.io/blog/post/myself/</link>
+      <link>/post/myself/</link>
       <pubDate>Sun, 09 Aug 2015 21:48:45 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/myself/</guid>
-      <description>&lt;p&gt;I am a self taught programmer. It started out as a journey to explore the world of computers, the digital world. I started off with the fundamentals. I can say that my entire learning was a fruit of all the questions I’ve asked myself. Questions, &lt;strong&gt;&lt;em&gt;Like how internet works ?&lt;/em&gt;&lt;/strong&gt; I started programming just to answer this question &lt;strong&gt;&lt;em&gt;“How does a c program make a computer do some work?”&lt;/em&gt;&lt;/strong&gt;.
-&lt;/p&gt;</description>
+      <guid>/post/myself/</guid>
+      <description>&lt;p&gt;I am a self taught programmer. It started out as a journey to explore the world of computers, the digital world. I started off with the fundamentals. I can say that my entire learning was a fruit of all the questions I’ve asked myself. Questions, &lt;strong&gt;&lt;em&gt;Like how internet works ?&lt;/em&gt;&lt;/strong&gt; I started programming just to answer this question &lt;strong&gt;&lt;em&gt;“How does a c program make a computer do some work?”&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Functional programming in python</title>
-      <link>http://dineshs91.github.io/blog/post/functional_programming_python/</link>
+      <link>/post/functional_programming_python/</link>
       <pubDate>Sun, 28 Jun 2015 16:46:33 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/functional_programming_python/</guid>
+      <guid>/post/functional_programming_python/</guid>
       <description>&lt;p&gt;Python offers some good functions to the developers to write functional like code. But their use is not
-recommended as it reduces code readability. They may come handy in some places though.
-
-This is an example program showing the use of functional concepts in python.&lt;/p&gt;</description>
+recommended as it reduces code readability. They may come handy in some places though.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Migrating to hugo</title>
-      <link>http://dineshs91.github.io/blog/post/welcome/</link>
+      <link>/post/welcome/</link>
       <pubDate>Sun, 28 Jun 2015 00:09:45 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/welcome/</guid>
+      <guid>/post/welcome/</guid>
       <description>Migrating to hugo based blog. I am super exited to be using hugo, for my blog. The reason I had to quit tumblr was due to missing syntax highlighting support. Moreover hugo is open source and that itself is a great motivation for me to try it out. I will be moving all my blogs to hugo, over the coming weeks.</description>
     </item>
     
     <item>
       <title>How it all began with devlog</title>
-      <link>http://dineshs91.github.io/blog/post/why_devlog/</link>
+      <link>/post/why_devlog/</link>
       <pubDate>Wed, 03 Jun 2015 19:38:22 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/why_devlog/</guid>
-      <description>&lt;p&gt;Our &lt;strong&gt;imagination&lt;/strong&gt; is a fantastic machine, which throws at us amazing idea’s. But our educated mind, discards it obviously (It&amp;rsquo;s not practical it says). The best thing to do is, to write down that idea as soon as it comes out, otherwise the evil mind will wipe it off. Next question, where do i write it ? Almost all the existing platforms are online, but i don’t want this idea to be visible to the public (Not yet !). This is something that is very close to us and it should stay that way for sometime, before making a public debut.
-
-The crazy internet world. No matter, which website we land on, it asks us to login. There are some sites where it is not necessary, but we definitely get the idea behind all of this. &lt;strong&gt;&lt;em&gt;Can we trust these sites ?&lt;/em&gt;&lt;/strong&gt; So the platform should not be an online one. An online platform is not all needed, for this purpose.&lt;/p&gt;</description>
+      <guid>/post/why_devlog/</guid>
+      <description>&lt;p&gt;Our &lt;strong&gt;imagination&lt;/strong&gt; is a fantastic machine, which throws at us amazing idea’s. But our educated mind, discards it obviously (It&amp;rsquo;s not practical it says). The best thing to do is, to write down that idea as soon as it comes out, otherwise the evil mind will wipe it off. Next question, where do i write it ? Almost all the existing platforms are online, but i don’t want this idea to be visible to the public (Not yet !). This is something that is very close to us and it should stay that way for sometime, before making a public debut.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How a programmer feels</title>
-      <link>http://dineshs91.github.io/blog/post/programmer_feels/</link>
+      <link>/post/programmer_feels/</link>
       <pubDate>Sat, 28 Mar 2015 16:22:58 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/programmer_feels/</guid>
-      <description></description>
+      <guid>/post/programmer_feels/</guid>
+      <description>&lt;p&gt;There is a very good quality, every amazing programmer has. It’s their love towards programming or the whole technology, surrounding computers.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How to tap our natural instincts to succeed</title>
-      <link>http://dineshs91.github.io/blog/post/natural_instincts/</link>
+      <link>/post/natural_instincts/</link>
       <pubDate>Tue, 10 Mar 2015 20:44:03 +0530</pubDate>
       
-      <guid>http://dineshs91.github.io/blog/post/natural_instincts/</guid>
+      <guid>/post/natural_instincts/</guid>
       <description>&lt;p&gt;We human beings have a natural tendency of wanting more. Confused ? ok, let me explain.&lt;/p&gt;
-
-&lt;p&gt;How many of us, still use the same phones that we first bought ?
-&lt;/p&gt;</description>
+&lt;p&gt;How many of us, still use the same phones that we first bought ?&lt;/p&gt;</description>
     </item>
     
   </channel>

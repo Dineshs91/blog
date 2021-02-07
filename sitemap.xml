@@ -1,132 +1,128 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/kerala-trip-1/</loc>
+    <loc>/post/kerala-trip-1/</loc>
     <lastmod>2018-01-05T20:50:57+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/properties_in_python/</loc>
+    <loc>/</loc>
+    <lastmod>2018-01-05T20:50:57+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2018-01-05T20:50:57+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/properties_in_python/</loc>
     <lastmod>2017-04-06T18:57:53+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/send_arp/</loc>
+    <loc>/post/send_arp/</loc>
     <lastmod>2017-04-04T19:15:19+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/pi_1/</loc>
+    <loc>/post/pi_1/</loc>
     <lastmod>2016-12-17T14:14:54+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/rust_trial1/</loc>
+    <loc>/post/rust_trial1/</loc>
     <lastmod>2016-10-17T01:50:11+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/data/</loc>
+    <loc>/post/data/</loc>
     <lastmod>2016-06-01T22:40:27+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/love_job/</loc>
+    <loc>/post/love_job/</loc>
     <lastmod>2016-03-14T20:50:57+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/awesome_collections/</loc>
+    <loc>/post/awesome_collections/</loc>
     <lastmod>2016-02-20T21:33:14+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/tars_bot/</loc>
+    <loc>/post/tars_bot/</loc>
     <lastmod>2016-01-18T21:26:25+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/birthday_wisher/</loc>
+    <loc>/post/birthday_wisher/</loc>
     <lastmod>2015-12-06T23:34:13+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/projects/</loc>
+    <loc>/post/projects/</loc>
     <lastmod>2015-11-07T14:08:48+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/pip/</loc>
+    <loc>/post/pip/</loc>
     <lastmod>2015-10-11T10:36:21+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/greenkeeper/</loc>
+    <loc>/post/greenkeeper/</loc>
     <lastmod>2015-10-09T18:50:37+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/angular_index/</loc>
+    <loc>/post/angular_index/</loc>
     <lastmod>2015-09-29T23:30:32+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/custom_titlebar/</loc>
+    <loc>/post/custom_titlebar/</loc>
     <lastmod>2015-09-24T09:14:08+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/myself/</loc>
+    <loc>/post/myself/</loc>
     <lastmod>2015-08-09T21:48:45+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/functional_programming_python/</loc>
+    <loc>/post/functional_programming_python/</loc>
     <lastmod>2015-06-28T16:46:33+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/welcome/</loc>
+    <loc>/post/welcome/</loc>
     <lastmod>2015-06-28T00:09:45+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/why_devlog/</loc>
+    <loc>/post/why_devlog/</loc>
     <lastmod>2015-06-03T19:38:22+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/programmer_feels/</loc>
+    <loc>/post/programmer_feels/</loc>
     <lastmod>2015-03-28T16:22:58+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/post/natural_instincts/</loc>
+    <loc>/post/natural_instincts/</loc>
     <lastmod>2015-03-10T20:44:03+05:30</lastmod>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/categories/</loc>
-    <priority>0</priority>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>http://dineshs91.github.io/blog/</loc>
-    <lastmod>2018-01-05T20:50:57+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://dineshs91.github.io/blog/post/</loc>
-    <lastmod>2018-01-05T20:50:57+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://dineshs91.github.io/blog/tags/</loc>
-    <priority>0</priority>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>
