@@ -6,7 +6,7 @@
   <meta property="og:title" content=" Never forget to wish your close one&#39;s again. &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/birthday_wisher/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/birthday_wisher/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      Never forget to wish your close one&#39;s again. &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">Never forget to wish your close one&#39;s again.</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2015-12-06T23:34:13&#43;05:30">
           Dec 6, 2015
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -91,36 +93,31 @@
   <section>
     <p>It was a rainy weekend at my place. I was thinking how to make best use of that time and something crossed
 my mind. What if a bot, can send birthday wishes to my friends on Facebook ? It would save me of all the regrets I have
-had in the past. I said to myself <strong>challenge accepted</strong>.
-</p>
-
+had in the past. I said to myself <strong>challenge accepted</strong>.</p>
 <p>I have done a similar kind of project in the past at work, where we had to get the gift card balances of 5 gift cards.
 I used python urllib and re(regex) to accomplish the task. Hit the url with urllib2 and parse the balances from the
 response using regex. But this time, I wanted to try a different approach. I guessed that the previous approach wouldn&rsquo;t
 work so well. So, how do I do this ?</p>
-
 <p>I had some experience with <a href="http://www.seleniumhq.org/">selenium</a> (It is for automating web applications for testing purposes), so I wanted to give it a try.
 Java ? Wait, who am I kidding ? No way. I went with <a href="https://nodejs.org/en/">node.js</a> (Seemed better, lot better). The thought of opening an IDE, waved me off of java.
 So I bootstrapped a small code in node.js. I had to choose between <a href="https://angular.github.io/protractor/#/">protractor</a>
 and <a href="http://webdriver.io/">webdriverio</a>. I had used protractor in my <a href="https://github.com/dineshs91/devlog">devlog</a> project,
 but it works only with angular (You can make it work for non-angular projects too, but with some tweaks). So I decided to
 take webdriverio for a spin and it did the job quite well.</p>
-
 <p>Having chosen the framework, it was time to write the code. One weird thing I noticed in facebook is that even the ID
 attribute of an element was not consistent. It kept changing, so you can&rsquo;t use them in selectors. I completed the code
 in 10-20 Lines. Selenium invokes a browser, does the actions specified in the code and quits. Now we don&rsquo;t want a browser
 show up on the screen, when the bot works right. This is where <a href="http://phantomjs.org/">phantomjs</a> shines. It is a headless
 browser for testing purposes.</p>
-
 <p>There was one challenge I faced, which was synchronising the 2 steps. step 1 start the selenium standalone server and step 2
 execute the webdriverio code. I solved this problem using event emitter. So when selenium server starts a <code>start</code> event
 is emitted and there is a listener, which listens to this event and starts the webdriverio execution. Having solved the main
 problem, I did some final refinements and that&rsquo;s it. The code is ready. Rock and roll.</p>
-
 <p>You can find the source <a href="https://github.com/Dineshs91/fb-birthday-wisher">here</a>. And I forgot to mention that, the program
 randomly chooses a wish from an array of wishes in the code.</p>
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -134,10 +131,11 @@ randomly chooses a wish from an array of wishes in the code.</p>
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -152,10 +150,10 @@ randomly chooses a wish from an array of wishes in the code.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/projects/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/projects/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/tars_bot/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/tars_bot/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -167,7 +165,7 @@ randomly chooses a wish from an array of wishes in the code.</p>
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -191,7 +189,7 @@ randomly chooses a wish from an array of wishes in the code.</p>
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

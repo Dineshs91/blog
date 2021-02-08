@@ -6,7 +6,7 @@
   <meta property="og:title" content=" Docker automatic image build with raspberry pi &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/pi_1/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/pi_1/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      Docker automatic image build with raspberry pi &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">Docker automatic image build with raspberry pi</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2016-12-17T14:14:54&#43;05:30">
           Dec 17, 2016
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -90,53 +92,39 @@
   </header>
   <section>
     <p>It was more than a week, that I had a raspberry pi and did nothing with it (Other than the initial setup). I was looking to do
-something with it. Then I decided to write a bot that will build docker images and push it to docker registry.
-</p>
-
+something with it. Then I decided to write a bot that will build docker images and push it to docker registry.</p>
 <p>The design goal was simple.</p>
-
 <ol>
 <li>Check if any new tags were created (In github)</li>
 <li>Notify about the same.</li>
 <li>Build docker images and push them to docker registry (Dockerhub)</li>
 <li>Notify when the images are pushed to dockerhub.</li>
 </ol>
-
 <p>For most of the above steps, I used python&rsquo;s subprocess module and for notification I used twilio.</p>
-
 <p>The first step is a bit challenging, while all the others are pretty straightforward.</p>
-
 <p>Why is the first one challenging ? Well how to know if a new tag was pushed, github hooks ? I didn&rsquo;t want to use that solution, because
 it needs a server to do this. So I had to think of something else.</p>
-
 <p>After a while of thinking, I came up with this. (Thanks to stackoverflow !!)</p>
-
 <ul>
 <li><code>git fetch --tags</code></li>
 <li><code>git rev-list --tags --max-count=1</code></li>
 <li><code>git describe --tags rev_list</code></li>
 </ul>
-
 <p>Summarizing the steps above, fetch all the tags and get the latest tag from the list of tags. These commands we execute from shell.
 I used subprocess to do it from python. By this we have the latest tag with us.</p>
-
 <p>Next we need to know the tag our bot processed recently so that we only process the new tags, that were not processed.
 For this, I write the processed tag to a file at <code>~/.docker-bot</code>. Now all I have to do is check the file to see if the latest tag
 was processed.</p>
-
 <p>Notification is very simple. I used twilio python library. For docker build images and push also is very straightforward. Just docker
 build and docker push will do.</p>
-
 <p>For scheduling I am using cron, which is very reliable and just works.
 This is my cron expression</p>
-
 <pre><code>*/5 * * * * . $HOME/.profile; cd ~/Documents/developer/accounts; python ~/Documents/developer/docker-bot/main.py &gt;&gt; /var/log/docker-bot.log 2&gt;&amp;1
-</code></pre>
-
-<p>Some final thoughts. The reason I had to this is Docker hub supports automated builds, but it doesn&rsquo;t support passing in some env variables or anything.
+</code></pre><p>Some final thoughts. The reason I had to this is Docker hub supports automated builds, but it doesn&rsquo;t support passing in some env variables or anything.
 So basically it is just docker build without any build arguments.</p>
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -150,10 +138,11 @@ So basically it is just docker build without any build arguments.</p>
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -168,10 +157,10 @@ So basically it is just docker build without any build arguments.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/rust_trial1/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/rust_trial1/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/send_arp/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/send_arp/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -183,7 +172,7 @@ So basically it is just docker build without any build arguments.</p>
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -207,7 +196,7 @@ So basically it is just docker build without any build arguments.</p>
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

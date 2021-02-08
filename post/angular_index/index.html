@@ -6,7 +6,7 @@
   <meta property="og:title" content=" Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/angular_index/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/angular_index/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      Problem with using angular&#39;s $index in ng-repeat &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">Problem with using angular&#39;s $index in ng-repeat</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2015-09-29T23:30:32&#43;05:30">
           Sep 29, 2015
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -90,26 +92,17 @@
   </header>
   <section>
     <p>ng-repeat is used to iterate through objects and act upon them individually. $index gives the index of an
-object in the array.
-</p>
-
-<pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
-    &lt;span class=&quot;remove&quot; ng-click=&quot;remove($index)&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-
-$scope.remove = function($index) {
+object in the array.</p>
+<!-- raw HTML omitted -->
+<pre><code>$scope.remove = function($index) {
     // Code for removing log
     remove($scope.logs[$index]);
 }
 </code></pre>
-
 <p>The above code snippet, works fine for most of the scenarios. But the moment, we start to use orderBy or filter in ng-repeat,
 things start to break. Why does it break ?</p>
-
 <p>It breaks because $index gives the index from the origin array <code>logs</code>. It doesn&rsquo;t work on filtered or ordered logs, but
 works on the original array.</p>
-
 <pre><code>logs = [
     'log1': {
         timestamp: 123456
@@ -119,9 +112,7 @@ works on the original array.</p>
     }
 ]
 </code></pre>
-
 <p>If an orderBy is enforced (Descending order), this is what we get after orderBy</p>
-
 <pre><code>logs = [
     'log2': {
         timestamp: 123499
@@ -131,15 +122,12 @@ works on the original array.</p>
     },
 ]
 </code></pre>
-
 <p>Now if you use $index to find the index of <strong>log2</strong>, it gives 0 (Indexing starts from 0) whereas it should have been 1,
 because 1 is the index of <strong>log2</strong> in the original logs array. If you use <code>$scope.logs[$index]</code> it will select <strong>log1</strong> not <strong>log2</strong>.
 But you will be under the impression, that you have selected <strong>log2</strong>.
 From the above example, its clear what is the problem.</p>
-
 <p>So, how to overcome this ?
 Good question, there is an easy solution.</p>
-
 <pre><code>&lt;div ng-repeat=&quot;log in logs&quot;&gt;
     &lt;span class=&quot;remove&quot; ng-click=&quot;remove(log)&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;
@@ -150,11 +138,11 @@ $scope.remove = function(log) {
     remove($scope.logs[index]);
 }
 </code></pre>
-
 <p>Instead of passing $index into the function, pass the object itself and use <code>indexOf</code> to get the index, which returns
 index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in original logs is 1.</p>
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -168,10 +156,11 @@ index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in origin
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -186,10 +175,10 @@ index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in origin
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/custom_titlebar/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/custom_titlebar/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/greenkeeper/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/greenkeeper/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -201,7 +190,7 @@ index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in origin
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -225,7 +214,7 @@ index 1 for <strong>log2</strong>, since indexOf <strong>log2</strong> in origin
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

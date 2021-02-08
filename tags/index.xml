@@ -2,14 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on My thoughts and adventures</title>
-    <link>/tags/</link>
+    <link>https://blog.dineshs91.com/tags/</link>
     <description>Recent content in Tags on My thoughts and adventures</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyleft; Feel free to steal</copyright>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyleft; Feel free to steal</copyright><atom:link href="https://blog.dineshs91.com/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -6,7 +6,7 @@
   <meta property="og:title" content=" What if you lose your data &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/data/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/data/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      What if you lose your data &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">What if you lose your data</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2016-06-01T22:40:27&#43;05:30">
           Jun 1, 2016
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -92,37 +94,26 @@
     <p>You have been working day in and day out. All your important documents are there in your hard disk.
 For most of us, ctrl + s (Save) is enough to save us from the trouble of having to deal with the loss of
 data. That&rsquo;s bad, because you can still get into trouble. You might ask how, then picture this, what
-if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.
-</p>
-
+if your hard disk gets corrupted ? What if you delete your files accidently ? What if you lose your laptop.</p>
 <p>The question we have to ask ourselves is, are we prepared for the above scenarios ? If the answer is no, now
 is the time to change that.</p>
-
 <p>I am going to explain the setup I&rsquo;ve done in my laptop (Mac os x El Captain).</p>
-
 <p>Its a 2 step process.</p>
-
 <p><strong>Step 1</strong></p>
-
 <p>Sync with any of the cloud services like Google Drive or Dropbox. I use <a href="https://github.com/emcrisostomo/fswatch">fswatch</a>
 to watch for changes in the directories I want to sync and use <a href="https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-sync-sh">sync.sh</a>
 script to sync the directories with Google Drive. fswatch notifies if there are any changes in the
 directory and I use rsync to keep the directories in sync. This comes in very handy.</p>
-
 <pre><code>rsync -a --delete &quot;$my_dir&quot; &quot;$dest_dir&quot;
 
 -a (Archive and sync recursively.)
 --delete (Delete files that are removed from the directories being watched.)
 </code></pre>
-
 <p>This frees from manually copying all your documents to Google Drive directory.</p>
-
 <p><strong>Step 2</strong></p>
-
 <p>Create compressed tar files and put them in an external storage. This step is a manual one.
 You have to run the script whenever you want to take backup. You could use cron service though if you like to
 automate the process. This is the script that I use <a href="https://gist.github.com/Dineshs91/ea1cb572eac2fbc28dff459346456e9c#file-backup-sh">backup.sh</a></p>
-
 <pre><code>**Backup**
 tar -zcvf &quot;$ext_hard_disk_dir&quot; --directory / --exclude='node_modules' &quot;$my_dir&quot;
 
@@ -138,14 +129,12 @@ tar -ztvf /archive/full-backup-02-March-2016.tar.gz
 
 tar -zxvf /archive/full-backup-02-March-2016.tar.gz
 </code></pre>
-
 <p><strong><em>References:</em></strong></p>
-
 <p><a href="http://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/backup-and-restore.html">linux-admin-made-easy</a></p>
-
 <p><a href="http://www.tldp.org/LDP/sag/html/backups.html">Importance of backups</a></p>
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -159,10 +148,11 @@ tar -zxvf /archive/full-backup-02-March-2016.tar.gz
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -177,10 +167,10 @@ tar -zxvf /archive/full-backup-02-March-2016.tar.gz
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/love_job/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/love_job/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/rust_trial1/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/rust_trial1/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -192,7 +182,7 @@ tar -zxvf /archive/full-backup-02-March-2016.tar.gz
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -216,7 +206,7 @@ tar -zxvf /archive/full-backup-02-March-2016.tar.gz
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

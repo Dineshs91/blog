@@ -6,7 +6,7 @@
   <meta property="og:title" content=" Dabbling with Rust &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/rust_trial1/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/rust_trial1/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      Dabbling with Rust &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">Dabbling with Rust</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2016-10-17T01:50:11&#43;05:30">
           Oct 17, 2016
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -90,41 +92,30 @@
   </header>
   <section>
     <p>I liked rust when I tried it last year around May. I also did some contributions to cargo which is the package manager for Rust.</p>
-
 <p>I wanted to do something in rust, something small to do over in the weekend. I finally decided to mimic unix&rsquo;s ls (List files).
 So the program will just print the details of the files and directories with the path, size and modified time. Also display the total
 block size.</p>
-
 <p>Here is a list of all the external packages I&rsquo;ve used.</p>
-
 <ol>
 <li>colored</li>
 <li>chrono</li>
 </ol>
-
 <p>To get the total file bock size, I had to get all the files first using <code>std::fs</code>. Then iterate through them to get the block size of
 each file and add them up to <code>file_block_count</code> variable.</p>
-
 <p>In rust if you iterate through an iterator, then it cannot be reused. So I had to get the files again. Iterate through them and get the
 following</p>
-
 <ol>
 <li>File path</li>
 <li>File size</li>
 <li>File modified at datetime.</li>
 </ol>
-
 <p>Getting file path and size are pretty straight forward. <code>file_path.display()</code> gives the path name and <code>file_path.metadata().unwrap().len()</code>
 gives the size of the file.</p>
-
 <p>With the file modified datetime we have to convert into the required display format. This is where we need to use <code>chrono</code>.
 I used <code>Local.timestamp(file_modified as i64, 0);</code> to get the datetime in the local time zone and <code>format(&quot;%h %d %H:%M&quot;)</code> for formatting the
 datetime.</p>
-
 <p>I used <code>colored</code> package to add terminal colors.</p>
-
 <p>So the output looks like this</p>
-
 <pre><code>total  128
 1   ./.DS_Store      6148    Oct 29 21:46
 2   ./.git           510     Oct 30 21:37
@@ -135,12 +126,11 @@ datetime.</p>
 7   ./README.md      151     Oct 16 16:26
 8   ./src            136     Oct 16 14:33
 9   ./target         102     Oct 16 00:27
-</code></pre>
-
-<p>Source code can be found <a href="https://github.com/Dineshs91/rs-ls/">here</a>. This is a very trivial code to get started with rust.</p>
+</code></pre><p>Source code can be found <a href="https://github.com/Dineshs91/rs-ls/">here</a>. This is a very trivial code to get started with rust.</p>
 
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -154,10 +144,11 @@ datetime.</p>
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -172,10 +163,10 @@ datetime.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/data/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/data/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/pi_1/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/pi_1/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -187,7 +178,7 @@ datetime.</p>
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -211,7 +202,7 @@ datetime.</p>
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>
