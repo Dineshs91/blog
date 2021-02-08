@@ -1,4 +1,4 @@
-baseURL = "https://blog.dineshs91.com"
+baseURL = "https://blog.dineshs91.com/"
 languageCode = "en-us"
 title = "My thoughts and adventures"
 theme = "vienna"
