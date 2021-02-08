@@ -6,7 +6,7 @@
   <meta property="og:title" content=" Tars my first bot &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/tars_bot/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/tars_bot/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      Tars my first bot &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">Tars my first bot</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2016-01-18T21:26:25&#43;05:30">
           Jan 18, 2016
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -91,28 +93,23 @@
   <section>
     <p>In one of my earlier <a href="http://dineshs91.github.io/blog/post/greenkeeper/">posts</a> I had written about <a href="http://greenkeeper.io/">greenkeeper</a> the app that automates dependency updates. I will start with a brief explanation about it, it will send you a pull request(PR) everytime
 there is a newer version of your depenedencies available, that are specified in package.json. Then you can decide to merge the PR or not.
-That&rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&rsquo;s.
-</p>
-
+That&rsquo;s basically what it does. This is just one half of the automation right. You have to manually merge those PR&rsquo;s.</p>
 <p>I thought I could automate that part too. This is were <a href="https://github.com/Dineshs91/tars">tars</a> comes into picture. Yes, the name was
 inspired from Interstellar. We all love tars right!. I wrote this bot to help me with my <a href="https://github.com/Dineshs91/devlog">devlog</a>
 project.</p>
-
 <p>It follows a 3 step process. Check, merge and delete. First step, fetch all open PR&rsquo;s and see which one&rsquo;s are opened by GREENKEEPER_BOT.
 We only care about the one&rsquo;s opened by it. Then we check the CI status of the PR, whether the tests are passing
 or failing. In the next step, if the tests are passing, tars merge&rsquo;s the PR. If PR cannot be merged automatically, it creates a comment with
 a message saying <em>This pull request cannot be merged by me</em></p>
-
 <p>After successful merging of PR, it deletes the corresponding branch. Greenkeeper opens a branch with the PR. So after merging,
 the branch is no longer needed. Tars removes the branch once the PR is merged succesfully into master branch.</p>
-
 <p>The next part is to, set up the program to run as a job. You can schedule a cron job to make the process completely automatic.
 You can use <a href="http://crontab.guru/">crontab.guru</a> which is a simple editor for cron schedule expressions.</p>
-
 <p>Bots are fascinating right, it&rsquo;s an opportunity for us to just sit back, and watch things happen. Why not write your own bot ?
 I am sure it will be fun.</p>
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -126,10 +123,11 @@ I am sure it will be fun.</p>
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -144,10 +142,10 @@ I am sure it will be fun.</p>
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/birthday_wisher/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/birthday_wisher/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/awesome_collections/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/awesome_collections/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -159,7 +157,7 @@ I am sure it will be fun.</p>
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -183,7 +181,7 @@ I am sure it will be fun.</p>
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

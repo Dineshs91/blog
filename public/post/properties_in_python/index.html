@@ -6,7 +6,7 @@
   <meta property="og:title" content=" Understanding @property in python &middot;  My thoughts and adventures" />
   
   <meta property="og:site_name" content="My thoughts and adventures" />
-  <meta property="og:url" content="http://dineshs91.github.io/blog/post/properties_in_python/" />
+  <meta property="og:url" content="https://blog.dineshs91.com/post/properties_in_python/" />
   
   
   <meta property="og:type" content="article" />
@@ -19,26 +19,26 @@
      Understanding @property in python &middot;  My thoughts and adventures
   </title>
 
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://dineshs91.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/main.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://blog.dineshs91.comcss/github.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
-  <link rel="shortcut icon" href="http://dineshs91.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://dineshs91.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="https://blog.dineshs91.comimages/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://blog.dineshs91.comimages/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg ); height:290px;">
     <section class="header-text">
-      <h1><a href="http://dineshs91.github.io/blog/">My thoughts and adventures</a></h1>
+      <h1><a href="https://blog.dineshs91.com">My thoughts and adventures</a></h1>
       
       <div class="tag-line">
         Have no restrictions in your imaginations
       </div>
       
       <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -61,7 +61,7 @@
 </div>
 
       
-      <a href="http://dineshs91.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://blog.dineshs91.com" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -77,12 +77,14 @@
   <header>
     <h1 class="text-primary">Understanding @property in python</h1>
     <div class="post-meta clearfix">
+    
       <div class="post-date pull-left">
         Posted on
         <time datetime="2017-04-06T18:57:53&#43;05:30">
           Apr 6, 2017
         </time>
       </div>
+    
       <div class="pull-right">
         
       </div>
@@ -90,13 +92,8 @@
   </header>
   <section>
     <p>&ldquo;<code>@property</code> what is it and how does it help&rdquo; is what I will be exploring in this blog.</p>
-
 <p>OOP&rsquo;s best practices say to always use getters and setters. I will explain the reason for this in a bit.</p>
-
-<p></p>
-
 <p>First lets look at the code</p>
-
 <pre><code>class Animal:
     def __init__(self, name):
         self._name = name
@@ -107,20 +104,14 @@
 
 tiger = Animal(&quot;tiger&quot;)
 tiger.name
-</code></pre>
-
-<p><code>tiger.name</code> will print the name of the animal, which in this case is <strong>tiger</strong>. Now a question might arise asking, why property in the first place. Can&rsquo;t
+</code></pre><p><code>tiger.name</code> will print the name of the animal, which in this case is <strong>tiger</strong>. Now a question might arise asking, why property in the first place. Can&rsquo;t
 I just use the below ?</p>
-
 <pre><code>self.name = name # In init function
 
 tiger.name
-</code></pre>
-
-<p>To answer this question, we have to understand some properties of Object Oriented Programming. The property we are looking for is encapsulation.
+</code></pre><p>To answer this question, we have to understand some properties of Object Oriented Programming. The property we are looking for is encapsulation.
 Encapsulation says that the internal state of an object should be restricted in how it is accessible to the outside world. This is achieved usually
 with getters and setters.</p>
-
 <pre><code>class Animal:
     def __init__(self):
         self._name = None
@@ -135,10 +126,7 @@ with getters and setters.</p>
 
 tiger = Animal()
 tiger.name = &quot;tigress&quot; # Set the name of the animal.
-</code></pre>
-
-<p>Another use of property</p>
-
+</code></pre><p>Another use of property</p>
 <pre><code>class Processor:
     def __init__(self, dictionary):
         self.dictionary = dictionary
@@ -146,39 +134,27 @@ tiger.name = &quot;tigress&quot; # Set the name of the animal.
     @property
     def id(self):
         return dictionary.get('id')
-</code></pre>
-
-<p>What this allows us to do is to access <code>id</code> as an  instance of the object instead of the usual function.</p>
-
+</code></pre><p>What this allows us to do is to access <code>id</code> as an  instance of the object instead of the usual function.</p>
 <pre><code>dictionary = {
     &quot;id&quot;: &quot;381298&quot;
 }
 processor = Processor(dictionary)
 processor.id # This prints the id of the processor.
-</code></pre>
-
-<p>If we didn&rsquo;t use property the code will look like this</p>
-
+</code></pre><p>If we didn&rsquo;t use property the code will look like this</p>
 <pre><code>class Processor:
     def __init__(self, dictionary):
         self.dictionary = dictionary
 
     def id(self):
         return dictionary.get('id')
-</code></pre>
-
-<pre><code>dictionary = {
+</code></pre><pre><code>dictionary = {
     &quot;id&quot;: &quot;381298&quot;
 }
 processor = Processor(dictionary)
 processor.id() # Can be accessed as a function.
-</code></pre>
-
-<p>Getters and setters allows to modify the value of the attribute without having to change the code in all the places where it is being accessed.</p>
-
+</code></pre><p>Getters and setters allows to modify the value of the attribute without having to change the code in all the places where it is being accessed.</p>
 <p>Ok, we understand the use of getters and setters. Time to answer this question &ldquo;But I still don&rsquo;t get it why I should use property&rdquo;.
 Lets take an example</p>
-
 <pre><code>class Cell(object):
     . . .
     def getvalue(self, obj):
@@ -186,20 +162,15 @@ Lets take an example</p>
         self.recalc()
         return obj._value
     value = property(getvalue)
-</code></pre>
-
-<p>Example taken from <a href="https://docs.python.org/2/howto/descriptor.html#properties">python descriptor doc</a></p>
-
+</code></pre><p>Example taken from <a href="https://docs.python.org/2/howto/descriptor.html#properties">python descriptor doc</a></p>
 <p>What this achieves is whenever we access <code>new Cell().getvalue</code> the method <code>self.recalc()</code> is always called. Quoting the docs &ldquo;Calling property() is a
 succinct way of building a data descriptor that triggers function calls upon access to an attribute&rdquo;.</p>
-
 <p>There is no way in python for restricting access to attributes. The clean way of achieving something similar is using property.</p>
-
 <h2 id="references">References</h2>
-
 <p><a href="https://docs.python.org/3/howto/descriptor.html#properties">https://docs.python.org/3/howto/descriptor.html#properties</a></p>
   </section>
   <footer>
+    
     
     <hr/>
     <div id="disqus_thread"></div>
@@ -213,10 +184,11 @@ succinct way of building a data descriptor that triggers function calls upon acc
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+    
     <section class="author-info row">
       <div class="author-avatar col-md-2">
         
-        <img alt="Author Avatar" src="http://dineshs91.github.io/blog/images/avatar.JPG" />
+        <img alt="Author Avatar" src="https://blog.dineshs91.com/images/avatar.JPG" />
         
       </div>
       <div class="author-meta col-md-6">
@@ -231,10 +203,10 @@ succinct way of building a data descriptor that triggers function calls upon acc
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="http://dineshs91.github.io/blog/post/send_arp/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://blog.dineshs91.com/post/send_arp/"><span aria-hidden="true">&larr;</span>Older</a></li>
       
       
-      <li class="next"><a href="http://dineshs91.github.io/blog/post/kerala-trip-1/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://blog.dineshs91.com/post/kerala-trip-1/">Newer<span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
@@ -246,7 +218,7 @@ succinct way of building a data descriptor that triggers function calls upon acc
       Copyleft; Feel free to steal
     </div>
     <div class="sns-links hidden-print">
-  <a href="http://dineshs91.github.io/blog/post/projects">
+  <a href="https://blog.dineshs91.compost/projects">
     <i class="fa fa-space-shuttle"></i>
   </a>
   
@@ -270,7 +242,7 @@ succinct way of building a data descriptor that triggers function calls upon acc
 
   </footer>
 
-  <script src="http://dineshs91.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://blog.dineshs91.comjs/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>
