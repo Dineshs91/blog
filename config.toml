@@ -18,3 +18,4 @@ disqus = "Dineshs91"
 projects = "post/projects"
 about = "post/myself"
 avatar = "/images/avatar.JPG"
+images = ["/images/bg.jpg"]
