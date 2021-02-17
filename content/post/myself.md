@@ -1,7 +1,7 @@
 +++
 Description = "How I started my journey as a programmer"
 Tags = []
-images = ["about-me.png"]
+images = ["/images/about-me.png"]
 date = "2015-08-09T21:48:45+05:30"
 title = "A little about myself"
 

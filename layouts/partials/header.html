@@ -25,6 +25,8 @@
   <meta property="og:type" content="website" />
   {{ end }}
 
+  {{ template "_internal/twitter_cards.html" . }}
+
   <title>
     {{ if ne .URL "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}
   </title>
