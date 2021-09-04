@@ -61,7 +61,7 @@ returned to the hotel for lunch. We napped after that. In the evening we went to
 ![allepey](/images/kerala-trip-1/allepey.jpg)
 
 The sunset here (Allepey beach) was amazing.
-![allepey sunset](/images/kerala-trip-1/allepey sunset.jpg)
+![allepey sunset](/images/kerala-trip-1/allepey_sunset.jpg)
 
 The next day, we began our journey to Trivandrum. We decided to go via Varkala (As suggested by my colleague). The route was 
 great, with the Arabian sea on one side and backwaters appearing very often on the other side. The beach was gold coloured as
@@ -83,25 +83,25 @@ Then we started our drive to poovar the next day morning (29th dec). We stayed a
 
 Sunset at poovar. It was kind of a private beach.
 
-![poovar sunset](/images/kerala-trip-1/poovar sunset.jpg)
+![poovar sunset](/images/kerala-trip-1/poovar_sunset.jpg)
 
 Fishermen going out to the sea in the evening
 
-![poovar fishermen](/images/kerala-trip-1/poovar fisherman.jpg)
+![poovar fishermen](/images/kerala-trip-1/poovar_fisherman.jpg)
 
 That's it for that day. The next day morning we went to Kovalam beach to see the sunrise.
 
-![kovalam sunrise](/images/kerala-trip-1/kovalam sunrise.jpg)
+![kovalam sunrise](/images/kerala-trip-1/kovalam_sunrise.jpg)
 
 After watching the sunrise we headed back to the resort to freshen up and have breakfast. Having done our breakfast, we headed
 for poovar backwater boating. We got to witness mangrooves on the way. And we saw this.
 
-![calm waters](/images/kerala-trip-1/calm waters.jpg)
+![calm waters](/images/kerala-trip-1/calm_waters.jpg)
 
 I was awe-struck at this view, as the waters were so calming and desert like clean sand.
 
 This pictures captures the majestic arabian sea and the calm backwaters in a single frame.
-![ocean backwaters](/images/kerala-trip-1/ocean backwaters.jpg)
+![ocean backwaters](/images/kerala-trip-1/ocean_backwaters.jpg)
 
 Completely mesmerised by what we saw, we headed back to have lunch and get some sleep.
 
@@ -116,7 +116,7 @@ Thiruvalluvar statue at the southern most tip of India.
 Here all the three water bodies meet Indian ocean, Bay of bengal and Arabian sea.
 
 Sea (Think it is Arabian sea) joining the Indian ocean.
-![ocean sea](/images/kerala-trip-1/ocean sea.jpg)
+![ocean sea](/images/kerala-trip-1/ocean_sea.jpg)
 
 Then we set on to have a proper south Indian lunch. I was literaly dying
 to have south indian meals(Tamil Nadu style). Got fed up of all the food I had in Kerala. I am not saying that it was bad, I missed
@@ -124,12 +124,12 @@ home food. We finally found a place and had good lunch. It was difficult to find
 and took a nap for sometime. Then we went to see the sunset. We went back to the hotel and had dinner
 and slept.
 
-![kanyakumari sunset](/images/kerala-trip-1/kanyakumari sunset.jpg)
+![kanyakumari sunset](/images/kerala-trip-1/kanyakumari_sunset.jpg)
 
 Next day we woke up early to view the sunrise. It was a pleasant experience.
 
 Fisherman going into the sea in the morning.
-![kanyakumari fisherman](/images/kerala-trip-1/fisherman sunrise.jpg)
+![kanyakumari fisherman](/images/kerala-trip-1/fisherman_sunrise.jpg)
 
 We had breakfast and started our drive back to Bangalore. We reached around 7.30 taking us 11 hours to reach. We had stopped
 at salem CCD to have lunch (kind of). This was the longest drive I did on my bike (670 kms).
